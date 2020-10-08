@@ -1,0 +1,101 @@
+.infohead {
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 50px;
+
+  background-color: white;
+  color: black;
+}
+
+h1{
+  font-size: 55px
+}
+
+h2{
+  font-size: 32px;
+}
+
+.infohead button {
+  border-radius: 50px;
+  /* background-color: rgb(100, 97, 93); */
+
+  border-color: rgb(100, 97, 93);
+  background-color: white;
+
+  opacity: 0.6;
+}
+
+.infohead button:hover{
+  transform: scale(1.1);
+  opacity: 1.1;
+}
+
+.button1{
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  color: white;
+  font-size: 18px;
+}
+
+.button2{
+  margin-left: 30px;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  font-size: 18px;  
+  color: white;
+}
+
+.info {
+  display: grid;
+  width: 1400px;
+
+  grid-template-columns: 700px 700px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  background-color: white;
+  color: black;
+
+  padding: 10px;
+}
+
+.textinfo {
+  text-align: center;
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.namestudio {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.photoinfo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  text-align: center;
+}
+
+.photoinfo img{
+  width:700px;
+  height:600px;
+}
+
+.infocompany {
+  font-size: 22px;
+  padding: 10px
+}
+
+span .infocompany {
+  padding-left: 10px;
+}
+
+a .button2 ,
+a .button1 {
+    text-decoration: none;
+    color: black
+}

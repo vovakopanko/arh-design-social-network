@@ -1,0 +1,65 @@
+.button1 {
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  color: white;
+  font-size: 18px;
+}
+
+.button2 {
+  margin-left: 30px;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  font-size: 18px;
+  color: white;
+}
+
+.button3 {
+  margin-left: 30px;
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  font-size: 18px;
+  color: white;
+}
+
+.listservice {
+  display: inline-table;
+  width: auto;
+}
+
+.services {
+  position: relative;
+  display: inline-block;
+
+  border: 1px solid rgb(101, 80, 20);
+  border-radius: 30px;
+
+  vertical-align: top;
+  padding: 20px;
+  width: 400px;
+  margin: 10px;
+
+  min-height: 280px;
+}
+
+.services img {
+  border-radius: 30px;
+  opacity: 1.1;
+}
+
+.moreInfo {
+  position: absolute;
+  
+  left:35%;
+
+  bottom: 0;
+  margin: 20px;
+}
+
+.moreInfo button {
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 30px;
+}

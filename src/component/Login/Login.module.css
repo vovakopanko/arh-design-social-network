@@ -1,0 +1,8 @@
+.titlelogin{
+    color:black;
+}
+
+.formAllError{
+    border: 1px solid rgb(187, 71, 71);
+    padding: 5px
+  }

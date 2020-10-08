@@ -1,0 +1,14 @@
+.partnersList {
+  display: inline-table;
+  text-align: center;
+}
+.list img {
+  display: inline-block;
+  padding: 20px;
+  width: 280px;
+  height: 280px;
+}
+
+.titleImg {
+  width: 1400px;
+}

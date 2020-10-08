@@ -1,0 +1,29 @@
+.photoproject{
+    display: flex;
+    align-items: center;
+}
+
+.photoproject img:hover {
+  transform: scale(1.1);
+}
+
+.arrow {
+  opacity: 0.6;
+}
+
+.arrow:hover {
+  opacity: 1.1;
+}
+
+.disabledActivated {
+  opacity: 0.3;
+}
+
+.disabledActivated {
+  opacity: 0.3;
+}
+
+.paginatorPicture {
+  width: 60px;
+  height: 60px;
+}

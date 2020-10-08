@@ -1,0 +1,35 @@
+.infoLastProject {
+  background-color: white;
+  color: black;
+}
+
+.title {
+  padding: 20px 0px 20px 0px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.infoLastProject img {
+  padding-left: 40px;
+}
+
+.infoLastProject {
+  background-color: white;
+  color: black;
+}
+
+.infoLastProject img {
+  padding-left: 40px;
+}
+
+.contact {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white
+}

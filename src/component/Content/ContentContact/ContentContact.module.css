@@ -1,0 +1,34 @@
+.button {
+  padding-bottom: 20px;
+}
+
+.button3 {
+  border-radius: 30px;
+  /* background-color: rgb(100, 97, 93); */
+  border-color: rgb(100, 97, 93);
+  background-color: white;
+  opacity: 0.6;
+
+  padding: 10px 10px;
+  width: 110px;
+  height: 40px;
+
+  font-size: 14px;
+}
+
+.button3:hover {
+  transform: scale(1.1);
+  opacity: 1.1;
+  box-shadow: 0px 0px 5px 2px rgb(183, 186, 187);
+}
+
+.button3 a {
+  text-decoration: none;
+  color: black;
+}
+
+h3 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}

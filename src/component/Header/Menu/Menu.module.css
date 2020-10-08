@@ -1,0 +1,103 @@
+.menu {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 140px 110px 180px 240px 60px 60px 250px;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    background-color: black;
+    color: white;
+    padding-top: 7px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.project {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.services {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.professionals {
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.contact {
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+.partners {
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+
+.serch {
+    grid-column-start: 7;
+    grid-column-end: 8;
+}
+
+.message {
+    grid-column-start: 8;
+    grid-column-end: 9;
+}
+
+.profile {
+    grid-column-start: 9;
+    grid-column-end: 10;
+    
+}
+
+.profile img{
+    border-radius: 30px;
+}
+
+.login {
+    grid-column-start: 10;
+    grid-column-end: 11;
+    padding-top:3px;
+}
+
+
+a .activeLink {
+    color: rgb(116, 67, 22);
+    text-decoration: none;
+}
+
+.infoLog{
+    margin-right: 5px;
+    padding: 2px;
+}
+
+.content:hover,
+.project:hover,
+.services:hover,
+.contact:hover,
+.professionals:hover
+.news:hover,
+.profile:hover,
+.login:hover{
+    color:rgb(180, 117, 57);
+}
+
+.message:hover,
+.profile:hover{
+    transform:scale(1.2);
+}
+
+.serch input:hover,
+.login input:hover{
+    opacity: 0.6;
+}
+

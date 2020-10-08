@@ -1,0 +1,30 @@
+.listphoto {
+  display: inline-table;
+  width: auto;
+}
+
+.firstrow img {
+  display: inline-block;
+  padding: 20px;
+  width: 370px;
+  height: 280px;
+  margin: 25px;
+
+  border: 1px solid rgb(25, 24, 22);
+  border-radius: 30px;
+}
+
+.listphoto,
+.ourproject {
+  text-align: center;
+  font-weight: bold;
+  font-size: 44px;
+  padding-top: 40px;
+  color: black;
+}
+
+
+.imageUnit:hover {
+  transform: scale(1.2);
+  border-radius: 50px;
+}

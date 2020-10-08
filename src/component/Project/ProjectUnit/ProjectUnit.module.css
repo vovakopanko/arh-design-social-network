@@ -1,0 +1,44 @@
+.title {
+  margin-left: 40px;
+  text-align: center;
+}
+
+.imgProject img {
+  width: 300px;
+  height: 300px;
+
+  margin: 10px;
+  
+}
+
+.infoCurrentProject{
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.imgProject img:hover {
+  transform: scale(1.1);
+}
+
+.linkArh{
+font-size: 24px;
+text-align: left;
+color: rgb(0, 0, 0);
+}
+
+.linkArh b{
+  font-size: 24px;
+}
+
+.linkArh a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.linkArh a:hover{
+  color: rgb(93, 89, 89);
+}
+
+.blocArhInfo{
+  margin-top: 20px;
+}
