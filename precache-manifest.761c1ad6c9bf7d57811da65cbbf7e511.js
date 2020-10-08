@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d463ece5609b542c7ee0471319c251e9",
+    "revision": "41d3618763f8ff5b4e409a73db99b0e7",
     "url": "/arh-design-social-network/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arh-design-social-network/static/css/5.8e4cd431.chunk.css"
   },
   {
-    "revision": "6a784cc2ad8e5a5ee4c2",
-    "url": "/arh-design-social-network/static/css/main.4e0eeef2.chunk.css"
+    "revision": "d2ad08b149498bc4ab78",
+    "url": "/arh-design-social-network/static/css/main.2a135035.chunk.css"
   },
   {
     "revision": "a03be5299f7b6b1bc248",
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arh-design-social-network/static/js/5.d60436d2.chunk.js"
   },
   {
-    "revision": "6a784cc2ad8e5a5ee4c2",
-    "url": "/arh-design-social-network/static/js/main.93c7ae75.chunk.js"
+    "revision": "d2ad08b149498bc4ab78",
+    "url": "/arh-design-social-network/static/js/main.66ec1044.chunk.js"
   },
   {
     "revision": "8806d9213f66d3b7aa51",
