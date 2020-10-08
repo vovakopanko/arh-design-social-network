@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/arh-design-social-network/static/css/main.4e0eeef2.chunk.css",
-    "main.js": "/arh-design-social-network/static/js/main.4d795523.chunk.js",
-    "main.js.map": "/arh-design-social-network/static/js/main.4d795523.chunk.js.map",
+    "main.js": "/arh-design-social-network/static/js/main.f93607db.chunk.js",
+    "main.js.map": "/arh-design-social-network/static/js/main.f93607db.chunk.js.map",
     "runtime-main.js": "/arh-design-social-network/static/js/runtime-main.6460284e.js",
     "runtime-main.js.map": "/arh-design-social-network/static/js/runtime-main.6460284e.js.map",
-    "static/js/2.c9d7c1cc.chunk.js": "/arh-design-social-network/static/js/2.c9d7c1cc.chunk.js",
-    "static/js/2.c9d7c1cc.chunk.js.map": "/arh-design-social-network/static/js/2.c9d7c1cc.chunk.js.map",
+    "static/js/2.03c1b2a7.chunk.js": "/arh-design-social-network/static/js/2.03c1b2a7.chunk.js",
+    "static/js/2.03c1b2a7.chunk.js.map": "/arh-design-social-network/static/js/2.03c1b2a7.chunk.js.map",
     "static/css/3.ad7dacae.chunk.css": "/arh-design-social-network/static/css/3.ad7dacae.chunk.css",
     "static/js/3.c3af25eb.chunk.js": "/arh-design-social-network/static/js/3.c3af25eb.chunk.js",
     "static/js/3.c3af25eb.chunk.js.map": "/arh-design-social-network/static/js/3.c3af25eb.chunk.js.map",
@@ -17,13 +17,13 @@
     "static/js/5.d60436d2.chunk.js": "/arh-design-social-network/static/js/5.d60436d2.chunk.js",
     "static/js/5.d60436d2.chunk.js.map": "/arh-design-social-network/static/js/5.d60436d2.chunk.js.map",
     "index.html": "/arh-design-social-network/index.html",
-    "precache-manifest.93005f33ebb8ce04a5ed8013293050c9.js": "/arh-design-social-network/precache-manifest.93005f33ebb8ce04a5ed8013293050c9.js",
+    "precache-manifest.00caa85c881d4e23f1bc03f7de5a7309.js": "/arh-design-social-network/precache-manifest.00caa85c881d4e23f1bc03f7de5a7309.js",
     "service-worker.js": "/arh-design-social-network/service-worker.js",
     "static/css/3.ad7dacae.chunk.css.map": "/arh-design-social-network/static/css/3.ad7dacae.chunk.css.map",
     "static/css/4.00f2ecec.chunk.css.map": "/arh-design-social-network/static/css/4.00f2ecec.chunk.css.map",
     "static/css/5.8e4cd431.chunk.css.map": "/arh-design-social-network/static/css/5.8e4cd431.chunk.css.map",
     "static/css/main.4e0eeef2.chunk.css.map": "/arh-design-social-network/static/css/main.4e0eeef2.chunk.css.map",
-    "static/js/2.c9d7c1cc.chunk.js.LICENSE.txt": "/arh-design-social-network/static/js/2.c9d7c1cc.chunk.js.LICENSE.txt",
+    "static/js/2.03c1b2a7.chunk.js.LICENSE.txt": "/arh-design-social-network/static/js/2.03c1b2a7.chunk.js.LICENSE.txt",
     "static/media/404error.png": "/arh-design-social-network/static/media/404error.51927a3b.png",
     "static/media/Egor.jpg": "/arh-design-social-network/static/media/Egor.28e127f6.jpg",
     "static/media/Sharm.jpg": "/arh-design-social-network/static/media/Sharm.5e197ea5.jpg",
@@ -39,8 +39,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6460284e.js",
-    "static/js/2.c9d7c1cc.chunk.js",
+    "static/js/2.03c1b2a7.chunk.js",
     "static/css/main.4e0eeef2.chunk.css",
-    "static/js/main.4d795523.chunk.js"
+    "static/js/main.f93607db.chunk.js"
   ]
 }
