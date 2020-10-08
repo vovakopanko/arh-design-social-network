@@ -152,10 +152,10 @@ export const getMessageWhithUser = (userId, tap, userName) => {
   return async (dispatch) => {
     dispatch(toggleIsFetchingForDialogs(true));
     let Response = await dialogsAPI.getUserDialogList(userId);
-    dispatch(openMEssage(tap));
     dispatch(getMessagesUser(Response.data.items));
     dispatch(getCurrentIdUser(userId));
     dispatch(toggleIsFetchingForDialogs(false));
+    dispatch(openMEssage(tap));
     dispatch(setNameUserDialogueOpposite(userName));
   };
 };

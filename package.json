@@ -1,5 +1,6 @@
 {
   "name": "arh-design-social-network",
+  "homepage": "https://vovakopanko.github.io/arh-design-social-network",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

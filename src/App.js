@@ -6,19 +6,17 @@ import HeaderContainer from "./component/Header/HeaderContainer";
 import ContentContainer from "./component/Content/ContentContainer"
 import Footer from "./component/Footer/Footer";
 
-import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Services from "./component/Services/Services";
 import MessageContainer from "./component/Message/MessageContainer";
 import ProfessionalsContainer from "./component/Professionals/ProfessionalsContainer";
 import ProjectContainer from "./component/Project/ProjectContainer";
 import ProjectUnitContainer from "./component/Project/ProjectUnit/ProjectUnitContainer";
 import ProfileContainer from "./component/Profile/ProfileContainer";
-import { connect } from "react-redux";
 import { initialize } from "./redux/appReducer";
 import Preloader from "./component/common/Preloader/Preloader";
 import { compose } from "redux";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 import { withSuspense } from "./hoc/whitSuspense";
 import errorfour  from "./assets/images/404error.png"
 
@@ -99,11 +97,11 @@ const AppContainer = compose(
 
 const ArhDesignApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter >
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

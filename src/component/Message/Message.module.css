@@ -12,11 +12,8 @@
 }
 
 .headLeft {
-
   padding-left: 10px;
   background-color: rgb(241, 241, 241);
-
-  
 }
 
 /* .headRight {
@@ -32,23 +29,10 @@
   text-align: center;
 } */
 
-.mainBlocMessages{
-  display: grid;
-  grid-template-rows: 600px 100px;
-}
-
-.messageBlocWithUser{
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
 .sendMesageBloc {
-  grid-row-start: 2;
-  grid-row-end: 3;
-
   padding-top: 20px;
   padding-bottom: 20px;
-  
+
   text-align: center;
 }
 
@@ -122,7 +106,7 @@
 .sendMesageBloc {
   padding-top: 20px;
   padding-bottom: 20px;
-  
+
   text-align: center;
 }
 
@@ -169,4 +153,3 @@
 .blocUser:active {
   background-color: rgb(156, 129, 89);
 }
-
