@@ -1,0 +1,1 @@
+{"version":3,"sources":["Login.module.css"],"names":[],"mappings":"AAAA,yBACI,UACJ,CAEA,2BACI,wBAAkC,CAClC,WACF","file":"4.00f2ecec.chunk.css","sourcesContent":[".titlelogin{\r\n    color:black;\r\n}\r\n\r\n.formAllError{\r\n    border: 1px solid rgb(187, 71, 71);\r\n    padding: 5px\r\n  }"]}
