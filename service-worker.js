@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/arh-design-social-network/precache-manifest.35e3f707846700f521ef6efb1ba31cce.js"
+  "/arh-design-social-network/precache-manifest.4f3730fd2e204b862dec4c22c933e8c5.js"
 );
 
 self.addEventListener('message', (event) => {
