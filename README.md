@@ -1,5 +1,11 @@
-# arh-design-social-network
+# arh-design-social-network:
 you can saw this project by clicking on the link : site is published at https://vovakopanko.github.io/arh-design-social-network/
+
+# For test use:
+Email: free@samuraijs.com
+Password: free
+
+# Screenshots:
 ![alt text](screenshots/1.PNG)
 ![alt text](screenshots/2.PNG)
 ![alt text](screenshots/3.PNG)
