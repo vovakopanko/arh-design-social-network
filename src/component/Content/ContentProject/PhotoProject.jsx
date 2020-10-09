@@ -1,14 +1,14 @@
 import React from "react";
 import style from './ContentProject.module.css'
 
-const PhotoProject = (props) => {
+const PhotoProject = ({url,alt,info}) => {
   return (
     <img className={style.photoproject}
-      src={props.url}
+      src={url}
       width="360px"
       height="300px"
-      alt={props.alt}
-      info={props.info}
+      alt={alt}
+      info={info}
     ></img>
   );
 };

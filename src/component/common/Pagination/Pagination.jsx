@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./../../Professionals/Professionals.module.css";
 
 const Pagination = ({
@@ -41,7 +41,7 @@ const Pagination = ({
         return (
           <span
             className={currentPage === p && style.active}
-            key={p}
+            key={p.id}
             onClick={() => {
               onPageChanged(p);
             }}

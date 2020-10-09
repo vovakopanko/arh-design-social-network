@@ -31,3 +31,7 @@
     padding-top:7px;
     
 }
+
+.social img:hover{
+    transform:scale(1.2);
+}

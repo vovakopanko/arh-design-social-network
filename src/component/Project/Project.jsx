@@ -9,7 +9,7 @@ let Project = ({projectPage,...props}) => {
       <div className={style.ourproject}>НАШИ ПРОЕКТЫ</div>
       <div className={style.listphoto}>
         <div className={style.firstrow}>
-          {projectPage.map(im=><NavLink to={`/project/unit/${im.id}`}><img className={style.imageUnit} key={im.id} id={im.id} src={im.url} alt={im.alt}></img></NavLink>
+          {projectPage.map(im=><NavLink to={`/project/unit/${im.id}`} key={im.id}><img className={style.imageUnit} key={im.id} id={im.id} src={im.url} alt={im.alt}></img></NavLink>
           )}
         </div>
       </div>

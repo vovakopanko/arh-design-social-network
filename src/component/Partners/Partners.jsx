@@ -7,11 +7,12 @@ const Partners = ({ partnersLogo }) => {
       <img
         className={style.titleImg}
         src="https://bose-loewe.com/wp-content/uploads/2016/05/projects_1920.jpg"
+        alt="photoTitle"
       ></img>
       <span className={style.partnersList}>
         <div className={style.list}>
           {partnersLogo.map((p) => (
-            <img src={p.src} alt={p.alt}></img>
+            <img src={p.src} alt={p.alt} key={p.id}></img>
           ))}
         </div>
       </span>

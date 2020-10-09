@@ -1,6 +1,6 @@
 .menu {
     display: grid;
-    grid-template-columns: 100px 100px 100px 140px 110px 180px 240px 60px 60px 250px;
+    grid-template-columns: 100px 100px 100px 140px 110px 180px 240px 50px 50px 270px;
     grid-column-start: 1;
     grid-column-end: 11;
     background-color: black;
@@ -66,13 +66,11 @@
 .login {
     grid-column-start: 10;
     grid-column-end: 11;
-    padding-top:3px;
 }
 
 
 a .activeLink {
-    color: rgb(116, 67, 22);
-    text-decoration: none;
+    color: rgb(228, 212, 198);
 }
 
 .infoLog{
@@ -84,11 +82,12 @@ a .activeLink {
 .project:hover,
 .services:hover,
 .contact:hover,
-.professionals:hover
+.partners:hover,
+.professionals:hover,
 .news:hover,
 .profile:hover,
 .login:hover{
-    color:rgb(180, 117, 57);
+    color: rgb(145, 90, 8);
 }
 
 .message:hover,

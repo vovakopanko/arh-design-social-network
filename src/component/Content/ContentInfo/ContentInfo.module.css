@@ -87,7 +87,10 @@ h2{
 
 .infocompany {
   font-size: 22px;
-  padding: 10px
+  padding: 10px;
+
+  font-family: "Arial", sans-serif;
+  /* font-family: "Snell Roundhand", cursive; */
 }
 
 span .infocompany {

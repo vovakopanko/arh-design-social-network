@@ -1,8 +1,36 @@
 .titlelogin{
     color:black;
+    text-align: center;
+
+
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 20%;
 }
 
+.titleForm{
+    text-align: center;
+}
 .formAllError{
     border: 1px solid rgb(187, 71, 71);
     padding: 5px
   }
+
+.freeLogin{
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.enterLog{
+    margin-top: 15px;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}

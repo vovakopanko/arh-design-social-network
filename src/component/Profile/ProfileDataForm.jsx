@@ -46,7 +46,7 @@ const ProfileDataForm = ({
       <div className={style.contactblock}>
         {Object.keys(profile.contacts).map((social) => {
           return (
-            <span key={social}>
+            <span key={social.id}>
               {social}:
               {CreateField({}, InputField, [], "contacts." + social, social)}
             </span>

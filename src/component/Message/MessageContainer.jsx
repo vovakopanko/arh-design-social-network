@@ -1,8 +1,6 @@
 import React from "react";
-import style from "./Message.module.css";
 import { connect } from "react-redux";
 import {
-  sendMessage,
   getMessageWithAllUser,
   getMessageWhithUser,
   postMessageForUser,
@@ -19,7 +17,6 @@ import Preloader from "../common/Preloader/Preloader";
 
 class MessageContainer extends React.Component {
   componentDidMount() {
-    
     this.props.getMessageWithAllUser();
   }
 
@@ -65,7 +62,6 @@ let mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps, {
-    sendMessage,
     getMessageWithAllUser,
     getMessageWhithUser,
     postMessageForUser,

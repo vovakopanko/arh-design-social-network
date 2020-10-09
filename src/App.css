@@ -1,36 +1,38 @@
 .wrapper {
-    padding: 0;
-    margin: 0 auto; /*auto correct*/
-    background-color: rgb(255, 255, 255);
-    color: black;
-    width: 1400px;
-    display: grid;
-    grid-template-columns: 250px 800px 350px;
-    grid-template-rows: auto auto auto;
-    grid-row-start: 1;
-    grid-row-end: 4;
+  padding: 0;
+  margin: 0 auto; /*auto correct*/
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 1400px;
+  display: grid;
+  grid-template-columns: 250px 800px 350px;
+  grid-template-rows: auto auto auto;
+  grid-row-start: 1;
+  grid-row-end: 4;
+
+  font-family: "lucida sans unicode", sans-serif;
 }
 
 .wrapper-head {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
 .app-wrapper-content {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 1;
-    grid-column-end: -1;
-    /* background: url(https://islanddesign.com.ua/wp-content/uploads/2018/10/interiror-disign-1400x700.jpg) no-repeat; */
-    
-    min-height: 900px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  /* background: url(https://islanddesign.com.ua/wp-content/uploads/2018/10/interiror-disign-1400x700.jpg) no-repeat; */
+
+  min-height: 900px;
 }
 
 .wrapper-footer {
-    grid-row-start: 3;
-    grid-row-end: 4;
-    grid-column-start: 1;
-    grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }

@@ -9,7 +9,7 @@ import style from "./Login.module.css";
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={style.titleForm}>
       <div>{CreateField("text", InputField, [required], "email", "email")}</div>
       <div>
         {CreateField(
@@ -20,7 +20,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
           "password"
         )}
 
-        {captchaUrl && <img src={captchaUrl} />}
+        {captchaUrl && <img src={captchaUrl} alt="captcha" />}
         {captchaUrl &&
           CreateField(
             {},
@@ -36,10 +36,16 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
       </div>
       {error && <div className={style.formAllError}>{error}</div>}
       <div>
-        <button>Вход</button>
+        <button className={style.enterLog}>Вход</button>
       </div>
-      <div>
-        <span>Забыли пороль?</span>
+      <div className={style.freeLogin}>
+        <div>If you dont registreted, you can use test account:</div>
+        <div>
+          <b>Login</b>: free@samuraijs.com{" "}
+        </div>
+        <div>
+          <b>Password</b>: free
+        </div>
       </div>
     </form>
   );
@@ -66,7 +72,7 @@ class Login extends React.Component {
 
     return (
       <div className={style.titlelogin}>
-        <h1>Вход на аккаунт NORDISK INOVATION</h1>
+        <h1>LOG IN</h1>
         <LoginReduxForm
           onSubmit={onSubmitData}
           captchaUrl={this.props.captchaUrl}

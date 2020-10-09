@@ -80,7 +80,7 @@ let Profile = ({
           {Object.keys(profile.contacts).map((social) => {
             return (
               <Contact
-                key={social.key}
+                key={social.id}
                 contactTitle={social}
                 contactValue={profile.contacts[social]}
               />
@@ -98,7 +98,7 @@ let Profile = ({
     return (
       <div className={style.unitInfo}>
         {contactValue ? <div> <span className={style.contact}>{contactTitle}:</span>
-        <a href={contactValue} target="_blank">{contactValue}</a></div>:null}
+        <a href={contactValue} rel="noopener noreferrer" to  target="_blank">{contactValue}</a></div>:null}
       </div>
     );
   };
@@ -113,6 +113,7 @@ let Profile = ({
       <div className={style.photoMainProfile}>
         <img
           src={profile.photos.large || userPhoto}
+          alt="userPhoto"
           height="300px"
           width="300px"
         />

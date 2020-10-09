@@ -65,7 +65,7 @@ class ProfileContainer extends React.Component {
               savePhoto={this.props.savePhoto}
               saveProfile={this.props.saveProfile}
               getUserFollowStatus={this.props.getUserFollowStatus}
-              userId={this.props.userId}
+              userIdAuth={this.props.userIdAuth}
               followingProgress={this.props.followingProgress}
               followingInProgress={this.props.followingInProgress}
               userId={this.props.match.params.userId}

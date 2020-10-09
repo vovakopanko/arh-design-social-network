@@ -1,6 +1,5 @@
 import { dialogsAPI } from "../api/Api";
 
-const SEND_MESSAGE = "SEND_MESSAGE";
 const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
 const GET_MESSAGE_USER = "redux/messageReducer/GET_MESSAGE_USER";
 const GET_TAP = "redux/messageReducer/GET_TAP";
@@ -69,12 +68,7 @@ const messageReducer = (state = initialState, action) => {
   }
 };
 
-//ActionCreator
-
-export const sendMessage = (sendNewMessage) => ({
-  type: SEND_MESSAGE,
-  sendNewMessage,
-});
+// [ActionCreator]
 
 //Get all messages with user, which you chose
 export const getAllMessage = (message) => {
@@ -138,7 +132,6 @@ export const setNameUserDialogueOpposite = (userName) => {
 
 // Get All messages with all users
 export const getMessageWithAllUser = () => {
-  debugger;
   return async (dispatch) => {
     dispatch(toggleIsFetching(true));
     let Response = await dialogsAPI.getAllDialogsList();
@@ -179,6 +172,7 @@ export const startDialog = (userId) => {
     }
   };
 };
+
 // Send message user
 export const postMessageForUser = (userId, body) => {
   return async (dispatch) => {
@@ -194,7 +188,6 @@ export const postMessageForUser = (userId, body) => {
 export const GetListWhithNewMessage = () => {
   return async (dispatch) => {
     let Response = await dialogsAPI.GetListNewMessage();
-    debugger;
     if (Response.data > 0) {
     }
   };

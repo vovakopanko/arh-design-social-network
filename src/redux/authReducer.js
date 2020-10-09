@@ -90,7 +90,6 @@ export const login = (email, password, rememberMe = false, captcha) => {
       rememberMe,
       captcha
     );
-
     if (Response.data.resultCode === 0) {
       dispatch(getAuthData());
     } else {

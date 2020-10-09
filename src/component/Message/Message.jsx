@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 import { Textarea } from "../common/FormsControls/FormsControls";
 import { useState } from "react";
 import Preloader from "../common/Preloader/Preloader";
+import Moment from "react-moment";
 
 const Message = ({
   messages,
@@ -34,6 +35,7 @@ const Message = ({
   // Get all Dialogs with User
   let messageUser = messages.map((m) => (
     <span
+      key={m.id}
       onClick={() => {
         getMessageWhithUser(m.id, true, m.userName);
       }}
@@ -41,7 +43,7 @@ const Message = ({
       <div className={style.blocUser}>
         <b>{m.userName}</b>
         <div>
-          <img src={m.photos.small || user} width="70" height="70" />
+          <img src={m.photos.small || user} alt="userPhoto" width="70" height="70" />
           <div>
             New Message: <b>{" " + m.newMessagesCount}</b>
           </div>
@@ -114,15 +116,18 @@ const MessageWithUser = ({
     <div className={style.mainBlocMessages}>
       <div className={style.messageBlocWithUser}>
         {message.map((p) => (
-          <div className={style.hol}>
+          <div className={style.hol} key={p.id}>
             <span className={style.ho2}>
               <div>
                 <span className={style.userName}>{p.senderName}:</span>
               </div>
               {p.body}
             </span>
+
             <span className={style.timeInfo}>
-              {p.addedAt}
+              <Moment format="YYYY-M-D H:m:s" parse="YYYY-MM-DD HH:mm:ss">
+                {p.addedAt}
+              </Moment>
               {p.recipientId ? (
                 <span
                   className={style.butDel}
@@ -134,6 +139,7 @@ const MessageWithUser = ({
                     src="https://image.flaticon.com/icons/png/512/64/64022.png"
                     width="30"
                     height="30"
+                    alt="rubbishBin"
                   ></img>
                 </span>
               ) : null}

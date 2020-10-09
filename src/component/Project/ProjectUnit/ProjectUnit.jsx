@@ -1,9 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import style from "./ProjectUnit.module.css";
 
 const ProjectUnit = ({projectUnitData}) => {
-  debugger;
   return (
     <div className={style.title}>
       <div>
@@ -15,7 +13,7 @@ const ProjectUnit = ({projectUnitData}) => {
 
       <div className={style.imgProject}>
         
-        {projectUnitData.map(p=><img  src={p.src} alt={p.alt}/>)}
+        {projectUnitData.map(p=><img key={p.id} src={p.src} alt={p.alt}/>)}
 
         <div className={style.infoCurrentProject}>
           Этот проект – прекрасная демонстрация лаконичного современного стиля.
@@ -44,7 +42,7 @@ const ProjectUnit = ({projectUnitData}) => {
         <div className={style.linkArh}>
           Проект Выполнялся:{" "}
           <a href="http://localhost:3000/profile/11725">
-            Александром Александровичем
+            <strong>Александром Александровичем</strong>
           </a>
         </div>
         <div className={style.linkArh}>

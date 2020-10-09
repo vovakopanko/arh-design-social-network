@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./Header.module.css";
-import Menu from "./Menu/Menu";
 import MenuContainer from "./Menu/MenuContainer";
 
 let Header = (props) => {

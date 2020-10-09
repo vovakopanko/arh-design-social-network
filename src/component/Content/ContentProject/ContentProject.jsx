@@ -16,7 +16,7 @@ let ContentProject = ({
   let rightPageNumber = portionSize * currentPage;
 
   let photoProjectElement = photoProjectData.map((photos) => (
-    <NavLink to={`/project/unit/${photos.id}`}>
+    <NavLink to={`/project/unit/${photos.id}`} key={photos.id}>
       <PhotoProject url={photos.url} alt={photos.alt} info={photos.info} />
     </NavLink>
   ));

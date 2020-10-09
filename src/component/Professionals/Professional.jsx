@@ -5,14 +5,14 @@ import { NavLink } from "react-router-dom";
 
 const Professional = ({user,followingInProgress,follow,unfollow,isAuth,startDialog, ...props}) => {
   return (
-      <div className={style.prof}>
+      <div className={style.professionalphoto}>
         <span className={style.iconUser}>
           <div>
             <NavLink to={"/profile/" + user.id}>
               <img
-                className={style.prof}
-                src={user.photos.large != null ? user.photos.large : userPhoto}
                 className={style.professionalphoto}
+                src={user.photos.large != null ? user.photos.large : userPhoto}
+                alt="professionalPhotos"
               ></img>
             </NavLink>
           </div>

@@ -73,7 +73,7 @@ class App extends React.Component {
               )}
             />
             <Route exact path="/" render={() => <Redirect to="/content" />} />
-            <Route path="*" render={() => <img src={errorfour} height="700" width="1400"></img> } />
+            <Route path="*" render={() => <img src={errorfour} height="700" width="1400" alt="error404"></img> } />
           </Switch>
         </div>
         <div className="wrapper-footer">
@@ -95,9 +95,9 @@ const AppContainer = compose(
   connect(MapStateToProps, { initialize })
 )(App);
 
-const ArhDesignApp = (props) => {
+const ArhDesignApp = () => {
   return (
-    <HashRouter >
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>

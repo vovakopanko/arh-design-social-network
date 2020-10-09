@@ -6,7 +6,7 @@ import photoUser from "./../../../assets/images/user.png"
 let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
   return (
     <div>
-      <a className={style.menu}>
+      <div className={style.menu}>
         <NavLink
           to="/content"
           activeClassName={style.activeLink}
@@ -63,6 +63,7 @@ let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
         >
           <img
             src="https://img.icons8.com/cotton/2x/secured-letter--v1.png"
+            alt="envelope"
             height="30px"
             width="30px"
           ></img>
@@ -75,6 +76,7 @@ let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
         >
           <img
             src={photos || photoUser}
+            alt="photoUser"
             width="30px"
             height="30px"
           ></img>
@@ -97,7 +99,7 @@ let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
             )}
           </div>
         </NavLink>
-      </a>
+      </div>
     </div>
   );
 };
