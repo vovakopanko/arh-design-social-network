@@ -4,10 +4,12 @@ const FOLLOW_USER = "redux/professionalsReducer/FOLLOW_USER";
 const UNFOLLOW_USER = "redux/professionalsReducer/UNFOLLOW_USER";
 const SET_USERS = "redux/professionalsReducer/SET_USERS";
 const SET_CURRENT_PAGE = "redux/professionalsReducer/SET_CURRENT_PAGE";
-const SET_TOTAL_USERS_COUNT = "redux/professionalsReducer/SET_TOTAL_USERS_COUNT";
+const SET_TOTAL_USERS_COUNT =
+  "redux/professionalsReducer/SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "redux/professionalsReducer/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING = "redux/professionalsReducer/TOGGLE_IS_FOLLOWING";
 const SET_CURRENT_PORTION = "redux/professionalsReducer/SET_CURRENT_PORTION";
+const SET_SEARCH_NAME = "redux/professionalsReducer/SET_SEARCH_NAME";
 
 let initialState = {
   professionals: [],
@@ -18,7 +20,7 @@ let initialState = {
   isFeching: false,
   followingInProgress: [],
   currentPortion: 1,
-  
+  searchName: "",
 };
 
 const professionalsReducer = (state = initialState, action) => {
@@ -75,11 +77,15 @@ const professionalsReducer = (state = initialState, action) => {
         ...state,
         currentPortion: action.currentPortion,
       };
+    case SET_SEARCH_NAME:
+      return {
+        ...state,
+        searchName: action.searchName,
+      };
     default:
       return state;
   }
 };
-
 
 //[ActionCreator]
 
@@ -117,6 +123,11 @@ export const setPortionNumber = (currentPortion) => ({
   type: SET_CURRENT_PORTION,
   currentPortion,
 });
+//Get user witch you search
+export const setSearchNameSuccess = (searchName) => ({
+  type: SET_SEARCH_NAME,
+  searchName,
+});
 
 // [ThunkActionCreator]
 
@@ -148,27 +159,30 @@ export const followUnffolwThunk = async (
 };
 
 // Subscribe from user
-export const follow = (userId) => {
-  return async (dispatch) => {
+export const follow = (userId) => async (dispatch) => {
     followUnffolwThunk(
       dispatch,
       userId,
       subscribeAPI.deleteSubscribe.bind(subscribeAPI),
       successUnfollow
     );
-  };
 };
 
 // Unsubscribe from user
-export const unfollow = (userId) => {
-  return async (dispatch) => {
+export const unfollow = (userId) => 
+  async (dispatch) => {
     followUnffolwThunk(
       dispatch,
       userId,
       subscribeAPI.postSubscribe.bind(subscribeAPI),
       successFollow
     );
-  };
 };
+
+// Search users
+export const searchName = (searchName) => async (dispatch) => {
+  dispatch(setSearchNameSuccess(searchName))
+
+}
 
 export default professionalsReducer;

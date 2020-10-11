@@ -13,7 +13,8 @@
 
 .headLeft {
   padding-left: 10px;
-  background-color: rgb(241, 241, 241);
+  /* background-color: rgb(241, 241, 241); */
+  
 }
 
 /* .headRight {
@@ -38,6 +39,12 @@
 
 .listDialogs {
   padding-top: 30px;
+  
+}
+
+.separation{
+  height: 900px;
+  overflow-y: scroll;
 }
 
 .searchMessage {
@@ -93,7 +100,7 @@
 .userName {
   font-size: 14;
   font-weight: 700;
-  color: rgb(156, 129, 89);
+  color: rgb(156, 114, 89);
 }
 
 .timeInfo {
@@ -117,10 +124,24 @@
 }
 
 .blocUser {
+  position: relative;
   margin: 5px;
-  background-color: rgb(233, 231, 231);
-  border-radius: 30px;
+  /* background-color: rgb(241, 241, 241); */
+  /* border-radius: 30px; */
   padding: 5px;
+  height: 60px;
+}
+
+.blocUser img{
+  border-radius: 50px;
+  float:left;
+}
+
+.blocUser b{
+  position: absolute;               
+  top: 50%;
+  left: 40%;
+  transform: translate(0, -50%);
 }
 
 .butDel:hover {
@@ -132,6 +153,7 @@
   font-size: 28px;
   padding-left: 15px;
 }
+
 .titleMessage {
   color: rgb(156, 129, 89);
   font-size: 28px;
@@ -151,5 +173,10 @@
 }
 
 .blocUser:active {
-  background-color: rgb(156, 129, 89);
+  background-color: rgb(169, 169, 169, .2);
+}
+
+.messageBody{
+  border-bottom: 3px solid white;
+
 }

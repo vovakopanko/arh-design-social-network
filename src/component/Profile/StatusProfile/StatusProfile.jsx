@@ -6,8 +6,6 @@ export class StatusProfile extends React.Component {
     status: this.props.status,
   };
   activatedChangeText = () => {
-    // this.state.editMode = false;
-    // this.forceUpdate() don'st recomendation
     this.setState({ editMode: false });
   };
   deactivatedChangeText = () => {

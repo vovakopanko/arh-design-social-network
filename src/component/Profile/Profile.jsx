@@ -78,7 +78,7 @@ let Profile = ({
         <b className={style.contactInformation}>Contacts:</b>:{" "}
         <div className={style.contactblock}>
           {Object.keys(profile.contacts).map((social) => {
-            return (
+                  return (
               <Contact
                 key={social.id}
                 contactTitle={social}

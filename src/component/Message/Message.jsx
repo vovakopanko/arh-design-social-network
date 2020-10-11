@@ -3,7 +3,7 @@ import style from "./Message.module.css";
 import user from "./../../assets/images/user.png";
 import { Field, reduxForm } from "redux-form";
 import { Textarea } from "../common/FormsControls/FormsControls";
-import { useState } from "react";
+// import { useState } from "react";
 import Preloader from "../common/Preloader/Preloader";
 import Moment from "react-moment";
 
@@ -26,11 +26,11 @@ const Message = ({
   ...props
 }) => {
   // HOOC on change portionNumber for paginator Dialog User
-  let [portionNumber, setNewPortionNumber] = useState(1);
+  // let [portionNumber, setNewPortionNumber] = useState(1);
 
-  let totalMessagesCount = messages.length;
-  let portionCount = Math.ceil(totalMessagesCount / portionSize);
-  let rightPageNumber = portionSize * portionNumber;
+  // let totalMessagesCount = messages.length;
+  // let portionCount = Math.ceil(totalMessagesCount / portionSize);
+  // let rightPageNumber = portionSize * portionNumber;
 
   // Get all Dialogs with User
   let messageUser = messages.map((m) => (
@@ -41,12 +41,17 @@ const Message = ({
       }}
     >
       <div className={style.blocUser}>
-        <b>{m.userName}</b>
         <div>
-          <img src={m.photos.small || user} alt="userPhoto" width="70" height="70" />
-          <div>
+          <img
+            src={m.photos.small || user}
+            alt="userPhoto"
+            width="70"
+            height="70"
+          />
+          <div><b>{m.userName}</b></div>
+          {/* <div>
             New Message: <b>{" " + m.newMessagesCount}</b>
-          </div>
+          </div> */}
         </div>
       </div>
     </span>
@@ -61,10 +66,11 @@ const Message = ({
       <div className={style.headLeft}>
         <div className={style.messageBloc}>
           <div className={style.fotoNameBlock}>
-            <div>
+            <div className={style.separation}>
               <b className={style.titleDialogs}>ВСЕ ДИАЛОГИ: </b>
-              {messageUser.slice(0, rightPageNumber)}
-              <div>
+              {messageUser}
+              {/* {messageUser.slice(0, rightPageNumber)} */}
+              {/* <div>
                 {portionCount > portionNumber && (
                   <button
                     className={style.moreMessages}
@@ -75,14 +81,14 @@ const Message = ({
                     More messages
                   </button>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div className={style.messageTimeBlock}>
             {userName ? (
               <span className={style.titleMessage}>
-                COOБЩЕНИЯ c {userName}:
+                <div>{userName}:</div>
               </span>
             ) : (
               <span className={style.titleMessage}>COOБЩЕНИЯ:</span>

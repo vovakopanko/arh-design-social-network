@@ -5,7 +5,6 @@ import photoUser from "./../../../assets/images/user.png"
 
 let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
   return (
-    <div>
       <div className={style.menu}>
         <NavLink
           to="/content"
@@ -100,7 +99,6 @@ let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
           </div>
         </NavLink>
       </div>
-    </div>
   );
 };
 

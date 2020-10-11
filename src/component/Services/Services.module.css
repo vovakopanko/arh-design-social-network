@@ -32,7 +32,7 @@
 .servicesInfo{
   padding: 10px 0 10px 0;
 
-  min-height: 320px;
+  min-height: 250px;
   text-align: center;
 }
 
@@ -57,10 +57,7 @@
 }
 
 .moreInfo {
-  position: absolute;
-  left:35%;
-  bottom: 0;
-  margin: 20px;
+  margin-top: auto;
 }
 
 .moreInfo button {
@@ -77,4 +74,8 @@
   font-size: 44px;
   padding: 40px 0 40px 0;
   color: black;
+}
+
+.priceInfo{
+  margin-top: 20px;
 }

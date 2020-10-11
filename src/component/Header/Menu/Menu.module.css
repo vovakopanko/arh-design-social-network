@@ -68,8 +68,7 @@
     grid-column-end: 11;
 }
 
-
-a .activeLink {
+a.activeLink {
     color: rgb(228, 212, 198);
 }
 

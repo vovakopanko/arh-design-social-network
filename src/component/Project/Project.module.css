@@ -14,6 +14,15 @@
   border-radius: 30px;
 }
 
+/* @media (max-width: 1300px) {
+ .firstrow img {
+  width: 100px;
+  height: 100px;
+ }
+} */
+
+
+
 .listphoto,
 .ourproject {
   text-align: center;
@@ -25,6 +34,6 @@
 
 
 .imageUnit:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   border-radius: 50px;
 }

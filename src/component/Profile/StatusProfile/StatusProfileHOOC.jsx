@@ -5,7 +5,7 @@ import style from "./Status.module.css"
 
 const StatusProfileHOOC = (props) => {
   let [EditMode, setEditMode] = useState(false);
-  let [status, setStatus] = useState(props.status);
+  let [EditStatus, setStatus] = useState(props.status);
 
   useEffect(() => {
     setStatus(props.status);
@@ -16,7 +16,7 @@ const StatusProfileHOOC = (props) => {
   };
   const deactivatedChangeText = () => {
     setEditMode(false);
-    props.updateStatus(status);
+    props.updateStatus(EditStatus);
   };
 
   const onStatusChange = (e) => {
@@ -37,7 +37,7 @@ const StatusProfileHOOC = (props) => {
             autoFocus={true}
             onBlur={deactivatedChangeText}
             onChange={onStatusChange}
-            value={status}
+            value={EditStatus}
           />
         </div>
       )}
