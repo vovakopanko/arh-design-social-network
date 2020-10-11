@@ -1,4 +1,5 @@
-import { dialogsAPI } from "../api/Api";
+import { dialogsAPI } from "../api/DialogsAPI";
+
 
 const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
 const GET_MESSAGE_USER = "redux/messageReducer/GET_MESSAGE_USER";

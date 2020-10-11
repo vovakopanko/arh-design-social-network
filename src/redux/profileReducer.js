@@ -1,4 +1,5 @@
-import { subscribeAPI, userAPI, userStatus } from "../api/Api";
+import { subscribeAPI } from "../api/SubscribeAPI";
+import { userAPI, userStatus } from "../api/UsersAPI";
 
 const ADD_POST = "redux/profileReduser/ADD_POST";
 const SET_USER_PROFILE = "redux/profilReduser/SET_USER_PROFILE";

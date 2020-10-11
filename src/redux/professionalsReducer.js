@@ -1,4 +1,5 @@
-import { subscribeAPI, userAPI } from "../api/Api";
+import { subscribeAPI } from "../api/SubscribeAPI";
+import { userAPI } from "../api/UsersAPI";
 
 const FOLLOW_USER = "redux/professionalsReducer/FOLLOW_USER";
 const UNFOLLOW_USER = "redux/professionalsReducer/UNFOLLOW_USER";
@@ -13,7 +14,7 @@ const SET_SEARCH_NAME = "redux/professionalsReducer/SET_SEARCH_NAME";
 
 let initialState = {
   professionals: [],
-  pageSize: 15,
+  pageSize: 18,
   portionSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
@@ -132,11 +133,12 @@ export const setSearchNameSuccess = (searchName) => ({
 // [ThunkActionCreator]
 
 //Get portion professionals by currentPage and PageSize variables
-export const getUsers = (currentPage, pageSize) => {
-  return async (dispatch) => {
-    dispatch(setCurrentPage(currentPage));
+export const getUsers = (newPage) => {
+  return async (dispatch,getState) => {
+    dispatch(setCurrentPage(newPage));
+    const {currentPage, pageSize, searchName} = getState().professionalsPage
     dispatch(toggleIsFetching(true));
-    let data = await userAPI.getUsers(currentPage, pageSize);
+    let data = await userAPI.getUsers(currentPage || newPage, pageSize, searchName);
     dispatch(toggleIsFetching(false));
     dispatch(setTotalUsersCount(data.totalCount));
     dispatch(setProfessionals(data.items));
@@ -180,9 +182,12 @@ export const unfollow = (userId) =>
 };
 
 // Search users
-export const searchName = (searchName) => async (dispatch) => {
+export const searchName = (searchName) => async (dispatch,getState) => {
   dispatch(setSearchNameSuccess(searchName))
-
+  dispatch(setCurrentPage(1))
+  dispatch(setPortionNumber(1))
+  const {currentPage} = getState().professionalsPage
+  dispatch(getUsers(currentPage))
 }
 
 export default professionalsReducer;

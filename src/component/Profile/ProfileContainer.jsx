@@ -27,7 +27,7 @@ import {
   getFollowingInProgress,
   getisAuth,
   getIsFetching,
-} from "../../redux/profileSelector";
+} from "../../redux/selectors/profileSelector";
 import Preloader from "../common/Preloader/Preloader";
 
 class ProfileContainer extends React.Component {

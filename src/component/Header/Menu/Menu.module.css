@@ -43,11 +43,6 @@
     grid-column-end: 7;
 }
 
-.serch {
-    grid-column-start: 7;
-    grid-column-end: 8;
-}
-
 .message {
     grid-column-start: 8;
     grid-column-end: 9;
@@ -69,7 +64,7 @@
 }
 
 a.activeLink {
-    color: rgb(228, 212, 198);
+    color: rgb(138, 89, 45);
 }
 
 .infoLog{

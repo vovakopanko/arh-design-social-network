@@ -6,6 +6,8 @@ import {
   follow,
   unfollow,
   setPortionNumber,
+  searchName,
+  setSearchNameSuccess
 } from "../../redux/professionalsReducer";
 import { startDialog } from "./../../redux/messageReducer";
 import Professionals from "./Professionals";
@@ -14,11 +16,16 @@ import Preloader from "../common/Preloader/Preloader";
 class ProfessionalsContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
-  };
+  }
 
   onPageChanged = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
-  };
+  }
+
+  componentWillUnmount() {
+    this.props.setSearchNameSuccess('')
+
+}
 
   render() {
     return (
@@ -39,6 +46,7 @@ class ProfessionalsContainer extends React.Component {
             startDialog={this.props.startDialog}
             setPortionNumber={this.props.setPortionNumber}
             currentPortion={this.props.currentPortion}
+            searchName={this.props.searchName}
           />
         )}
       </>
@@ -56,7 +64,7 @@ let mapStateToProps = (state) => {
     isFeching: state.professionalsPage.isFeching,
     followingInProgress: state.professionalsPage.followingInProgress,
     isAuth: state.auth.isAuth,
-    currentPortion: state.professionalsPage.currentPortion
+    currentPortion: state.professionalsPage.currentPortion,
   };
 };
 
@@ -66,5 +74,7 @@ export default connect(mapStateToProps, {
   follow,
   unfollow,
   startDialog,
-  setPortionNumber
+  setPortionNumber,
+  searchName,
+  setSearchNameSuccess
 })(ProfessionalsContainer);

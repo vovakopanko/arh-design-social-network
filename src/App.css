@@ -3,7 +3,7 @@
   margin: 0 auto; /*auto correct*/
   background-color: rgb(255, 255, 255);
   color: black;
-  width: 100vh;
+  width: 1400px;
   display: grid;
   grid-template-columns: 250px 800px 350px;
   grid-template-rows: auto auto auto;

@@ -10,7 +10,6 @@ const Pagination = ({
   portionNumber,
   setPortionNumber,
 }) => {
-  
   let pagesCount = Math.ceil(totalUsersCount / pageSize);
   let portionCount = Math.ceil(pagesCount / portionSize);
   let leftPageNumber = (portionNumber - 1) * portionSize + 1;
@@ -21,19 +20,18 @@ const Pagination = ({
     pages.push(i);
   }
 
-  
   return (
-    <div className={style.pagin}>
+    <div className={style.paginator}>
       <span className={style.leftbutton}>
         {portionNumber > 1 && (
-          <button
+          <span
             onClick={() => {
               // setPortionNumber(portionNumber - 1);
-              setPortionNumber(portionNumber-1);
+              setPortionNumber(portionNumber - 1);
             }}
           >
-            LAST
-          </button>
+            <b>LAST</b>
+          </span>
         )}
       </span>
 
@@ -53,14 +51,14 @@ const Pagination = ({
 
       <span className={style.rightbutton}>
         {portionCount > portionNumber && (
-          <button
+          <span
             onClick={() => {
               // setPortionNumber(portionNumber + 1);
               setPortionNumber(portionNumber + 1);
             }}
           >
-            NEXT
-          </button>
+            <b>NEXT</b>
+          </span>
         )}
       </span>
     </div>

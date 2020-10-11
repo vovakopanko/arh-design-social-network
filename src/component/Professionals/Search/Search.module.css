@@ -1,0 +1,10 @@
+.infoSearch{
+    font-size: 12px;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #000000;
+    font-size: 18px;
+    }

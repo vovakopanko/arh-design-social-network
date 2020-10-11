@@ -36,7 +36,7 @@
 }
 
 .poginator{
-  text-align: left;
+  text-align: center;
   padding-left: 10px;
   padding-top: 10px;
 }
@@ -45,4 +45,27 @@
   text-align: center;
   font-size: 27px;
   font-weight: 900;
+}
+
+.searchName{
+  margin: 20px;
+
+  text-align: center;
+}
+
+.leftbutton{
+  margin-right: 10px;
+}
+
+.rightbutton{
+  margin-left: 10px;
+}
+
+.paginatorNumber{
+  font-size: 23px;
+}
+
+.leftbutton:hover,
+.rightbutton:hover{
+  color:rgb(138, 89, 45, 0.5);
 }

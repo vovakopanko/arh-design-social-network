@@ -48,13 +48,13 @@ let Menu = ({infoLogOut,logout,photos,isAuth,login}) => {
         >
           С нами работают
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/serch"
           activeClassName={style.activeLink}
           className={style.serch}
         >
           <input type="text" placeholder="Search..." size="25"></input>
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="/message"
           activeClassName={style.activeLink}
