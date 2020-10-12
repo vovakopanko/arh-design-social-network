@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "85f5322f0da316b621372104f51a39db",
+    "revision": "2f6fd0610c0a5d002dc7ca0050113e16",
     "url": "/arh-design-social-network/index.html"
   },
   {
-    "revision": "47764889e34ec6421e4d",
+    "revision": "37aec22c148eb5ff4aa1",
     "url": "/arh-design-social-network/static/css/3.ad7dacae.chunk.css"
   },
   {
-    "revision": "a4da2dc6039d45b38b18",
+    "revision": "9b135a2632541882f3b7",
     "url": "/arh-design-social-network/static/css/4.6292a799.chunk.css"
   },
   {
@@ -16,36 +16,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arh-design-social-network/static/css/5.8e4cd431.chunk.css"
   },
   {
-    "revision": "7e55fe042a68ce837635",
+    "revision": "ee30ad1a44dfd1e8ab7d",
     "url": "/arh-design-social-network/static/css/main.9fdd8da5.chunk.css"
   },
   {
-    "revision": "be092e139b4361117f46",
-    "url": "/arh-design-social-network/static/js/2.40de69f1.chunk.js"
+    "revision": "39e398174ed378dd5fd3",
+    "url": "/arh-design-social-network/static/js/2.533a11c3.chunk.js"
   },
   {
     "revision": "320addaff3e37295a01ab28fa4b66477",
-    "url": "/arh-design-social-network/static/js/2.40de69f1.chunk.js.LICENSE.txt"
+    "url": "/arh-design-social-network/static/js/2.533a11c3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "47764889e34ec6421e4d",
-    "url": "/arh-design-social-network/static/js/3.23e2944b.chunk.js"
+    "revision": "37aec22c148eb5ff4aa1",
+    "url": "/arh-design-social-network/static/js/3.95edfbf7.chunk.js"
   },
   {
-    "revision": "a4da2dc6039d45b38b18",
-    "url": "/arh-design-social-network/static/js/4.ba47133d.chunk.js"
+    "revision": "9b135a2632541882f3b7",
+    "url": "/arh-design-social-network/static/js/4.1f53c85d.chunk.js"
   },
   {
     "revision": "437010e1aa2fc9f223a0",
     "url": "/arh-design-social-network/static/js/5.adc18186.chunk.js"
   },
   {
-    "revision": "7e55fe042a68ce837635",
-    "url": "/arh-design-social-network/static/js/main.ee40a560.chunk.js"
+    "revision": "ee30ad1a44dfd1e8ab7d",
+    "url": "/arh-design-social-network/static/js/main.775b27d3.chunk.js"
   },
   {
-    "revision": "edd9897430776e5db3e7",
-    "url": "/arh-design-social-network/static/js/runtime-main.36854669.js"
+    "revision": "8007cc977d5c5c59116b",
+    "url": "/arh-design-social-network/static/js/runtime-main.73531fdf.js"
   },
   {
     "revision": "51927a3b8cde6df1cac347d4b411df8f",
