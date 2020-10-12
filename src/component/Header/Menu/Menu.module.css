@@ -1,11 +1,11 @@
 .menu {
     display: grid;
+
     grid-template-columns: 170px 120px 120px 160px 130px 190px 50px 50px 50px 290px;
     grid-column-start: 1;
     grid-column-end: 11;
-    background-color: black;
-    color: white;
-    padding-top: 7px;
+
+    padding-top: 10px;
 }
 
 .menu a{
@@ -50,10 +50,6 @@
     grid-column-end: 8;
 
 }
-
-/* .friends img{
-    border-radius: 40px;
-} */
 
 .message {
     grid-column-start: 8;

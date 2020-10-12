@@ -44,7 +44,7 @@ const Professional = ({user,followingInProgress,follow,unfollow,isAuth,startDial
                 Follow
               </button>
             )}
-            <NavLink to="/message" onClick={()=>{startDialog(user.id)}}>
+            <NavLink to="/message" onClick={()=>{startDialog(user.id,true,user.name)}}>
               <button>Написать</button>
             </NavLink>
           </div>

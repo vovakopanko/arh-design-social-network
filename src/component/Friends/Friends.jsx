@@ -16,7 +16,7 @@ export const Friends = ({friends,openDialogs,unFollowFriend,loadingFriends}) => 
     return (
         <div className={style.main}>
             <h3>Friends:</h3>
-            {loadingFriends ? <Preloader /> : <div className={style.friend}>
+            {loadingFriends ? <Preloader className={style.Preloader}/> : <div className={style.friend}>
                 {friendsElement}
             </div>}
         </div>

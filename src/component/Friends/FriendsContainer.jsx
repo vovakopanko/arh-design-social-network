@@ -13,9 +13,16 @@ const FriendsContainer = () => {
 
   const dispatch = useDispatch();
 
-  const openDialogs = (friendsId) => {
-    startDialog(friendsId);
-  };
+  const openDialogs = React.useCallback(
+    (friendsId, userName) => {
+      dispatch(startDialog(friendsId, true, userName));
+    },
+    [dispatch]
+  );
+
+  useEffect(() => {
+    dispatch(getFriends());
+  }, [dispatch]);
 
   const unFollowFriend = React.useCallback(
     (friendId) => {

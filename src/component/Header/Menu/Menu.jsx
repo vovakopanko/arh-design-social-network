@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Menu.module.css";
 import { NavLink } from "react-router-dom";
 import photoUser from "./../../../assets/images/user.png";
+import team from "./../../../assets/images/team.png"
 
 let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
   return (
@@ -55,10 +56,10 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
         className={style.friends}
       >
         <img
-          src="https://lindengrove.org/wp-content/uploads/2018/03/4-color-circle-Insider.png"
+          src={team}
           alt="friends"
           height="30px"
-          width="30px"
+          width="35px"
         ></img>
       </NavLink>
 
@@ -107,7 +108,7 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
           )}
         </div>
       </NavLink>
-    </div>
+      </div>
   );
 };
 

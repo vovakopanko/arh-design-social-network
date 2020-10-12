@@ -19,7 +19,7 @@ const FriendsItem = ({ friend, openDialogs, unFollowFriend }) => {
         <NavLink to="/message">
           <button
             onClick={() => {
-              openDialogs(friend.id);
+              openDialogs(friend.id,friend.name);
             }}
           >
             Send Message

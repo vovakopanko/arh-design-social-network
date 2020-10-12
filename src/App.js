@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./App.css";
 import store from "./redux/reduxStore";
 
-import HeaderContainer from "./component/Header/HeaderContainer";
+import Header from "./component/Header/Header";
 import ContentContainer from "./component/Content/ContentContainer"
 import Footer from "./component/Footer/Footer";
 
@@ -39,7 +39,7 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <div className="wrapper-head">
-          <HeaderContainer />
+          <Header />
         </div>
         <div className="app-wrapper-content">
           <Switch>

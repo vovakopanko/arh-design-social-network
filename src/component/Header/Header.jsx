@@ -9,8 +9,8 @@ let Header = (props) => {
         <img
           src="https://www.nordicinnovation.org/sites/default/files/inline-images/Nordisk%20Innovation%20Logotype%20RGB_invert.png"
           alt="logo"
-          width="70px"
-          height="30px"
+          width="120px"
+          height="35px"
         ></img>
       </div>
       <div className={style.menu}>

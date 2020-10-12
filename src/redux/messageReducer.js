@@ -165,11 +165,13 @@ export const deleteMessageWhithUser = (messageId, userId) => {
 };
 
 // Start Dialog with opposite User
-export const startDialog = (userId) => {
+export const startDialog = (userId, tap, userName) => {
   return async (dispatch) => {
     let Response = await dialogsAPI.putDialogWithUser(userId);
     if (Response.data.resultCode === 0) {
       dispatch(getMessageWhithUser(userId, true));
+      dispatch(getMessageWhithUser(userId, tap, userName));
+      dispatch(getMessageWithAllUser());
     }
   };
 };

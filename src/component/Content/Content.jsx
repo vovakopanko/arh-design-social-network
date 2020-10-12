@@ -13,7 +13,7 @@ let Content = ({
   buttonLeft,
 }) => {
   return (
-    <div>
+    <div className={style.content}>
       <ContentInfo />
       <div className={style.infoLastProject}>
         <div className={style.title}>
