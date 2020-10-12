@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/arh-design-social-network/static/css/main.9fdd8da5.chunk.css",
-    "main.js": "/arh-design-social-network/static/js/main.775b27d3.chunk.js",
-    "main.js.map": "/arh-design-social-network/static/js/main.775b27d3.chunk.js.map",
+    "main.css": "/arh-design-social-network/static/css/main.03d875e1.chunk.css",
+    "main.js": "/arh-design-social-network/static/js/main.c421e3b3.chunk.js",
+    "main.js.map": "/arh-design-social-network/static/js/main.c421e3b3.chunk.js.map",
     "runtime-main.js": "/arh-design-social-network/static/js/runtime-main.73531fdf.js",
     "runtime-main.js.map": "/arh-design-social-network/static/js/runtime-main.73531fdf.js.map",
     "static/js/2.533a11c3.chunk.js": "/arh-design-social-network/static/js/2.533a11c3.chunk.js",
@@ -17,12 +17,12 @@
     "static/js/5.adc18186.chunk.js": "/arh-design-social-network/static/js/5.adc18186.chunk.js",
     "static/js/5.adc18186.chunk.js.map": "/arh-design-social-network/static/js/5.adc18186.chunk.js.map",
     "index.html": "/arh-design-social-network/index.html",
-    "precache-manifest.6bc8d05105c7a148532b5e5596108c44.js": "/arh-design-social-network/precache-manifest.6bc8d05105c7a148532b5e5596108c44.js",
+    "precache-manifest.2517300156e0a249d85459167b9a89df.js": "/arh-design-social-network/precache-manifest.2517300156e0a249d85459167b9a89df.js",
     "service-worker.js": "/arh-design-social-network/service-worker.js",
     "static/css/3.ad7dacae.chunk.css.map": "/arh-design-social-network/static/css/3.ad7dacae.chunk.css.map",
     "static/css/4.6292a799.chunk.css.map": "/arh-design-social-network/static/css/4.6292a799.chunk.css.map",
     "static/css/5.8e4cd431.chunk.css.map": "/arh-design-social-network/static/css/5.8e4cd431.chunk.css.map",
-    "static/css/main.9fdd8da5.chunk.css.map": "/arh-design-social-network/static/css/main.9fdd8da5.chunk.css.map",
+    "static/css/main.03d875e1.chunk.css.map": "/arh-design-social-network/static/css/main.03d875e1.chunk.css.map",
     "static/js/2.533a11c3.chunk.js.LICENSE.txt": "/arh-design-social-network/static/js/2.533a11c3.chunk.js.LICENSE.txt",
     "static/media/404error.png": "/arh-design-social-network/static/media/404error.51927a3b.png",
     "static/media/office2.jpg": "/arh-design-social-network/static/media/office2.a5e96e27.jpg",
@@ -33,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.73531fdf.js",
     "static/js/2.533a11c3.chunk.js",
-    "static/css/main.9fdd8da5.chunk.css",
-    "static/js/main.775b27d3.chunk.js"
+    "static/css/main.03d875e1.chunk.css",
+    "static/js/main.c421e3b3.chunk.js"
   ]
 }
