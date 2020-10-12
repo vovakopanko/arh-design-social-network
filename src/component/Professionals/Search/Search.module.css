@@ -2,7 +2,7 @@
     font-size: 12px;
 }
 
-input {
+.inputField input {
     outline: none;
     border: none;
     border-bottom: solid 1px #000000;

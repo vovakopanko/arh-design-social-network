@@ -14,7 +14,7 @@ const Search = ({searchName}) => {
 export const SearchForm = ({handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className={style.inputField}>
         <Field
           component={InputField}
           name={"searchName"}

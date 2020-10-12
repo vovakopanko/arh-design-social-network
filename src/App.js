@@ -19,6 +19,7 @@ import { compose } from "redux";
 import { Provider, connect } from "react-redux";
 import { withSuspense } from "./hoc/whitSuspense";
 import errorfour  from "./assets/images/404error.png"
+import FriendsContainer from "./component/Friends/FriendsContainer";
 
 
 
@@ -52,7 +53,7 @@ class App extends React.Component {
             <Route path="/contact" render={withSuspense(ContactContainer)} />
             <Route path="/partners" render={withSuspense(PartnersContainer)} />
             <Route path="/project/unit/:unitId?" render={() => <ProjectUnitContainer />} />
-            {/* <Route path="/serch" render={() => <Search />} /> */}
+            <Route path='/friends' render={() => <FriendsContainer/>}/>
             <Route path="/message" render={() => <MessageContainer />} />
             <Route
               path="/profile/:userId?"

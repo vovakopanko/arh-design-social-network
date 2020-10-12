@@ -214,7 +214,7 @@ let Profile = ({
 
       <div className={style.userblocthree}>Friends:</div>
       <div className={style.userblocfour}>
-        <Wall AddPost={props.AddPost} postData={props.postData} />
+        <Wall AddPost={props.AddPost} postData={props.postData} isOwner={isOwner}/>
       </div>
     </div>
   );

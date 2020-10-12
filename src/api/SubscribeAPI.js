@@ -1,6 +1,5 @@
 import {instance} from './Instance';
 
-// [Post , Delete messages for other users]
 
 export const subscribeAPI = {
   deleteSubscribe(userId) {

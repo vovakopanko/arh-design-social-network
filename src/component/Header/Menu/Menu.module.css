@@ -1,6 +1,6 @@
 .menu {
     display: grid;
-    grid-template-columns: 100px 100px 100px 140px 110px 180px 240px 50px 50px 270px;
+    grid-template-columns: 170px 120px 120px 160px 130px 190px 50px 50px 50px 290px;
     grid-column-start: 1;
     grid-column-end: 11;
     background-color: black;
@@ -16,6 +16,8 @@
 .content {
     grid-column-start: 1;
     grid-column-end: 2;
+
+    text-align: center;
 }
 
 .project {
@@ -43,6 +45,16 @@
     grid-column-end: 7;
 }
 
+.friends{
+    grid-column-start: 7;
+    grid-column-end: 8;
+
+}
+
+/* .friends img{
+    border-radius: 40px;
+} */
+
 .message {
     grid-column-start: 8;
     grid-column-end: 9;
@@ -54,13 +66,13 @@
     
 }
 
-.profile img{
-    border-radius: 30px;
-}
-
 .login {
     grid-column-start: 10;
     grid-column-end: 11;
+}
+
+.profile img{
+    border-radius: 30px;
 }
 
 a.activeLink {
@@ -85,7 +97,8 @@ a.activeLink {
 }
 
 .message:hover,
-.profile:hover{
+.profile:hover,
+.friends:hover{
     transform:scale(1.2);
 }
 

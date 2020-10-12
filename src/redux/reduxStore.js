@@ -10,6 +10,7 @@ import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from "redux-form";
 import ContactReducer from "./contactReducer";
 import partnersReducer from "./partnersReducer";
+import { friendsReducer } from "./friendsReducer";
 
 let reducers = combineReducers({
   contentPage: contentReducer,
@@ -19,6 +20,7 @@ let reducers = combineReducers({
   projectPage: projectReducer,
   partnersPage: partnersReducer,
   profilePage: profileReducer,
+  friendsPage: friendsReducer,
   auth: authReducer,
   app: appReducer,
   form: formReducer,

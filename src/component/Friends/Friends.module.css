@@ -1,0 +1,15 @@
+
+.main {
+    text-align: center;
+
+}
+
+
+.friend {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}

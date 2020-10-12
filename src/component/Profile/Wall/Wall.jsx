@@ -4,7 +4,7 @@ import Post from "./../Post";
 import style from "./../Profile.module.css";
 import {
   maxLengthCreator,
-  required,
+  required
 } from "../../../utils/validator/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
@@ -21,14 +21,15 @@ let Wall = (props) => {
       message={post.message}
       likesCount={post.likesCount}
     />
-  ));
+  )).reverse();
   return (
     <div className={style.wall}>
       <div>СТЕНА :</div>
       <div className={style.blocMessageOnWall}>
-        <PostDataForm onSubmit={onAddPost} />
+      <PostDataForm onSubmit={onAddPost} />
+       
       </div>
-      <div>{ElementPostData}</div>
+      {!props.isOwner ? <div>{ElementPostData}</div>: <span>Нету записей на стене</span>}
     </div>
   );
 };

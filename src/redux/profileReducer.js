@@ -52,8 +52,8 @@ const profileReducer = (state = initialState, action) => {
           ...state.postData,
           {
             id: 4,
-            photo: "person4.png",
-            name: "UNDEFINED",
+            photo: "Vova.jpg",
+            name: "Vladzimir Kopanko",
             message: action.NewPostProfile,
             likesCount: 0,
           },
