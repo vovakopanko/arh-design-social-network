@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Contact from "./Contact";
 
 class ContactContainer extends React.Component {
-  sendRequest = (props) => {
+  sendRequest = () => {
     alert("Your request send, thenk's");
   };
   
@@ -11,7 +11,7 @@ class ContactContainer extends React.Component {
     return (
       <div>
         <Contact officeLocation={this.props.officeLocation}
-        sendRequest={this.props.sendRequest} />
+        sendRequest={this.sendRequest} />
       </div>
     );
   }

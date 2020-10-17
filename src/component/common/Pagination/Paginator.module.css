@@ -1,19 +1,27 @@
+.pagination__button {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 0px 30px;
+  }
+  
+  .pagination__button_left:hover,
+  .pagination__button_right:hover {
+    color: rgb(133, 72, 30);
+    box-shadow: 0px 2px 0px 0px rgb(133, 72, 30);
+  }
+  
+  .pagination__button_left {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .pagination__button_right {
+    font-size: 16px;
+    margin-left: 10px;
+  }
 
-.paginator {
-    margin: 10px;
-}
-.pageNumber {
-    padding: 2px;
-    border: 1px solid grey;
-}
-
-.pageNumber.selectedPage {
+  .pagination_active {
     font-weight: bold;
-    border-color: black;
-}
-.leftbutton{
-    padding-right: 5px;
-}
-.rightbutton{
-    padding-left: 5px;
-}
+    color: rgb(133, 72, 30);
+  }

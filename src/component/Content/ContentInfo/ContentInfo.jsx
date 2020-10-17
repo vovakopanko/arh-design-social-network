@@ -1,33 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./ContentInfo.module.css";
-import office from "../../../assets/images/office2.jpg"
+import office from "../../../assets/images/office2.jpg";
 
-let ContentInfo = (props) => {
+let ContentInfo = () => {
   return (
-    <div>
-      <div className={style.infohead}>
-        <h1>NORDISK INOVATION</h1>
-        <h2>ARCHITECTURE & DESIGN</h2>
-        <NavLink to="/project">
-          <button className={style.button1}>ПРОЕКТЫ</button>
-        </NavLink>
-        <NavLink to="/services">
-          <button className={style.button2}>УСЛУГИ</button>
-        </NavLink>
-      </div>
-      <div className={style.info}>
-        <div className={style.photoinfo}>
-          <img
-            src={office}
-            alt="office"
-          ></img>
+    <div className={style.block}>
+      <div>
+        <div className={style.block__title + " " + style.block__title_big}>
+          ARCHITECTURE & DESIGN
         </div>
-        <div className={style.textinfo}>
-          <span className={style.namestudio}>Студия дизайна и интерьера</span>
-          <h2>NORDISK INOVATION</h2>
+        <div>
+          <span className={style.block__title + " " + style.block__title_border}>
+            СТУДИЯ ДИЗАЙНА И ИНТЕРЬЕРА
+          </span>
+        </div>
+      </div>
+      <div className={style.block__items}>
+        <img src={office} alt="office"></img>
+        <div className={style.block__item}>
           <span>
-            <div className={style.infocompany}>
+            <div className={style.block__description}>
               <p>
                 Дом - это внутреннее отражение нашего "Я". Мы просыпаемся,
                 проводим много времени в нем, и от того, насколько комфортно и
@@ -44,6 +37,24 @@ let ContentInfo = (props) => {
                 произошло как можно быстрее. Уверены, что вместе мы создадим
                 уникальный дом, наполненный теплом и уютом.
               </p>
+              <NavLink to="/project">
+                <span
+                  className={
+                    style.block__button + " " + style.block__button_left
+                  }
+                >
+                  ПРОЕКТЫ
+                </span>
+              </NavLink>
+              <NavLink to="/services">
+                <span
+                  className={
+                    style.block__button + " " + style.block__button_right
+                  }
+                >
+                  УСЛУГИ
+                </span>
+              </NavLink>
             </div>
           </span>
         </div>

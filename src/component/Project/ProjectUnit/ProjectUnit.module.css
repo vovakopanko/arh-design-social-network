@@ -1,44 +1,58 @@
-.title {
-  margin-left: 40px;
+.project__block {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
+}
+
+.block__items {
+  grid-column: 2/3;
   text-align: center;
 }
 
-.imgProject img {
-  width: 300px;
+.block__items img {
+  max-width: 300px;
   height: 300px;
-
-  margin: 10px;
-  
+  margin: 10px 15px;
 }
 
-.infoCurrentProject{
-  margin-top: 20px;
+.item__description {
   font-size: 18px;
+  padding: 10px;
 }
 
-.imgProject img:hover {
+.item__title {
+  display: grid;
+  text-align: center;
+  grid-column: 2/3;
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.item__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
+
+.item__doingWork {
+  text-align: left;
+  color: black;
+}
+
+.item__doingWork a{
+  color: black;
+}
+
+.item__doingWork a:hover {
+  color: rgb(76, 38, 29);
+  font-weight: 700;
+}
+
+.item__date {
+  text-align: left;
+}
+
+.item__photo_shadow:hover{
   transform: scale(1.1);
-}
-
-.linkArh{
-font-size: 24px;
-text-align: left;
-color: rgb(0, 0, 0);
-}
-
-.linkArh b{
-  font-size: 24px;
-}
-
-.linkArh a{
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-}
-
-.linkArh a:hover{
-  color: rgb(93, 89, 89);
-}
-
-.blocArhInfo{
-  margin-top: 20px;
+  box-shadow: 0px 0px 10px 0px rgb(117, 113, 113);
 }

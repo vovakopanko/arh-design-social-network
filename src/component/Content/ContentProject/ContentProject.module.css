@@ -1,29 +1,56 @@
-.photoproject{
-    display: flex;
-    align-items: center;
+.block {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1200px) 1fr ;
 }
 
-.photoproject img:hover {
+.block__button_left {
+  grid-column: 1/2;
+  text-align: center;
+  position: relative;
+}
+
+.block__button_left img {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.block__items {
+  text-align: center;
+  grid-column: 2/3;
+  display: grid;
+  grid-template: 1fr / minmax(auto, 400px) minmax(auto, 400px) minmax(
+      auto,
+      400px
+    );
+  opacity: 0.8;
+}
+
+.block__button_right {
+  grid-column: 3/4;
+  text-align: center;
+  position: relative;
+}
+
+.block__button_right img {
+  position: absolute;
+  top: 40%;
+  right: 40%;
+}
+
+.block__button:hover {
   transform: scale(1.1);
 }
 
-.arrow {
-  opacity: 0.6;
-}
-
-.arrow:hover {
-  opacity: 1.1;
-}
-
-.disabledActivated {
+.block__button_disabled {
   opacity: 0.3;
 }
 
-.disabledActivated {
-  opacity: 0.3;
-}
-
-.paginatorPicture {
+.block__button_size {
   width: 60px;
   height: 60px;
+}
+
+.block__item_scale:hover {
+  transform: scale(1.1);
 }

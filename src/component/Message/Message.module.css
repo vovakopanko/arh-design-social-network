@@ -1,4 +1,15 @@
-.title {
+.message {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
+}
+
+.message__block {
+  grid-column: 2/3;
+  text-align: center;
+}
+
+
+/* .title {
   margin: 0;
   padding: 0;
 
@@ -6,7 +17,7 @@
 
   grid-gap: 10px;
   padding: 10px;
-}
+} */
 
 .headLeft {
   padding-left: 10px;
@@ -25,7 +36,7 @@
 }
 
 .separation{
-  height: 900px;
+  height: 600px;
   overflow-y: scroll;
 }
 

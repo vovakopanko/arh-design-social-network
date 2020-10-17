@@ -1,36 +1,24 @@
-.titlelogin{
-    color:black;
-    text-align: center;
-
-
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border: none;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 20%;
+.login {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
 }
 
-.titleForm{
-    text-align: center;
-}
-.formAllError{
-    border: 1px solid rgb(187, 71, 71);
-    padding: 5px
-  }
-
-.freeLogin{
-    margin-top: 50px;
-    padding-bottom: 10px;
+.login__block {
+  grid-column: 2/3;
+  text-align: center;
 }
 
-.enterLog{
-    margin-top: 15px;
-    padding: 5px 15px 5px 15px;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
+.block__title{
+  display: grid;
+  text-align: center;
+
+  padding: 18px;
+  font-size: 25px;
+  font-weight: 800;
 }
+
+.block__title_border{
+  border-top: 1px solid rgb(150, 150, 150,.2);
+  border-bottom: 1px solid rgb(150, 150, 150,.2);
+}
+

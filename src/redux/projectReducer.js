@@ -48,12 +48,6 @@ let initialState = {
         "https://m-strana.ru/upload/resize_cache/sprint.editor/ceb/758_467_2/cebf3338ec2f264d4bd2c80fbbc29e0b.jpg",
       alt: "project8",
     },
-    {
-      id: 9,
-      url:
-        "https://www.golubovich.by/assets/cache/images/portfolio/interer-zagorodnogo-dama/glavnaja-370x370-456.jpg",
-      alt: "project9",
-    },
   ],
   projectUnitData: [
     {
@@ -104,11 +98,6 @@ let initialState = {
     {
       id:10,
       src: "http://media.4living.ru/4l-articles/0/603x0/16/77773.jpg",
-      alt: "",
-    },
-    {
-      id:11,
-      src: "http://media.4living.ru/4l-articles/0/603x0/16/77774.jpg",
       alt: "",
     },
   ],

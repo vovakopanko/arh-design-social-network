@@ -1,14 +1,26 @@
-.partnersList {
-  display: inline-table;
-  text-align: center;
-}
-.list img {
-  display: inline-block;
-  padding: 20px;
-  width: 280px;
-  height: 280px;
+.partners {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
 }
 
-.titleImg {
-  width: 1400px;
+.partners__block {
+  grid-column: 2/3;
+  text-align: center;
+}
+
+.block__titlePhoto img {
+  max-width: 1400px;
+}
+
+.block__photos img {
+  max-width: 300px;
+  padding: 10px;
+}
+
+
+@media (max-width: 420px) {
+  .block__photos img {
+  max-width: 150px;
+  padding: 5px;
+  }
 }

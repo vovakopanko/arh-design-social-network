@@ -78,7 +78,7 @@ let Profile = ({
         <b className={style.contactInformation}>Contacts:</b>:{" "}
         <div className={style.contactblock}>
           {Object.keys(profile.contacts).map((social) => {
-                  return (
+            return (
               <Contact
                 key={social.id}
                 contactTitle={social}
@@ -97,8 +97,15 @@ let Profile = ({
   const Contact = ({ contactTitle, contactValue }) => {
     return (
       <div className={style.unitInfo}>
-        {contactValue ? <div> <span className={style.contact}>{contactTitle}:</span>
-        <a href={contactValue} rel="noopener noreferrer" to  target="_blank">{contactValue}</a></div>:null}
+        {contactValue ? (
+          <div>
+            {" "}
+            <span className={style.contact}>{contactTitle}:</span>
+            <a href={contactValue} rel="noopener noreferrer" to target="_blank">
+              {contactValue}
+            </a>
+          </div>
+        ) : null}
       </div>
     );
   };
@@ -165,55 +172,63 @@ let Profile = ({
     );
   };
   return (
-    <div className={style.profileInfo}>
-      <div className={style.userblocone}>
-        <div className={style.fullNameUser}>{profile.fullName}</div>
-        <div>
-          <div className={style.profileStatus}>
-            <StatusProfileHOOC
-              status={props.status}
-              updateStatus={props.updateStatus}
-            />
-          </div>
-          <PhotoUser
-            profile={profile}
-            onMainPhotoSelected={onMainPhotoSelected}
-          />
-          <div>
-            {isOwner ? (
-              <FollowUnfollowSuccess
-                followingProgress={followingProgress}
-                followingInProgress={followingInProgress}
-                userId={userId}
-                follow={follow}
-                unfollow={unfollow}
-                startDialog={startDialog}
+    <div className={style.profile}>
+      <div className={style.profile__block}>
+        <div className={style.profileInfo}>
+          <div className={style.userblocone}>
+            <div className={style.fullNameUser}>{profile.fullName}</div>
+            <div>
+              <div className={style.profileStatus}>
+                <StatusProfileHOOC
+                  status={props.status}
+                  updateStatus={props.updateStatus}
+                />
+              </div>
+              <PhotoUser
+                profile={profile}
+                onMainPhotoSelected={onMainPhotoSelected}
               />
-            ) : null}
+              <div>
+                {isOwner ? (
+                  <FollowUnfollowSuccess
+                    followingProgress={followingProgress}
+                    followingInProgress={followingInProgress}
+                    userId={userId}
+                    follow={follow}
+                    unfollow={unfollow}
+                    startDialog={startDialog}
+                  />
+                ) : null}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className={style.userbloctwo}>
-        <div className={style.info}>
-          {EditMode ? (
-            <ProfileDataForm
-              initialValues={profile}
-              profile={profile}
-              onSubmit={onSubmit}
-              onMainPhotoSelected={onMainPhotoSelected}
-            />
-          ) : (
-            <ProfileData
-              goToEditMode={activeForm}
-              profile={profile}
+          <div className={style.userbloctwo}>
+            <div className={style.info}>
+              {EditMode ? (
+                <ProfileDataForm
+                  initialValues={profile}
+                  profile={profile}
+                  onSubmit={onSubmit}
+                  onMainPhotoSelected={onMainPhotoSelected}
+                />
+              ) : (
+                <ProfileData
+                  goToEditMode={activeForm}
+                  profile={profile}
+                  isOwner={isOwner}
+                />
+              )}
+            </div>
+          </div>
+
+          <div className={style.userblocfour}>
+            <Wall
+              AddPost={props.AddPost}
+              postData={props.postData}
               isOwner={isOwner}
             />
-          )}
+          </div>
         </div>
-      </div>
-
-      <div className={style.userblocfour}>
-        <Wall AddPost={props.AddPost} postData={props.postData} isOwner={isOwner}/>
       </div>
     </div>
   );

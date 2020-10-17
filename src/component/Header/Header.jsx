@@ -1,19 +1,20 @@
 import React from "react";
 import style from "./Header.module.css";
 import MenuContainer from "./Menu/MenuContainer";
+import logo from "./../../assets/images/logo.png"
 
-let Header = (props) => {
+let Header = () => {
   return (
-    <nav className={style.head}>
-      <div className={style.logo}>
+    <nav  className={style.header}>
+      <div className={style.header__logo}>
         <img
-          src="https://www.nordicinnovation.org/sites/default/files/inline-images/Nordisk%20Innovation%20Logotype%20RGB_invert.png"
+          src={logo}
           alt="logo"
-          width="120px"
-          height="35px"
+          width="110px"
+          height="40px"
         ></img>
       </div>
-      <div className={style.menu}>
+      <div className={style.header__menu}>
         <MenuContainer />
       </div>
     </nav>

@@ -1,10 +1,35 @@
-.main {
+.friends {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
+}
+
+.friends__block {
+  grid-column: 2/3;
   text-align: center;
 }
 
-.friend {
+.friends__title {
+  display: grid;
+  text-align: center;
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.friends__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
+
+.friends__friend{
+  display: grid;
+  grid-template: 1fr / minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 300px)  ;
+}
+
+/* .friend {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */

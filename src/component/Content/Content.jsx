@@ -14,30 +14,32 @@ let Content = ({
 }) => {
   return (
     <div className={style.content}>
-      <ContentInfo />
-      <div className={style.infoLastProject}>
-        <div className={style.title}>
-          <span>ПОСЛЕДНИЕ ПРОЕКТЫ</span>
+      <div className={style.content__block}>
+        <ContentInfo />
+        <div>
+          <div>
+            <span className={style.content__title + " " + style.content__title_border}>ПОСЛЕДНИЕ ПРОЕКТЫ</span>
+          </div>
+          <ContentProject
+            photoProjectData={photoProjectData}
+            portionNumber={portionNumber}
+            portionSize={portionSize}
+            buttonLeft={buttonLeft}
+            buttonRight={buttonRight}
+          />
         </div>
-        <ContentProject
-          photoProjectData={photoProjectData}
-          portionNumber={portionNumber}
-          portionSize={portionSize}
-          buttonLeft={buttonLeft}
-          buttonRight={buttonRight}
-        />
-      </div>
-      <div className={style.infoLastProject}>
-        <div className={style.title}>
-          <span>НАШИ УСЛУГИ</span>
+        <div>
+          <div>
+            <span className={style.content__title + " " + style.content__title_border}>НАШИ УСЛУГИ</span>
+          </div>
+          <ContentService />
         </div>
-        <ContentService />
-      </div>
-      <div className={style.contact}>
-        <div className={style.title}>
-          <span>СВЯЗАТЬСЯ С НАМИ</span>
+        <div>
+          <div>
+            <span className={style.content__title + " " + style.content__title_border}>СВЯЗАТЬСЯ С НАМИ</span>
+          </div>
+          <ContentContact />
         </div>
-        <ContentContact />
       </div>
     </div>
   );

@@ -6,13 +6,14 @@ import style from "./Contact.module.css";
 
 const ContactRequest = (props) => {
   return (
+    <div className={style.contact__form}>
     <form onSubmit={props.handleSubmit}>
       <div>{CreateField("text", InputField, required, "Name", "Name:")}</div>
       <div>{CreateField("text", InputField, required, "Email", "Email:")}</div>
       <div>
         {CreateField("text", InputField, required, "Telephone", "Tel.:")}
       </div>
-      <div className={style.reques}>
+      <div className={style.form__textArea}>
         {CreateField(
           "textarea",
           Textarea,
@@ -25,6 +26,7 @@ const ContactRequest = (props) => {
         <button>Отправить</button>
       </div>
     </form>
+    </div>
   );
 };
 

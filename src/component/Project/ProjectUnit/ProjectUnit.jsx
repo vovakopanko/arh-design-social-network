@@ -1,21 +1,18 @@
 import React from "react";
 import style from "./ProjectUnit.module.css";
 
-const ProjectUnit = ({projectUnitData}) => {
+const ProjectUnit = ({ projectUnitData }) => {
   return (
-    <div className={style.title}>
-      <div>
-        <h2>
+    <div className={style.project__block}>
+      <div className={style.block__items}>
+        <div className={style.item__title + " " + style.item__title_border}>
           3-комнатная квартира в светлых тонах: проект архитектурного бюро «SNOU
           project»
-        </h2>
-      </div>
-
-      <div className={style.imgProject}>
-        
-        {projectUnitData.map(p=><img key={p.id} src={p.src} alt={p.alt}/>)}
-
-        <div className={style.infoCurrentProject}>
+        </div>
+        {projectUnitData.map((p) => (
+          <img className={style.item__photo_shadow} key={p.id} src={p.src} alt={p.alt} />
+        ))}
+        <div className={style.item__description}>
           Этот проект – прекрасная демонстрация лаконичного современного стиля.
           Светлая отделка служит отличным фоном для мебельных предметов в
           современном исполнении. Сведения о квартире: 3-комнатная квартира
@@ -36,17 +33,16 @@ const ProjectUnit = ({projectUnitData}) => {
           прямолинейность смягчается за счет внедрения в интерьер предметов
           мебели и источников освещения бионических форм.
         </div>
-      </div>
-      <div className={style.blocArhInfo}>
-        {" "}
-        <div className={style.linkArh}>
-          Проект Выполнялся:{" "}
-          <a href="http://localhost:3000/profile/11725">
-            <strong>Александром Александровичем</strong>
-          </a>
+        <div className={style.item__doingWork}>
+          <strong>Проект Выполнялся:</strong>{" "}
+          <i>
+            <a href="http://localhost:3000/profile#/profile/11112">
+              Александром Александровичем
+            </a>
+          </i>
         </div>
-        <div className={style.linkArh}>
-          Дата сдачи: <b>июнь 2020 года</b>
+        <div className={style.item__date}>
+          <b>Дата сдачи:</b> <i>Июнь 2020 года</i>
         </div>
       </div>
     </div>

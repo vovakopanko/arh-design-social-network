@@ -3,19 +3,22 @@ import style from "./Partners.module.css";
 
 const Partners = ({ partnersLogo }) => {
   return (
-    <div>
-      <img
-        className={style.titleImg}
-        src="https://bose-loewe.com/wp-content/uploads/2016/05/projects_1920.jpg"
-        alt="photoTitle"
-      ></img>
-      <span className={style.partnersList}>
-        <div className={style.list}>
-          {partnersLogo.map((p) => (
-            <img src={p.src} alt={p.alt} key={p.id}></img>
-          ))}
+    <div className={style.partners}>
+      <div className={style.partners__block}>
+        <div className={style.block__titlePhoto}>
+          <img
+            src="https://bose-loewe.com/wp-content/uploads/2016/05/projects_1920.jpg"
+            alt="photoTitle"
+          />
         </div>
-      </span>
+        <span>
+          <div className={style.block__photos}>
+            {partnersLogo.map((p) => (
+              <img src={p.src} alt={p.alt} key={p.id}></img>
+            ))}
+          </div>
+        </span>
+      </div>
     </div>
   );
 };

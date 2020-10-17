@@ -16,63 +16,68 @@ let ContentProject = ({
   let rightPageNumber = portionSize * currentPage;
 
   let photoProjectElement = photoProjectData.map((photos) => (
-    <NavLink to={`/project/unit/${photos.id}`} key={photos.id}>
-      <PhotoProject url={photos.url} alt={photos.alt} info={photos.info} />
+    <NavLink className={style.block__item_scale}
+      to={`/project/unit/${photos.id}`}
+      key={photos.id}
+    >
+      <PhotoProject className={style.block__item} url={photos.url} alt={photos.alt} info={photos.info} />
     </NavLink>
   ));
 
   return (
-    <div className={style.photoproject}>
-      <span>
-        {currentPage > 1 ? (
-          <span
-            onClick={() => {
-              setSLotNumber(currentPage - 1);
-            }}
-          >
-            <img
-              className={style.paginatorPicture}
-              src={buttonLeft}
-              alt="arrowLeft"
-            ></img>
-          </span>
-        ) : (
-          <span className={style.disabledActivated}>
-            <img
-              className={style.paginatorPicture}
-              src={buttonLeft}
-              alt="arrowLeft"
-            ></img>
-          </span>
-        )}
-      </span>
+    <div className={style.block}>
+        <span className={style.block__button_left + " " + style.block__button}>
+          {currentPage > 1 ? (
+            <span
+              onClick={() => {
+                setSLotNumber(currentPage - 1);
+              }}
+            >
+              <img
+                className={style.block__button_size}
+                src={buttonLeft}
+                alt="arrowLeft"
+              ></img>
+            </span>
+          ) : (
+            <span className={style.block__button_disabled}>
+              <img
+                className={style.block__button_size}
+                src={buttonLeft}
+                alt="arrowLeft"
+              ></img>
+            </span>
+          )}
+        </span>
 
-      {photoProjectElement.slice(leftPageNumber - 1, rightPageNumber)}
+        <span className={style.block__items}>
+          {photoProjectElement.slice(leftPageNumber - 1, rightPageNumber)}
+        </span>
 
-      <span>
-        {currentPage < portionNumber ? (
-          <span
-            onClick={() => {
-              setSLotNumber(currentPage + 1);
-            }}
-          >
-            <img
-              className={style.paginatorPicture}
-              src={buttonRight}
-              alt="arrowRight"
-            ></img>
-          </span>
-        ) : (
-          <span className={style.disabledActivated}>
-            <img
-              className={style.paginatorPicture}
-              src={buttonRight}
-              alt="arrowRight"
-            ></img>
-          </span>
-        )}
-      </span>
-    </div>
+        <span span className={style.block__button_right  + " " + style.block__button}>
+          {currentPage < portionNumber ? (
+            <span
+              onClick={() => {
+                setSLotNumber(currentPage + 1);
+              }}
+            >
+              <img
+                className={style.block__button_size}
+                src={buttonRight}
+                alt="arrowRight"
+              ></img>
+            </span>
+          ) : (
+            <span className={style.block__button_disabled}>
+              <img
+                className={style.block__button_size}
+                src={buttonRight}
+                alt="arrowRight"
+              ></img>
+            </span>
+          )}
+        </span>
+      </div>
   );
 };
 

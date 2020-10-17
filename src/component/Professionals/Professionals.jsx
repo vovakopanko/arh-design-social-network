@@ -4,37 +4,57 @@ import Pagination from "../common/Pagination/Pagination";
 import Professional from "./Professional";
 import Search from "./Search/Search";
 
-const Professionals = (props) => {
+const Professionals = ({
+  searchName,
+  totalUsersCount,
+  pageSize,
+  currentPage,
+  onPageChanged,
+  setPortionNumber,
+  currentPortion,
+  followingInProgress,
+  follow,
+  unfollow,
+  startDialog,
+  professionals,
+}) => {
   return (
-    <div className={style.wrapper}>
-      <div className={style.poginator}>
-        <div className={style.searchName}>
-          <Search searchName={props.searchName} />
+    <div className={style.professionals}>
+      <div className={style.professionals__block}>
+        <div className={style.professionals__title + " " + style.professionals__title_border}>
+          Список специалистов:
         </div>
-        <Pagination
-          totalUsersCount={props.totalUsersCount}
-          pageSize={props.pageSize}
-          currentPage={props.currentPage}
-          onPageChanged={props.onPageChanged}
-          setPortionNumber={props.setPortionNumber}
-          portionNumber={props.currentPortion}
-        />
-      </div>
+        <div >
+          <div className={style.professionals__search}>
+            <Search searchName={searchName} />
+          </div>
+          <div className={style.professionals__pagination}>
+            <Pagination
+              totalUsersCount={totalUsersCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChanged={onPageChanged}
+              setPortionNumber={setPortionNumber}
+              portionNumber={currentPortion}
+            />
+          </div>
+          <div className={style.professionals__professional}>
+            {professionals.map((u) => (
+              <Professional
+                key={u.id}
+                user={u}
+                followingInProgress={followingInProgress}
+                follow={follow}
+                unfollow={unfollow}
+                startDialog={startDialog}
+              />
+            ))}
+          </div>
 
-      <div>
-        {props.professionals.map((u) => (
-          <Professional
-            key={u.id}
-            user={u}
-            followingInProgress={props.followingInProgress}
-            follow={props.follow}
-            unfollow={props.unfollow}
-            startDialog={props.startDialog}
-          />
-        ))}
-      </div>
-      <div className={style.currentPage}>
-        <span>{props.currentPage}</span>
+          <div className={style.professionals__pagination_wight}>
+            <span>{currentPage}</span>
+          </div>
+        </div>
       </div>
     </div>
   );

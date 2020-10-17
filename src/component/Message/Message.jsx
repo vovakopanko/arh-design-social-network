@@ -62,7 +62,9 @@ const Message = ({
   };
 
   return (
-    <div className={style.title}>
+
+    <div className={style.message}>
+      <div className={style.message__block}>
       <div className={style.headLeft}>
         <div className={style.messageBloc}>
           <div className={style.fotoNameBlock}>
@@ -109,6 +111,7 @@ const Message = ({
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
@@ -131,7 +134,7 @@ const MessageWithUser = ({
             </span>
 
             <span className={style.timeInfo}>
-              <Moment format="YYYY-M-D H:m:s" parse="YYYY-MM-DD HH:mm:ss">
+              <Moment format="YYYY-M-D H:m" parse="YYYY-MM-DD HH:mm">
                 {p.addedAt}
               </Moment>
               {p.recipientId ? (

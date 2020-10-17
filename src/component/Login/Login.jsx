@@ -71,12 +71,14 @@ class Login extends React.Component {
     };
 
     return (
-      <div className={style.titlelogin}>
-        <h1>LOG IN</h1>
-        <LoginReduxForm
-          onSubmit={onSubmitData}
-          captchaUrl={this.props.captchaUrl}
-        />
+      <div className={style.login}>
+        <div className={style.login__block}>
+          <div className={style.block__title + " " + style.title}>LOG IN</div>
+          <LoginReduxForm
+            onSubmit={onSubmitData}
+            captchaUrl={this.props.captchaUrl}
+          />
+        </div>
       </div>
     );
   }

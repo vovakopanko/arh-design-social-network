@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./../../Professionals/Professionals.module.css";
+import style from "./../Pagination/Paginator.module.css";
 
 const Pagination = ({
   totalUsersCount,
@@ -21,12 +21,11 @@ const Pagination = ({
   }
 
   return (
-    <div className={style.paginator}>
-      <span className={style.leftbutton}>
+    <div className={style.professionals__pagination}>
+      <span className={style.pagination__button + " " + style.pagination__button_left}>
         {portionNumber > 1 && (
           <span
             onClick={() => {
-              // setPortionNumber(portionNumber - 1);
               setPortionNumber(portionNumber - 1);
             }}
           >
@@ -38,7 +37,7 @@ const Pagination = ({
       {pages.map((p) => {
         return (
           <span
-            className={currentPage === p && style.active}
+            className={currentPage === p && style.pagination_active}
             key={p.id}
             onClick={() => {
               onPageChanged(p);
@@ -49,11 +48,10 @@ const Pagination = ({
         );
       })}
 
-      <span className={style.rightbutton}>
+<span className={style.pagination__button + " " + style.pagination__button_right}>
         {portionCount > portionNumber && (
           <span
             onClick={() => {
-              // setPortionNumber(portionNumber + 1);
               setPortionNumber(portionNumber + 1);
             }}
           >

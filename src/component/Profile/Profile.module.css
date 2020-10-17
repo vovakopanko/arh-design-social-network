@@ -1,3 +1,13 @@
+.profile {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
+}
+
+.profile__block {
+  grid-column: 2/3;
+}
+
+
 .profileInfo {
   padding: 10px;
   margin: 0;

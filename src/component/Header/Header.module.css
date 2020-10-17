@@ -1,31 +1,12 @@
-.head {
+.header {
   display: grid;
-
-  grid-template-columns: 100px 1300px;
-  grid-template-rows: auto;
-  grid-column-start: 1;
-  grid-column-end: 3;
-
-  background-color: rgb(0, 0, 0);
-  color: white;
-
-  padding-top: 5px;
-  padding-bottom: 5px;
+  grid-template: 1fr / 1fr minmax(auto,200px) minmax(auto,1200px) 1fr;
 }
 
-.logo {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 0;
-  grid-row-end: -1;
-  
-  padding-left: 10px;
-  padding-top: 5px;
+.header__logo {
+  grid-column: 2/3;
 }
 
-.menu {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 0;
-  grid-row-end: -1;
+.header__menu {
+  grid-column: 3/4;
 }

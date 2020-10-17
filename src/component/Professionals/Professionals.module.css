@@ -1,71 +1,39 @@
-.wrapper {
-  display: inline-table;
-  width: 1400px;
-  background-color: white;
-  color: black;
+.professionals {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
 }
 
-.professionalphoto {
-  display: inline-block;
-  padding-left: 20px;
+.professionals__block {
+  grid-column: 2/3;
   text-align: center;
 }
 
-.professionalphoto img {
-  width: 190px;
-  height: 190px;
-  border-radius: 100px;
-}
-
-.active{
-  font-weight: bold;
-} 
-
-.pagin{
-  display: inline-table;
-  width: 1400px;
-}
-
-.pagin span{
-  padding-left: 5px;
-  display: inline-block;
-}
-
-.iconUser{
-  padding: 5px;
-}
-
-.poginator{
+.professionals__title {
+  display: grid;
   text-align: center;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
 }
 
-.currentPage{
+.professionals__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
+
+.professionals__professional{
+  display: grid;
+  grid-template: 1fr / minmax(auto, 450px) minmax(auto, 450px) minmax(auto, 450px);
+}
+
+.professionals__pagination_wight {
   text-align: center;
   font-size: 27px;
   font-weight: 900;
 }
 
-.searchName{
-  margin: 20px;
-
-  text-align: center;
-}
-
-.leftbutton{
-  margin-right: 10px;
-}
-
-.rightbutton{
-  margin-left: 10px;
-}
-
-.paginatorNumber{
-  font-size: 23px;
-}
-
-.leftbutton:hover,
-.rightbutton:hover{
-  color:rgb(138, 89, 45, 0.5);
+.professional__photos img{
+  border-radius: 50%;
+  max-width: 300px;
 }

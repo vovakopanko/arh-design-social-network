@@ -4,19 +4,21 @@ import style from "./ContentContact.module.css";
 
 let ContentContact = () => {
   return (
-    <div>
-      <div>
-        <h3>Пришло время для первого шага</h3>
-        <div className={style.infoContact}>
-          Планируете интерьер загородного дома, предстоит покупка квартиры,
-          решили обновить интерьер - получите бесплатную консультацию от наших
-          специалистов
+    <div className={style.content}>
+      <div className={style.content__block}>
+        <div className={style.content__contact}>
+          <div className={style.content__subtitle}>Пришло время для первого шага</div>
+          <div className={style.content__description}>
+            Планируете интерьер загородного дома, предстоит покупка квартиры,
+            решили обновить интерьер - получите бесплатную консультацию от наших
+            специалистов
+          </div>
         </div>
-      </div>
-      <div className={style.button}>
-        <NavLink to="/contact">
-          <button className={style.button3}>Написать</button>
-        </NavLink>
+        <div >
+          <NavLink to="/contact">
+            <span className={style.content__button}>Написать</span>
+          </NavLink>
+        </div>
       </div>
     </div>
   );

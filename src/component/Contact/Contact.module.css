@@ -1,16 +1,43 @@
-.contactInfo {
-  padding-top: 20px;
+.contact {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
 }
 
-.sendForm {
-  padding-top: 5px;
+.contact__block {
+  grid-column: 2/3;
+  text-align: center;
 }
 
-.reques {
-  padding-top: 10px;
+.contact__title {
+  display: grid;
+  text-align: center;
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
 }
 
-.locationImg {
-  width: 600px;
-  height: 300px;
+.contact__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
+
+.contact__location img {
+  max-width: 900px;
+}
+
+.contact__subtitle {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.contact__form input {
+  outline: none;
+  border: none;
+  border-bottom: solid 1px #000000;
+  font-size: 18px;
+}
+
+.form__textArea{
+  padding: 10px;
 }

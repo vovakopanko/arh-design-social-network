@@ -1,32 +1,39 @@
 import React, { Suspense } from "react";
-import "./App.css";
+import {
+  HashRouter,
+  Redirect,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
+import { compose } from "redux";
+import { Provider, connect } from "react-redux";
 import store from "./redux/reduxStore";
+import "./App.css";
 
 import Header from "./component/Header/Header";
-import ContentContainer from "./component/Content/ContentContainer"
+import ContentContainer from "./component/Content/ContentContainer";
 import Footer from "./component/Footer/Footer";
 
-import { HashRouter, Redirect, Route, Switch, withRouter } from "react-router-dom";
+import { initialize } from "./redux/appReducer";
+import { withSuspense } from "./hoc/whitSuspense";
 import Services from "./component/Services/Services";
 import MessageContainer from "./component/Message/MessageContainer";
 import ProfessionalsContainer from "./component/Professionals/ProfessionalsContainer";
 import ProjectContainer from "./component/Project/ProjectContainer";
 import ProjectUnitContainer from "./component/Project/ProjectUnit/ProjectUnitContainer";
 import ProfileContainer from "./component/Profile/ProfileContainer";
-import { initialize } from "./redux/appReducer";
 import Preloader from "./component/common/Preloader/Preloader";
-import { compose } from "redux";
-import { Provider, connect } from "react-redux";
-import { withSuspense } from "./hoc/whitSuspense";
-import errorfour  from "./assets/images/404error.png"
 import FriendsContainer from "./component/Friends/FriendsContainer";
+import errorfour from "./assets/images/404error.png";
 
-
-
-// Loading will be performed as needed to relieve the site from unnecessary requests
 const Login = React.lazy(() => import("./component/Login/Login"));
-const PartnersContainer = React.lazy(() => import("./component/Partners/PartnersContainer"));
-const ContactContainer = React.lazy(() => import("./component/Contact/ContactContainer"));
+const PartnersContainer = React.lazy(() =>
+  import("./component/Partners/PartnersContainer")
+);
+const ContactContainer = React.lazy(() =>
+  import("./component/Contact/ContactContainer")
+);
 
 class App extends React.Component {
   componentDidMount() {
@@ -36,14 +43,15 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />;
     }
+
     return (
       <div className="wrapper">
-        <div className="wrapper-head">
+        <div className="header">
           <Header />
         </div>
-        <div className="app-wrapper-content">
+        <div className="content">
           <Switch>
-            <Route path="/content" render={() => <ContentContainer/>} />
+            <Route path="/content" render={() => <ContentContainer />} />
             <Route exact path="/project" render={() => <ProjectContainer />} />
             <Route path="/services" render={() => <Services />} />
             <Route
@@ -52,8 +60,11 @@ class App extends React.Component {
             />
             <Route path="/contact" render={withSuspense(ContactContainer)} />
             <Route path="/partners" render={withSuspense(PartnersContainer)} />
-            <Route path="/project/unit/:unitId?" render={() => <ProjectUnitContainer />} />
-            <Route path='/friends' render={() => <FriendsContainer/>}/>
+            <Route
+              path="/project/unit/:unitId?"
+              render={() => <ProjectUnitContainer />}
+            />
+            <Route path="/friends" render={() => <FriendsContainer />} />
             <Route path="/message" render={() => <MessageContainer />} />
             <Route
               path="/profile/:userId?"
@@ -74,10 +85,20 @@ class App extends React.Component {
               )}
             />
             <Route exact path="/" render={() => <Redirect to="/content" />} />
-            <Route path="*" render={() => <img src={errorfour} height="700" width="1400" alt="error404"></img> } />
+            <Route
+              path="*"
+              render={() => (
+                <img
+                  src={errorfour}
+                  height="700"
+                  width="1400"
+                  alt="error404"
+                ></img>
+              )}
+            />
           </Switch>
         </div>
-        <div className="wrapper-footer">
+        <div className="footer">
           <Footer />
         </div>
       </div>

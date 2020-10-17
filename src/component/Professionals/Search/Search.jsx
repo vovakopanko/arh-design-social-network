@@ -14,7 +14,7 @@ const Search = ({searchName}) => {
 export const SearchForm = ({handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className={style.inputField}>
+      <div className={style.professionals__search}>
         <Field
           component={InputField}
           name={"searchName"}
@@ -22,9 +22,9 @@ export const SearchForm = ({handleSubmit}) => {
           size="50"
         />
       </div>
-      <div className={style.infoSearch}>Сервер принимает только латинские буквы и цифры</div>
+      <div className={style.professionals__search_info}>Сервер принимает только латинские буквы и цифры</div>
       <div>
-        <button>Search</button>
+        <button className={style.professionals__button}>Search</button>
       </div>
     </form>
   );

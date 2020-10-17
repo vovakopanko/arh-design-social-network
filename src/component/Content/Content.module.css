@@ -1,35 +1,23 @@
-.infoLastProject {
-  background-color: white;
-  color: black;
+.content{
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto,1400px) 1fr;
 }
 
-.title {
-  padding: 20px 0px 20px 0px;
+.content__block{
+  grid-column: 2/3;
+}
+
+.content__title{
+  display: grid;
   text-align: center;
-  font-size: 28px;
-  font-weight: bold;
+
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
 }
 
-.infoLastProject img {
-  padding-left: 40px;
-}
-
-.infoLastProject {
-  background-color: white;
-  color: black;
-}
-
-.infoLastProject img {
-  padding-left: 40px;
-}
-
-.contact {
-  background-color: white;
-  color: black;
-  text-align: center;
-}
-
-a {
-    text-decoration: none;
-    color: white
+.content__title_border{
+  border-top: 1px solid rgb(150, 150, 150,.2);
+  border-bottom: 1px solid rgb(150, 150, 150,.2);
 }

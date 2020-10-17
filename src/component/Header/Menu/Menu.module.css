@@ -1,105 +1,42 @@
-.menu {
-    display: grid;
-
-    grid-template-columns: 170px 120px 120px 160px 130px 190px 50px 50px 50px 290px;
-    grid-column-start: 1;
-    grid-column-end: 11;
-
-    padding-top: 10px;
+.header__menu {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
 }
 
-.menu a{
-    text-decoration: none;
-    color: white;
+.header__items {
+  justify-content: end;
 }
 
-.content {
-    grid-column-start: 1;
-    grid-column-end: 2;
-
-    text-align: center;
+.header__items_photoRadius img {
+  border-radius: 30px;
 }
 
-.project {
-    grid-column-start: 2;
-    grid-column-end: 3;
+a.header__items_activeLink {
+  color: rgb(138, 89, 45);
 }
 
-.services {
-    grid-column-start: 3;
-    grid-column-end: 4;
+.header__login {
+  margin-right: 15px;
 }
 
-.professionals {
-    grid-column-start: 4;
-    grid-column-end: 5;
+.header__items:hover {
+  color: rgb(145, 90, 8);
 }
 
-.contact {
-    grid-column-start: 5;
-    grid-column-end: 6;
+.header__items_color:hover {
+  transform: scale(1.2);
+  color: rgb(145, 90, 8);
 }
 
-.partners {
-    grid-column-start: 6;
-    grid-column-end: 7;
+.header__button_color {
+  color: rgb(117, 113, 113);
+  background-color: rgba(228, 228, 228, 0.9);
+  border: none;
+  font-size: 16px;
+  text-decoration: underline;
 }
 
-.friends{
-    grid-column-start: 7;
-    grid-column-end: 8;
-
+.header__button_hover:hover{
+  color: rgb(138, 89, 45);
 }
-
-.message {
-    grid-column-start: 8;
-    grid-column-end: 9;
-}
-
-.profile {
-    grid-column-start: 9;
-    grid-column-end: 10;
-    
-}
-
-.login {
-    grid-column-start: 10;
-    grid-column-end: 11;
-}
-
-.profile img{
-    border-radius: 30px;
-}
-
-a.activeLink {
-    color: rgb(138, 89, 45);
-}
-
-.infoLog{
-    margin-right: 5px;
-    padding: 2px;
-}
-
-.content:hover,
-.project:hover,
-.services:hover,
-.contact:hover,
-.partners:hover,
-.professionals:hover,
-.news:hover,
-.profile:hover,
-.login:hover{
-    color: rgb(145, 90, 8);
-}
-
-.message:hover,
-.profile:hover,
-.friends:hover{
-    transform:scale(1.2);
-}
-
-.serch input:hover,
-.login input:hover{
-    opacity: 0.6;
-}
-
