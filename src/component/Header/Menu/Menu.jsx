@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import photoUser from "./../../../assets/images/user.png";
 import team from "./../../../assets/images/team.png";
 
-let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
+let Menu = ({ logout, photos, isAuth, login }) => {
   return (
     <div className={style.header__menu}>
       <NavLink
@@ -55,7 +55,7 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
         activeClassName={style.header__items_activeLink}
         className={style.header__items_color}
       >
-        <img src={team} alt="friends" height="30px" width="35px"></img>
+        <img className={style.header__friends} src={team} alt="friends"></img>
       </NavLink>
 
       <NavLink
@@ -63,11 +63,9 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
         activeClassName={style.header__items_activeLink}
         className={style.header__items_color}
       >
-        <img
+        <img className={style.header__message}
           src="https://img.icons8.com/ios/452/secured-letter.png"
           alt="envelope"
-          height="30px"
-          width="30px"
         ></img>
       </NavLink>
 
@@ -76,11 +74,9 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
         activeClassName={style.header__items_activeLink}
         className={style.header__items_color + " " + style.header__items_photoRadius}
       >
-        <img
+        <img className={style.header__profile}
           src={photos || photoUser}
           alt="photoUser"
-          width="30px"
-          height="30px"
         ></img>
       </NavLink>
 

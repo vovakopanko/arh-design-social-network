@@ -10,8 +10,6 @@ let Header = () => {
         <img
           src={logo}
           alt="logo"
-          width="110px"
-          height="40px"
         ></img>
       </div>
       <div className={style.header__menu}>

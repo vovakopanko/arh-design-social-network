@@ -13,7 +13,7 @@ const ProfileDataForm = ({
   debugger;
   return (
     <form onSubmit={handleSubmit}>
-      <div className={style.information}>Information:</div>
+      <div className={style.data__title }>Information:</div>
       <p>
         <span>ID: </span> {!profile.userId ? "---" : profile.userId}
       </p>

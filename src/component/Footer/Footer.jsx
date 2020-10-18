@@ -14,8 +14,6 @@ let Footer = () => {
             <img
               src="https://img.icons8.com/ios/452/instagram-new.png"
               alt="photoInsta"
-              width="35px"
-              height="35px"
             ></img>
           </a>
           <a
@@ -26,8 +24,6 @@ let Footer = () => {
             <img
               src="https://pngimg.com/uploads/vkontakte/vkontakte_PNG22.png"
               alt="photoVk"
-              width="35px"
-              height="35px"
             ></img>
           </a>
           <a
@@ -38,8 +34,6 @@ let Footer = () => {
             <img
               src="https://img.icons8.com/ios/452/facebook-new.png"
               alt="photoFacebook"
-              width="35px"
-              height="35px"
             ></img>
           </a>
         </div>

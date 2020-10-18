@@ -58,3 +58,66 @@
 .form__textArea {
   padding: 10px;
 }
+
+@media (max-width: 320px) {
+  .contact {
+    display: grid;
+    grid-template: 1fr / minmax(auto, 320px);
+  }
+  
+  .contact__block {
+    grid-column: 1/2;
+    text-align: center;
+  }
+  
+  .block__title {
+    display: grid;
+    text-align: center;
+    padding: 1px;
+    margin: 0px;
+    font-size: 4px;
+    font-weight: 800;
+  }
+  
+  .block__title_border {
+    border-top: 1px solid rgb(150, 150, 150, 0.2);
+    border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+  }
+  
+  .block__location img {
+    max-width: 160px;
+  }
+  
+  .block__interaction {
+    font-size: 3px;
+  }
+  
+  .block__subtitle {
+    padding: 0px;
+    font-size: 4px;
+    font-weight: 500;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .block__form input {
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #000000;
+    font-size: 3px;
+  }
+  
+  .block__buttonRequest {
+    margin: 0px;
+    color: white;
+    background-color: black;
+  }
+  
+  .block__buttonRequest:hover {
+    transform: scale(1.1);
+    color: rgb(175, 128, 86);
+  }
+  
+  .form__textArea {
+    padding: 0px;
+  }
+}

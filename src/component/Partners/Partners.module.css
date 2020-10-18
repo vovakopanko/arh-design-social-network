@@ -9,18 +9,10 @@
 }
 
 .block__titlePhoto img {
-  max-width: 1400px;
+  width: 100%;
 }
 
 .block__photos img {
   max-width: 300px;
   padding: 10px;
-}
-
-
-@media (max-width: 420px) {
-  .block__photos img {
-  max-width: 150px;
-  padding: 5px;
-  }
 }

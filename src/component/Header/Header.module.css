@@ -1,12 +1,40 @@
 .header {
   display: grid;
-  grid-template: 1fr / 1fr minmax(auto,200px) minmax(auto,1200px) 1fr;
+  grid-template: 1fr / 1fr minmax(auto, 200px) minmax(auto, 1200px) 1fr;
 }
 
 .header__logo {
   grid-column: 2/3;
 }
 
+.header__logo img {
+  width: 110px;
+  height: 40px;
+}
+
 .header__menu {
   grid-column: 3/4;
+}
+
+@media (max-width: 1100px) {
+  .header{
+    grid-template: 1fr / 1fr minmax(auto, 80px) minmax(auto, 1020px);
+    font-size: 10px;
+
+    padding: 0;
+    margin: 0;
+  }
+  button{
+    font-size: 18px;
+  }
+  .header__logo img {
+    width: 60px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header{
+    font-size: 8px;
+  }
 }

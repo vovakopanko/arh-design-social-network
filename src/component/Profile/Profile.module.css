@@ -61,10 +61,9 @@
 
 .general__subscribe,
 .general__button {
-  margin: 0px 3px;
   color: white;
   background-color: black;
-  margin: 10px 0px;
+  margin: 10px 3px;
 }
 .general__subscribe:hover,
 .general__button:hover {

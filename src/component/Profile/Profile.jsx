@@ -37,7 +37,7 @@ let Profile = ({
   const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     return (
       <div>
-        <div>Information:</div>
+        <div className={style.data__title}>Information:</div>
         {profile.userId ? (
           <div>
             <span>ID:</span> {profile.userId}
