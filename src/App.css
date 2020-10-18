@@ -31,7 +31,7 @@ a {
   color: rgb(117, 113, 113)
 }
 
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .wrapper {
     min-height: 100vh;
     display: grid;
@@ -54,4 +54,4 @@ a {
     grid-area: main;
     padding: 0px;
   }
-}
+} */
