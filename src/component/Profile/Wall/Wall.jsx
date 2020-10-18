@@ -23,11 +23,10 @@ let Wall = (props) => {
     />
   )).reverse();
   return (
-    <div className={style.wall}>
+    <div >
       <div>СТЕНА :</div>
-      <div className={style.blocMessageOnWall}>
+      <div>
       <PostDataForm onSubmit={onAddPost} />
-       
       </div>
       {!props.isOwner ? <div>{ElementPostData}</div>: <span>Нету записей на стене</span>}
     </div>
@@ -51,7 +50,7 @@ const addNewPostForm = (props) => {
           />
         </div>
         <div>
-          <button>Send post</button>
+          <button className={style.general__button}>Send post</button>
         </div>
       </form>
     </div>

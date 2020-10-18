@@ -5,136 +5,69 @@
 
 .profile__block {
   grid-column: 2/3;
-}
-
-
-.profileInfo {
   padding: 10px;
   margin: 0;
   display: grid;
-  grid-template-columns: 500px auto;
-  grid-template-rows: auto auto;
+  grid-template: 1fr 1fr / 1fr minmax(auto,500px) minmax(auto,900px) 1fr;
 }
 
-.userblocone {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  background-color: rgb(245, 245, 245);
-  text-align: center;
-}
-
-.userbloctwo {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-
-  padding-left: 10px;
-  min-width: 300px;
-  background-color: rgb(245, 245, 245);
-  margin-left: 20px;
-}
-.userblocthree {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-
-  padding-top: 10px;
-  background-color: rgb(245, 245, 245);
-  margin-top: 20px;
-  text-align: center;
-}
-.userblocfour {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-
-  padding-left: 10px;
-  min-width: 300px;
-  background-color: rgb(245, 245, 245);
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.profileInfo span {
+.profile__block span {
   font-weight: bold;
   padding-bottom: 10px;
 }
 
-.wall {
-  padding-top: 20px;
-  font-weight: bold;
+.block__data {
+  grid-column: 2/3;
+  grid-row: 1/2;
+
+  background-color: rgb(245, 245, 245);
+  text-align: center;
+  padding: 10px;
 }
 
-.info span {
-  font-weight: bold;
+.data__title{
+  display: grid;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
 }
 
-.contact {
-  padding-left: 5px;
-  margin-right: 5px;
+.block__form {
+  grid-column: 3/4;
+  grid-row: 1/2;
+
+  padding-left: 10px;
+  background-color: rgb(245, 245, 245);
+  margin-left: 20px;
+  text-align: left;
+  padding: 10px;
 }
 
-.unitInfo a{
-color: black;
-}
-
-.unitInfo a:hover{
-  color:rgb(99, 76, 41);
-  opacity: 1.1;
-}
-
-.contactblock {
+.form__block {
   padding-left: 10px;
   color: rgb(77, 77, 77);
 }
 
-.buttonEditActiveted {
-  padding-top: 20px;
+.block__wall {
+  grid-column: 3/4;
+  grid-row: 2/3;
+
+  padding-left: 10px;
+  background-color: rgb(245, 245, 245);
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
-.buttonEditDiactiveted {
-  padding-top: 20px;
+.general__subscribe,
+.general__button {
+  margin: 0px 3px;
+  color: white;
+  background-color: black;
+  margin: 10px 0px;
 }
-
-.fullNameUser {
-  font-weight: 900;
-  font-size: 37px;
-}
-
-.profileStatus {
-  padding: 20px 0px 20px 0px;
-}
-
-.infoProfile span{
-  color: rgb(102, 87, 58);
-  opacity: 0.8;
-}
-
-.contactInformation{
-  color: rgb(83, 68, 36);
-}
-
-.changePhoto{
-  margin-top: 10px;
-}
-
-.information{
-  font-size: 22px;
-  font-weight: 700;
-  margin-top: 10px;
-  color: rgb(83, 68, 36);
-}
-
-.blocMessageOnWall{
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.photoMainProfile{
-  margin-bottom: 20px;
+.general__subscribe:hover,
+.general__button:hover {
+  transform: scale(1.1);
+  color: rgb(147, 109, 76);
 }

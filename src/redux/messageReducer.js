@@ -181,7 +181,6 @@ export const postMessageForUser = (userId, body) => {
   return async (dispatch) => {
     let Response = await dialogsAPI.postMessage(userId, body);
     if (Response.data.resultCode === 0) {
-      dispatch(getMessageWithAllUser());
       dispatch(getMessageWhithUser(userId, true));
     }
   };

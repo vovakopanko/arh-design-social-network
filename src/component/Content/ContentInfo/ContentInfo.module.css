@@ -22,7 +22,13 @@
 
   padding: 18px;
   font-size: 25px;
-  font-weight: 800;
+  font-weight: 700;
+
+  /* font-family: "Trebuchet MS", sans-serif; */
+}
+
+.block__title_font{
+  font-family: "CMU SERIF", sans-serif;
 }
 
 .block__title_border{

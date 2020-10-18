@@ -28,3 +28,17 @@ export const InputField = ({input,meta:{error, touched}, ...props}) => {
     </div>
   );
 };
+
+export const InputMessage= ({input,meta:{error, touched}, ...props}) => {
+  let showError = error && touched 
+return (
+  <div className={style.formControls + " " + (showError ? style.error: " ")} >
+      <div>
+      <input {...input} {...props}/>
+      </div>
+    <div>
+        { showError && <span>{error}</span>}
+    </div>
+  </div>
+);
+};

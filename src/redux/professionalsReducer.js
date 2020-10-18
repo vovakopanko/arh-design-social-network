@@ -14,7 +14,7 @@ const SET_SEARCH_NAME = "redux/professionalsReducer/SET_SEARCH_NAME";
 
 let initialState = {
   professionals: [],
-  pageSize: 9,
+  pageSize: 15,
   portionSize: 10,
   totalUsersCount: 0,
   currentPage: 1,

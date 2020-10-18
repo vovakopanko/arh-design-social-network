@@ -96,7 +96,6 @@ let Menu = ({ infoLogOut, logout, photos, isAuth, login }) => {
             </div>
           ) : (
             <div>
-              <span className={style.header__login + " " + style.header__items}>{infoLogOut}</span>{" "}
               <button className={style.header__button_color + " " + style.header__button_hover + " " + style.header__items}>Login</button>
             </div>
           )}

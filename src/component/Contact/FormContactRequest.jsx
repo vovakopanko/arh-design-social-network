@@ -4,10 +4,10 @@ import { CreateField, required } from "../../utils/validator/validators";
 import { InputField, Textarea } from "../common/FormsControls/FormsControls";
 import style from "./Contact.module.css";
 
-const ContactRequest = (props) => {
+const ContactRequest = ({handleSubmit}) => {
   return (
-    <div className={style.contact__form}>
-    <form onSubmit={props.handleSubmit}>
+    <div className={style.block__form}>
+    <form onSubmit={handleSubmit}>
       <div>{CreateField("text", InputField, required, "Name", "Name:")}</div>
       <div>{CreateField("text", InputField, required, "Email", "Email:")}</div>
       <div>
@@ -22,8 +22,8 @@ const ContactRequest = (props) => {
           "Your Request:"
         )}
       </div>
-      <div className={style.sendForm}>
-        <button>Отправить</button>
+      <div>
+        <button className={style.block__buttonRequest}>Отправить</button>
       </div>
     </form>
     </div>

@@ -69,7 +69,7 @@ const ProfileDataForm = ({
         </div>
       </div>
       <div className={style.buttonEditDiactiveted}>
-        <button>save edit profile</button>
+        <button className={style.general__button}>save edit profile</button>
       </div>
     </form>
   );

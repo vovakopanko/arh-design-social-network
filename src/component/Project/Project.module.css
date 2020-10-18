@@ -6,6 +6,7 @@
 .block__items {
   grid-column: 2/3;
   text-align: center;
+  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
 }
 
 .block__item:hover {

@@ -7,3 +7,10 @@
   color: red;
 }
 
+.formControls input{
+  width: 600px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px #000000;
+}

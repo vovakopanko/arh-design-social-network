@@ -19,6 +19,7 @@ let Profile = ({
   unfollow,
   isAuth,
   followingInProgress,
+  AddPost,
   startDialog,
   ...props
 }) => {
@@ -35,8 +36,8 @@ let Profile = ({
   };
   const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     return (
-      <div className={style.infoProfile}>
-        <div className={style.information}>Information:</div>
+      <div>
+        <div>Information:</div>
         {profile.userId ? (
           <div>
             <span>ID:</span> {profile.userId}
@@ -50,21 +51,18 @@ let Profile = ({
         ) : null}
         {profile.age ? (
           <div>
-            {" "}
             <span>Age: </span>
             {profile.age}
           </div>
         ) : null}
         {profile.aboutMe ? (
           <div>
-            {" "}
             <span>About Me: </span>
             {profile.aboutMe}
           </div>
         ) : null}
         {profile.fullName ? (
           <div>
-            {" "}
             <span>Full Name: </span>
             {profile.fullName}
           </div>
@@ -75,8 +73,8 @@ let Profile = ({
             {profile.lookingForAJobDescription}
           </div>
         ) : null}
-        <b className={style.contactInformation}>Contacts:</b>:{" "}
-        <div className={style.contactblock}>
+        <b>Contacts:</b>
+        <div className={style.form__block}>
           {Object.keys(profile.contacts).map((social) => {
             return (
               <Contact
@@ -87,8 +85,12 @@ let Profile = ({
             );
           })}
         </div>
-        <div className={style.buttonEditActiveted}>
-          {isOwner || <button onClick={goToEditMode}>edit profile</button>}
+        <div>
+          {isOwner || (
+            <button className={style.general__button} onClick={goToEditMode}>
+              edit profile
+            </button>
+          )}
         </div>
       </div>
     );
@@ -96,11 +98,10 @@ let Profile = ({
 
   const Contact = ({ contactTitle, contactValue }) => {
     return (
-      <div className={style.unitInfo}>
+      <div >
         {contactValue ? (
           <div>
-            {" "}
-            <span className={style.contact}>{contactTitle}:</span>
+            <span>{contactTitle}:</span>
             <a href={contactValue} rel="noopener noreferrer" to target="_blank">
               {contactValue}
             </a>
@@ -117,7 +118,7 @@ let Profile = ({
 
   const PhotoUser = ({ profile }) => {
     return (
-      <div className={style.photoMainProfile}>
+      <div>
         <img
           src={profile.photos.large || userPhoto}
           alt="userPhoto"
@@ -147,10 +148,11 @@ let Profile = ({
             startDialog(userId);
           }}
         >
-          <button>Send Message</button>
+          <button className={style.general__button}>Send Message</button>
         </NavLink>
         {followingProgress ? (
           <button
+            className={style.general__subscribe}
             disabled={followingInProgress.some((id) => id === userId)}
             onClick={() => {
               follow(userId);
@@ -160,6 +162,7 @@ let Profile = ({
           </button>
         ) : (
           <button
+            className={style.general__subscribe}
             disabled={followingInProgress.some((id) => id === userId)}
             onClick={() => {
               unfollow(userId);
@@ -174,60 +177,54 @@ let Profile = ({
   return (
     <div className={style.profile}>
       <div className={style.profile__block}>
-        <div className={style.profileInfo}>
-          <div className={style.userblocone}>
-            <div className={style.fullNameUser}>{profile.fullName}</div>
+        <div className={style.block__data}>
+          <div className={style.data__title}>{profile.fullName}</div>
+          <div>
             <div>
-              <div className={style.profileStatus}>
-                <StatusProfileHOOC
-                  status={props.status}
-                  updateStatus={props.updateStatus}
+              <StatusProfileHOOC
+                status={props.status}
+                updateStatus={props.updateStatus}
+              />
+            </div>
+            <PhotoUser
+              profile={profile}
+              onMainPhotoSelected={onMainPhotoSelected}
+            />
+            <div>
+              {isOwner ? (
+                <FollowUnfollowSuccess
+                  followingProgress={followingProgress}
+                  followingInProgress={followingInProgress}
+                  userId={userId}
+                  follow={follow}
+                  unfollow={unfollow}
+                  startDialog={startDialog}
                 />
-              </div>
-              <PhotoUser
+              ) : null}
+            </div>
+          </div>
+        </div>
+        <div className={style.block__form}>
+          <div>
+            {EditMode ? (
+              <ProfileDataForm
+                initialValues={profile}
                 profile={profile}
+                onSubmit={onSubmit}
                 onMainPhotoSelected={onMainPhotoSelected}
               />
-              <div>
-                {isOwner ? (
-                  <FollowUnfollowSuccess
-                    followingProgress={followingProgress}
-                    followingInProgress={followingInProgress}
-                    userId={userId}
-                    follow={follow}
-                    unfollow={unfollow}
-                    startDialog={startDialog}
-                  />
-                ) : null}
-              </div>
-            </div>
+            ) : (
+              <ProfileData
+                goToEditMode={activeForm}
+                profile={profile}
+                isOwner={isOwner}
+              />
+            )}
           </div>
-          <div className={style.userbloctwo}>
-            <div className={style.info}>
-              {EditMode ? (
-                <ProfileDataForm
-                  initialValues={profile}
-                  profile={profile}
-                  onSubmit={onSubmit}
-                  onMainPhotoSelected={onMainPhotoSelected}
-                />
-              ) : (
-                <ProfileData
-                  goToEditMode={activeForm}
-                  profile={profile}
-                  isOwner={isOwner}
-                />
-              )}
-            </div>
-          </div>
+        </div>
 
-          <div className={style.userblocfour}>
-            <Wall
-              AddPost={props.AddPost}
-              postData={props.postData}
-              isOwner={isOwner}
-            />
-          </div>
+        <div className={style.block__wall}>
+          <Wall AddPost={AddPost} postData={props.postData} isOwner={isOwner} />
         </div>
       </div>
     </div>

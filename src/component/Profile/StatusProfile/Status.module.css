@@ -1,5 +1,9 @@
-.hoverStatus:hover{
-background-color: rgb(214, 214, 214);
-opacity: 0.7;
-border-radius: 10px;
+.hoverStatus:hover {
+  color: rgb(103, 71, 30);
+  opacity: 0.7;
+  padding: 10px 5px;
+}
+
+.data__status{
+  padding: 10px;
 }

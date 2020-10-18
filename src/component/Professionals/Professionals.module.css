@@ -22,9 +22,13 @@
   border-bottom: 1px solid rgb(150, 150, 150, 0.2);
 }
 
-.professionals__professional{
+.professionals__professional {
   display: grid;
-  grid-template: 1fr / minmax(auto, 450px) minmax(auto, 450px) minmax(auto, 450px);
+  grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+}
+
+.professional{
+  margin: 10px;
 }
 
 .professionals__pagination_wight {
@@ -33,7 +37,19 @@
   font-weight: 900;
 }
 
-.professional__photos img{
+.professional__photos img {
   border-radius: 50%;
-  max-width: 300px;
+  max-width: 150px;
+}
+
+.professional__subscribe,
+.professional__buttonMessage {
+  margin: 0px 3px;
+  color: white;
+  background-color: black;
+}
+.professional__subscribe:hover,
+.professional__buttonMessage:hover {
+  transform: scale(1.1);
+  color: rgb(147, 109, 76);
 }

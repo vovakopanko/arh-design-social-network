@@ -13,7 +13,7 @@ const Professional = ({
   ...props
 }) => {
   return (
-    <div >
+    <div className={style.professional}>
       <span>
         <div>
           <NavLink className={style.professional__photos} to={"/profile/" + user.id}>
@@ -29,7 +29,7 @@ const Professional = ({
         <div>ID : {user.id}</div>
         <div>
           {user.followed ? (
-            <button
+            <button className={style.professional__subscribe}
               disabled={
                 followingInProgress.some((id) => id === user.id) || isAuth
               }
@@ -40,7 +40,7 @@ const Professional = ({
               UnFollow
             </button>
           ) : (
-            <button
+            <button className={style.professional__subscribe}
               disabled={
                 followingInProgress.some((id) => id === user.id) || isAuth
               }
@@ -57,7 +57,7 @@ const Professional = ({
               startDialog(user.id, true, user.name);
             }}
           >
-            <button>Написать</button>
+            <button className={style.professional__buttonMessage}>Написать</button>
           </NavLink>
         </div>
       </span>

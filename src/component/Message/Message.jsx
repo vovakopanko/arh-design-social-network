@@ -2,8 +2,7 @@ import React from "react";
 import style from "./Message.module.css";
 import user from "./../../assets/images/user.png";
 import { Field, reduxForm } from "redux-form";
-import { Textarea } from "../common/FormsControls/FormsControls";
-// import { useState } from "react";
+import {InputMessage} from "../common/FormsControls/FormsControls";
 import Preloader from "../common/Preloader/Preloader";
 import Moment from "react-moment";
 
@@ -25,14 +24,6 @@ const Message = ({
   isFechingForDialogs,
   ...props
 }) => {
-  // HOOC on change portionNumber for paginator Dialog User
-  // let [portionNumber, setNewPortionNumber] = useState(1);
-
-  // let totalMessagesCount = messages.length;
-  // let portionCount = Math.ceil(totalMessagesCount / portionSize);
-  // let rightPageNumber = portionSize * portionNumber;
-
-  // Get all Dialogs with User
   let messageUser = messages.map((m) => (
     <span
       key={m.id}
@@ -40,7 +31,7 @@ const Message = ({
         getMessageWhithUser(m.id, true, m.userName);
       }}
     >
-      <div className={style.blocUser}>
+      <div className={style.user__block}>
         <div>
           <img
             src={m.photos.small || user}
@@ -48,10 +39,9 @@ const Message = ({
             width="70"
             height="70"
           />
-          <div><b>{m.userName}</b></div>
-          {/* <div>
-            New Message: <b>{" " + m.newMessagesCount}</b>
-          </div> */}
+          <div>
+            <b>{m.userName}</b>
+          </div>
         </div>
       </div>
     </span>
@@ -62,55 +52,37 @@ const Message = ({
   };
 
   return (
-
     <div className={style.message}>
+      <div className={style.block__title + " " + style.block__title_border}>
+        {userName ? (
+          <span>
+            <div>
+              Dialog with{" "}
+              <span className={style.block__title_color}>{userName}</span>:
+            </div>
+          </span>
+        ) : (
+          <span>Messages:</span>
+        )}
+      </div>
       <div className={style.message__block}>
-      <div className={style.headLeft}>
-        <div className={style.messageBloc}>
-          <div className={style.fotoNameBlock}>
-            <div className={style.separation}>
-              <b className={style.titleDialogs}>ВСЕ ДИАЛОГИ: </b>
-              {messageUser}
-              {/* {messageUser.slice(0, rightPageNumber)} */}
-              {/* <div>
-                {portionCount > portionNumber && (
-                  <button
-                    className={style.moreMessages}
-                    onClick={() => {
-                      setNewPortionNumber(portionNumber + 1);
-                    }}
-                  >
-                    More messages
-                  </button>
-                )}
-              </div> */}
-            </div>
-          </div>
+        <div className={style.block__users}>
+          <div className={style.users__user}>{messageUser}</div>
+        </div>
 
-          <div className={style.messageTimeBlock}>
-            {userName ? (
-              <span className={style.titleMessage}>
-                <div>{userName}:</div>
-              </span>
-            ) : (
-              <span className={style.titleMessage}>COOБЩЕНИЯ:</span>
-            )}
-            <div className={style.messageData}>
-              {isFechingForDialogs ? (
-                <Preloader />
-              ) : (
-                <MessageWithUser
-                  message={message}
-                  deleteMessageWhithUser={deleteMessageWhithUser}
-                  tap={tap}
-                  onAddMessage={onAddMessage}
-                />
-              )}
-            </div>
-          </div>
+        <div className={style.block__dialogs}>
+          {isFechingForDialogs ? (
+            <Preloader />
+          ) : (
+            <MessageWithUser
+              message={message}
+              deleteMessageWhithUser={deleteMessageWhithUser}
+              tap={tap}
+              onAddMessage={onAddMessage}
+            />
+          )}
         </div>
       </div>
-    </div>
     </div>
   );
 };
@@ -122,65 +94,54 @@ const MessageWithUser = ({
   onAddMessage,
 }) => {
   return (
-    <div className={style.mainBlocMessages}>
-      <div className={style.messageBlocWithUser}>
-        {message.map((p) => (
-          <div className={style.hol} key={p.id}>
-            <span className={style.ho2}>
-              <div>
-                <span className={style.userName}>{p.senderName}:</span>
-              </div>
-              {p.body}
-            </span>
-
-            <span className={style.timeInfo}>
-              <Moment format="YYYY-M-D H:m" parse="YYYY-MM-DD HH:mm">
-                {p.addedAt}
-              </Moment>
-              {p.recipientId ? (
-                <span
-                  className={style.butDel}
-                  onClick={() => {
-                    deleteMessageWhithUser(p.id, p.recipientId);
-                  }}
-                >
-                  <img
-                    src="https://image.flaticon.com/icons/png/512/64/64022.png"
-                    width="30"
-                    height="30"
-                    alt="rubbishBin"
-                  ></img>
-                </span>
-              ) : null}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className={style.sendMesageBloc}>
+    <div className={style.lo}>
+    <div className={style.dialogs__items}>
+      {message.map((p) => (
+        <div className={style.dialogs__item} key={p.id}>
+            <span className={style.body__name}>{p.senderName}:</span>
+            <span className={style.body__message}>{p.body}</span>
+          <span className={style.item__time}>
+            <Moment format="YYYY-M-D H:m" parse="YYYY-MM-DD HH:mm">
+              {p.addedAt}
+            </Moment>
+          </span>
+          {p.recipientId ? (
+              <span
+                className={style.body__message_delete}
+                onClick={() => {
+                  deleteMessageWhithUser(p.id, p.recipientId);
+                }}
+              >
+                <img
+                  src="https://image.flaticon.com/icons/png/512/64/64022.png"
+                  alt="rubbishBin"
+                ></img>
+              </span>
+            ) : null}
+        </div>
+      ))}
+      <div className={style.dialogs__button}>
         {tap ? <NewMessageForm onSubmit={onAddMessage} /> : null}
       </div>
+    </div>
     </div>
   );
 };
 
 const AddNewMessage = ({ handleSubmit }) => {
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={style.dialogs__sendBlock}>
         <div>
-          <Field
+          <Field className={style.dialogs__text}
             placeholder="Write your message..."
-            component={Textarea}
+            component={InputMessage}
             name={"NewMessageUser"}
-            rows="6"
-            cols="60"
           />
         </div>
         <div>
-          <button>SEND MESSAGE</button>
+          <button className={style.dialogs__button_color}>SEND</button>
         </div>
       </form>
-    </div>
   );
 };
 

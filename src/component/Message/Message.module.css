@@ -6,168 +6,135 @@
 .message__block {
   grid-column: 2/3;
   text-align: center;
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 800px) 1fr;
 }
 
+.block__title {
+  grid-column: 2/3;
+  display: grid;
+  text-align: center;
+  padding: 18px;
+  margin: 20px 0px;
+  font-size: 25px;
+  font-weight: 800;
+}
 
-/* .title {
-  margin: 0;
-  padding: 0;
+.block__title_color {
+  text-decoration: underline;
+}
 
-  color: black;
+.block__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
 
-  grid-gap: 10px;
-  padding: 10px;
-} */
+.block__users {
+  grid-column: 2/3;
 
-.headLeft {
+  text-align: center;
+  border-right: 3px solid white;
+}
+
+.block__dialogs {
+  grid-column: 3/4;
+  text-align: left;
+  margin-left: 10px;
   padding-left: 10px;
 }
 
-.sendMesageBloc {
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  text-align: center;
-}
-
-.listDialogs {
-  padding-top: 30px;
-  
-}
-
-.separation{
+.users__user {
   height: 600px;
   overflow-y: scroll;
 }
 
-.searchMessage {
-  padding-top: 10px;
-  margin-bottom: 10px;
-}
-
-.dialogs {
-  border-top: 1px solid grey;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.messageWithUser {
-  padding-top: 10px;
-}
-
-.messageBloc {
-  display: grid;
-  grid-template-columns: 300px auto;
-}
-
-.fotoNameBlock {
-  grid-column-start: 1;
-  grid-column-end: 2;
-
-  max-width: 300px;
-  text-align: center;
-
-  border-right: 3px solid white;
-}
-
-.messageTimeBlock {
-  grid-column-start: 2;
-  grid-column-end: 3;
-
-  max-height: 700px;
-  text-align: center;
-}
-
-.hol {
-  display: grid;
-  grid-template-columns: auto auto;
-
-  padding: 5px;
-}
-
-.ho2 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.userName {
-  font-size: 14;
-  font-weight: 700;
-  color: rgb(156, 114, 89);
-}
-
-.timeInfo {
-  text-align: right;
-  padding-right: 10px;
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
-.sendMesageBloc {
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  text-align: center;
-}
-
-.butDel {
-  opacity: 0.1;
-  font-size: 10px;
-  border-radius: 40px;
-}
-
-.blocUser {
+.user__block {
   position: relative;
   margin: 5px;
   padding: 5px;
   height: 60px;
 }
 
-.blocUser img{
+.user__block img {
   border-radius: 50px;
-  float:left;
+  float: left;
 }
 
-.blocUser b{
-  position: absolute;               
+.user__block b {
+  position: absolute;
   top: 50%;
   left: 40%;
   transform: translate(0, -50%);
 }
 
-.butDel:hover {
+.dialogs__item {
+  display: grid;
+  grid-template: 1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(
+      auto,
+      200px
+    ) minmax(auto, 100px) 1fr;
+  margin-top: 20px;
+}
+
+.body__name {
+  grid-column: 2/3;
+}
+
+.body__message {
+  grid-column: 3/4;
+}
+
+.item__time {
+  grid-column: 4/5;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.body__message_delete {
+  grid-column: 5/6;
+  opacity: 0.1;
+}
+
+.body__message_delete img {
+  width: 20px;
+  height: 20px;
+}
+
+.body__message_delete:hover {
   opacity: 1.1;
 }
 
-.titleDialogs {
+.users__title {
   color: rgb(156, 129, 89);
   font-size: 28px;
   padding-left: 15px;
 }
 
-.titleMessage {
-  color: rgb(156, 129, 89);
-  font-size: 28px;
-  font-weight: 700;
+.dialogs__button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.messageData {
-  margin-left: 10px;
+.dialogs__sendBlock{
+  display: grid;
+  grid-template: 1fr / minmax(auto,640px) minmax(auto,50px);
   text-align: left;
-  padding-left: 10px;
 }
 
-.moreMessages {
-  margin: 10px;
-  font-size: 16px;
-  border-radius: 30px;
+.dialogs__text{
+  grid-column: 1/2;
 }
 
-.blocUser:active {
-  background-color: rgb(169, 169, 169, .2);
+
+.dialogs__button_color {
+  color: white;
+  background-color: black;
+  padding: 5px;
+  grid-column: 2/3;
 }
 
-.messageBody{
-  border-bottom: 3px solid white;
-
+.dialogs__button_color:hover {
+  transform: scale(1.1);
+  color: rgb(156, 129, 89);
 }

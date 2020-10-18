@@ -231,7 +231,6 @@ export const saveProfile = (profile) => {
   return async (dispatch, getState) => {
     const id = getState().auth.id;
     let Response = await userStatus.saveProfile(profile);
-
     if (Response.data.resultCode === 0) {
       dispatch(getProfileData(id));
     }
