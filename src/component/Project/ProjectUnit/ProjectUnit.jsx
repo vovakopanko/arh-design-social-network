@@ -7,7 +7,7 @@ const ProjectUnit = ({ projectUnitData }) => {
       <div className={style.block__items}>
         <div className={style.item__title + " " + style.item__title_border}>
           3-комнатная квартира в светлых тонах: проект архитектурного бюро «SNOU
-          project»
+          PROJECT»
         </div>
         {projectUnitData.map((p) => (
           <img className={style.item__photo_shadow} key={p.id} src={p.src} alt={p.alt} />

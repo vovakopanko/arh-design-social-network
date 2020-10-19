@@ -59,23 +59,23 @@
   padding: 10px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
   .contact {
     display: grid;
-    grid-template: 1fr / minmax(auto, 320px);
+    grid-template: 1fr / 1fr minmax(auto, 700px) 1fr;
   }
   
   .contact__block {
-    grid-column: 1/2;
+    grid-column: 2/3;
     text-align: center;
   }
   
   .block__title {
     display: grid;
     text-align: center;
-    padding: 1px;
-    margin: 0px;
-    font-size: 4px;
+    padding: 18px;
+    margin: 20px 0px;
+    font-size: 12px;
     font-weight: 800;
   }
   
@@ -85,16 +85,16 @@
   }
   
   .block__location img {
-    max-width: 160px;
+    width: 300px;
   }
   
   .block__interaction {
-    font-size: 3px;
+    font-size: 12px;
   }
   
   .block__subtitle {
-    padding: 0px;
-    font-size: 4px;
+    padding: 20px 0px;
+    font-size: 12px;
     font-weight: 500;
     font-family: "Arial", sans-serif;
   }
@@ -103,13 +103,14 @@
     outline: none;
     border: none;
     border-bottom: solid 1px #000000;
-    font-size: 3px;
+    font-size: 11px;
   }
   
   .block__buttonRequest {
-    margin: 0px;
+    margin: 0px 3px;
     color: white;
     background-color: black;
+    font-size: 12px;
   }
   
   .block__buttonRequest:hover {
@@ -118,6 +119,6 @@
   }
   
   .form__textArea {
-    padding: 0px;
+    padding: 10px;
   }
 }

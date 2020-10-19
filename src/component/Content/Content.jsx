@@ -18,7 +18,13 @@ let Content = ({
         <ContentInfo />
         <div>
           <div>
-            <span className={style.content__title + " " + style.content__title_border}>ПОСЛЕДНИЕ ПРОЕКТЫ</span>
+            <span
+              className={
+                style.content__title + " " + style.content__title_border
+              }
+            >
+              ПОСЛЕДНИЕ ПРОЕКТЫ
+            </span>
           </div>
           <ContentProject
             photoProjectData={photoProjectData}
@@ -34,6 +40,7 @@ let Content = ({
           </div>
           <ContentService />
         </div>
+         
         <div>
           <div>
             <span className={style.content__title + " " + style.content__title_border}>СВЯЗАТЬСЯ С НАМИ</span>

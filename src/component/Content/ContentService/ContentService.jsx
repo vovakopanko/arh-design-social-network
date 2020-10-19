@@ -11,14 +11,13 @@ let ContentService = () => {
           <div>
             <span className={style.block__subtitle}> Дизайн</span>
           </div>
+          <NavLink to="/services">
           <div className={style.block__description}>
             После встреч дизайнера и заказчика, проведения обмера объекта и на
             основе всех пожеланий утверждается концепт дизайна. Возможен заказ
             проекта интерьера отдельных комнат городской квартиры или частного
             дома, включающего перепланировку помещений.
           </div>
-          <NavLink to="/services">
-            <span className={style.block__button}>Подробнее</span>
           </NavLink>
         </div>
         <div className={style.block__item + " " + style.block__item_centr}>
@@ -28,15 +27,13 @@ let ContentService = () => {
               Проектирование жилых домов
             </span>
           </div>
+          <NavLink to="/services">
           <div className={style.block__description}>
             Объем архитектурного проектирования обсуждается и утверждается после
             выезда специалистов на место строительства. Начальной формой
             проектирования может быть эскизный проект архитектуры или отдельная
             разработка дизайна фасада.
-          </div>
-          <NavLink to="/services">
-            <span className={style.block__button}>Подробнее</span>
-          </NavLink>
+          </div></NavLink>
         </div>
         <div className={style.block__item + " " + style.block__item_right}>
         <img src="https://politika09.com/wp-content/uploads/2015/07/finansirovanie.jpg" alt="pic1"/>
@@ -45,14 +42,13 @@ let ContentService = () => {
               Авторское сопровождение
             </span>
           </div>
+          <NavLink to="/services">
           <div className={style.block__description}>
             Авторский надзор - контроль за выполнением всех строительных и
             ремонтных работ на объекте. Вы будете уверены, что
             строительно-отделочные работы будут выполнены в соответствие с
             утвержденным дизайн-проектом.
           </div>
-          <NavLink to="/services">
-            <span className={style.block__button}>Подробнее</span>
           </NavLink>
         </div>
       </div>

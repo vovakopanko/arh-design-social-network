@@ -3,10 +3,8 @@ import style from './ContentProject.module.css'
 
 const PhotoProject = ({url,alt,info}) => {
   return (
-    <img className={style.photoproject}
+    <img className={style.block__project_img}
       src={url}
-      width="360px"
-      height="300px"
       alt={alt}
       info={info}
     ></img>

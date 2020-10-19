@@ -1,7 +1,13 @@
 .header__menu {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
+  display: flex;
+  text-align: center;
+  margin: 0px 40px 0px 0px;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.header__menu a{
+  margin: 0px 0px 0px 20px;
 }
 
 .header__items {
@@ -16,10 +22,6 @@ a.header__items_activeLink {
   color: rgb(138, 89, 45);
 }
 
-.header__login {
-  margin-right: 15px;
-}
-
 .header__items:hover {
   color: rgb(145, 90, 8);
 }
@@ -29,11 +31,10 @@ a.header__items_activeLink {
   color: rgb(145, 90, 8);
 }
 
-.header__button_color {
+.header__button_size {
   color: rgb(117, 113, 113);
-  background-color: rgba(228, 228, 228, 0.9);
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: underline;
 }
 
@@ -56,26 +57,20 @@ a.header__items_activeLink {
   width: 30px;
 }
 
-/* @media (max-width: 1100px) {
+@media (max-width: 768px) {
   .header__menu{
-    padding: 0;
-    margin: 0;
-  }
-  .header__button_color {
-    font-size: 10px;
-  }
-  .header__profile {
-    width: 20px;
-    height: 20px;
+    display: block;
+    margin: 80px 0px 0px 0px;
   }
 
-  .header__message {
-    width: 20px;
-    height: 20px;
+  .header__menu a{
+    display: block;
+    margin: 0px 0px 20px 0px;
+    font-size: 16px;
   }
 
-  .header__friends {
-    width: 20px;
-    height: 20px;
+  .header__button_size {
+    font-size: 16px;
   }
-} */
+  
+}
