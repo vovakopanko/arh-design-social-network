@@ -14,7 +14,7 @@
   grid-area: header;
   padding: 2px;
   margin-bottom: 50px;
-  background-color: rgba(228, 228, 228, 0.9);
+  background-color: rgba(228, 228, 228);
   box-shadow: 2px 4px 8px 0 #cacaca;
 
   position: fixed;
@@ -49,5 +49,21 @@ a {
       "footer";
   
     font-family: "lucida sans unicode", sans-serif;
+  }
+  .content {
+    grid-area: main;
+    padding: 0px;
+  }
+  .header {
+    grid-area: header;
+    padding: 0px 0px 2px 0px;
+    background-color: rgba(228, 228, 228);
+    box-shadow: 2px 4px 20px 0 #cacaca;
+  
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;
   }
 } 

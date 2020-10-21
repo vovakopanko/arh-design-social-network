@@ -6,7 +6,7 @@ const Pagination = ({
   pageSize,
   currentPage,
   onPageChanged,
-  portionSize = 7,
+  portionSize = 5,
   portionNumber,
   setPortionNumber,
 }) => {

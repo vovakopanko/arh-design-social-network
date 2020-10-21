@@ -9,6 +9,8 @@
   grid-template:
     1fr / 1fr minmax(auto, 450px) minmax(auto, 450px) minmax(auto, 450px)
     1fr;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .block__item {
@@ -33,12 +35,28 @@
   grid-column: 2/3;
   padding: 0px 5px;
 }
+
 .block__item_centr {
   grid-column: 3/4;
   padding: 0px 5px;
 }
 
 .block__item_right {
+  grid-column: 4/5;
+  padding: 0px 5px;
+}
+
+.block__item_top {
+  grid-column: 2/3;
+  padding: 0px 5px;
+}
+
+.block__item_middle {
+  grid-column: 3/4;
+  padding: 0px 5px;
+}
+
+.block__item_bottom {
   grid-column: 4/5;
   padding: 0px 5px;
 }
@@ -53,33 +71,16 @@
   font-size: 21px;
   font-weight: 600;
 }
-.block__button .block__item_centr,
-.block__button .block__item_left,
-.block__button .block__item_right{
-  position: relative;
-}
-
-.block__button {
-  position: absolute;
-  bottom: 0;
-  left:42%;
-  font-size: 21px;
-  box-shadow: 0px 2px 0px 0px rgb(150, 150, 150);
-}
-
-.block__button:hover {
-  color: rgb(133, 72, 30);
-  box-shadow: 0px 2px 0px 0px rgb(133, 72, 30);
-}
 
 @media (max-width: 768px) {
   .block__items {
     position: relative;
-    grid-template: minmax(auto, 140px) minmax(auto, 140px) minmax(auto, 140px) / 1fr;
+    grid-template: minmax(auto, auto) minmax(auto, auto) minmax(auto, auto) minmax(auto, auto) minmax(auto, auto) minmax(auto, auto)  / 1fr;
+     
   }
 
-  .block__item{
-    margin: 0px 0px;
+  .block__item {
+    margin: 0px;
   }
 
   .block__item img {
@@ -93,34 +94,55 @@
   }
 
   .block__items .block__item_left {
+    text-align: center;
     grid-column: 1/1;
     grid-row: 1/2;
     padding: 0px;
   }
 
   .block__items .block__item_centr {
+    text-align: center;
     grid-column: 1/1;
     grid-row: 2/3;
     padding: 0px;
   }
 
   .block__items .block__item_right {
+    text-align: center;
     grid-column: 1/1;
     grid-row: 3/4;
     padding: 0px;
   }
 
+  .block__items .block__item_top {
+    text-align: center;
+    grid-column: 1/1;
+    grid-row: 4/5;
+    padding: 0px;
+  }
+
+  .block__items .block__item_middle {
+    text-align: center;
+    grid-column: 1/1;
+    grid-row: 5/6;
+    padding: 0px;
+  }
+
+  .block__items .block__item_bottom {
+    text-align: center;
+    grid-column: 1/1;
+    grid-row: 6/7;
+    padding: 0px;
+  }
+
   .block__description {
     font-size: 11px;
-    padding:0px;
-    max-height: 150px;
+    padding: 0px;
+    max-height: 160px;
+    max-width: 280px;
   }
 
   .block__subtitle {
     font-size: 10px;
-  }
-
-  .block__button{
-    font-size: 11px;
   }
 }

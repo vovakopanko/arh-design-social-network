@@ -25,3 +25,34 @@
     font-weight: bold;
     color: rgb(133, 72, 30);
   }
+
+  @media(max-width:768px){
+    .pagination__button {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 500;
+      margin: 0px 20px;
+    }
+    
+    .pagination__button_left:hover,
+    .pagination__button_right:hover {
+      color: rgb(133, 72, 30);
+      box-shadow: 0px 2px 0px 0px rgb(133, 72, 30);
+    }
+    
+    .pagination__button_left {
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    
+    .pagination__button_right {
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  
+    .pagination_active {
+      font-weight: bold;
+      color: rgb(133, 72, 30);
+      font-size: 16px;
+    }
+  }

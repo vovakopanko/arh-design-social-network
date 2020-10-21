@@ -10,7 +10,6 @@ const ProfileDataForm = ({
   error,
   onMainPhotoSelected,
 }) => {
-  debugger;
   return (
     <form onSubmit={handleSubmit}>
       <div className={style.data__title }>Information:</div>

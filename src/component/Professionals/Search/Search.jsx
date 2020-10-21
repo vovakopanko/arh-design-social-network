@@ -19,7 +19,6 @@ export const SearchForm = ({handleSubmit}) => {
           component={InputField}
           name={"searchName"}
           placeholder={"Enter name professionals..."}
-          size="50"
         />
       </div>
       <div className={style.professionals__search_info}>Сервер принимает только латинские буквы и цифры</div>

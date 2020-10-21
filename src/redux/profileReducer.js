@@ -1,5 +1,8 @@
 import { subscribeAPI } from "../api/SubscribeAPI";
 import { userAPI, userStatus } from "../api/UsersAPI";
+import person1 from "./../assets/images/person1.png"
+import person2 from "./../assets/images/person2.png"
+import person3 from "./../assets/images/person3.png"
 
 const ADD_POST = "redux/profileReduser/ADD_POST";
 const SET_USER_PROFILE = "redux/profilReduser/SET_USER_PROFILE";
@@ -15,7 +18,7 @@ let initialState = {
   postData: [
     {
       id: 1,
-      photo: "person1.png",
+      photo: person1,
       name: "Николай",
       message: "Отличный специалист, помог с лагдшафтным дизайном",
       likesCount: 2,
@@ -23,14 +26,14 @@ let initialState = {
     },
     {
       id: 2,
-      photo: "person2.png",
+      photo: person2,
       name: "Ирина",
       message: "Наконец-то закончили наш дом, благодоря Вам, спасибо",
       likesCount: 3,
     },
     {
       id: 3,
-      photo: "person3.png",
+      photo: person3,
       name: "Василия",
       message: "Все по делу, с толком и расстановкой",
       likesCount: 10,
@@ -52,8 +55,8 @@ const profileReducer = (state = initialState, action) => {
           ...state.postData,
           {
             id: 4,
-            photo: "Vova.jpg",
-            name: "Vladzimir Kopanko",
+            photo: state.profile.photos.large,
+            name: state.profile.fullName,
             message: action.NewPostProfile,
             likesCount: 0,
           },

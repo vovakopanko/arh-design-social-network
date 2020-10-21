@@ -25,6 +25,11 @@
   padding: 10px;
 }
 
+.data__photo{
+  max-width:300px;
+  height: 300px;
+}
+
 .data__title{
   display: grid;
   text-align: center;
@@ -59,6 +64,10 @@
   padding: 10px;
 }
 
+.wall__photo img{
+  border-radius: 30px;
+}
+
 .general__subscribe,
 .general__button {
   color: white;
@@ -69,4 +78,85 @@
 .general__button:hover {
   transform: scale(1.1);
   color: rgb(147, 109, 76);
+}
+
+@media(max-width:768px){
+  
+  .profile__block {
+    padding: 0px;
+    display: grid;
+    grid-template: minmax(auto,auto) minmax(auto,auto) minmax(auto,auto)/ minmax(auto,600px) ;
+  }
+  
+  .block__data {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 0px;
+  }
+
+  .data__photo img{
+    width:100%;
+  }
+  
+  .data__title{
+    display: grid;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  
+  .block__form {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 0px;
+    text-align: left;
+    padding: 0px;
+    font-size: 11px;
+    padding-left:6px
+  }
+  
+  .form__block {
+    padding-left: 10px;
+    color: rgb(77, 77, 77);
+  }
+  
+  .block__wall {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  
+    padding-left: 0px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    padding-left: 6px;
+  }
+
+  .wall__input{
+    width: 290px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .general__subscribe,
+  .general__button {
+    color: white;
+    background-color: black;
+    margin: 10px 3px;
+  }
+  .general__subscribe:hover,
+  .general__button:hover {
+    transform: scale(1.1);
+    color: rgb(147, 109, 76);
+  }
+
+  .data__status{
+    max-width: 200px;
+  }
 }

@@ -65,12 +65,13 @@ a.header__items_activeLink {
 
   .header__menu a{
     display: block;
+    text-decoration: none;
     margin: 0px 0px 20px 0px;
-    font-size: 16px;
+    font-size: 21px;
   }
 
   .header__button_size {
-    font-size: 16px;
+    font-size: 21px;
   }
   
 }

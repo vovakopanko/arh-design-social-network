@@ -11,7 +11,7 @@ import { Provider, connect } from "react-redux";
 import store from "./redux/reduxStore";
 import "./App.css";
 
-import Header from "./component/Header/Header";
+// import Header from "./component/Header/Header";
 import ContentContainer from "./component/Content/ContentContainer";
 import Footer from "./component/Footer/Footer";
 
@@ -27,6 +27,7 @@ import Preloader from "./component/common/Preloader/Preloader";
 import FriendsContainer from "./component/Friends/FriendsContainer";
 import errorfour from "./assets/images/404error.png";
 import MetaTags from "react-meta-tags"
+import HeaderContainer from "./component/Header/HeaderContainer";
 
 const Login = React.lazy(() => import("./component/Login/Login"));
 const PartnersContainer = React.lazy(() =>
@@ -51,7 +52,7 @@ class App extends React.Component {
         <meta name="viewport" content="width=device-width"/>
         </MetaTags>
         <div className="header">
-          <Header />
+          <HeaderContainer />
         </div>
         <div className="content">
           <Switch>

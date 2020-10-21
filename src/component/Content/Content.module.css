@@ -28,22 +28,8 @@
     grid-template: 1fr / 1fr minmax(auto,768px) 1fr;
   }
   
-  .content__block{
-    grid-column: 2/3;
-  }
-  
   .content__title{
-    display: grid;
-    text-align: center;
-  
-    padding: 18px;
-    margin: 20px 0px;
+    padding: 5px;
     font-size: 12px;
-    font-weight: 800;
-  }
-  
-  .content__title_border{
-    border-top: 1px solid rgb(150, 150, 150,.2);
-    border-bottom: 1px solid rgb(150, 150, 150,.2);
   }
 }

@@ -7,3 +7,12 @@
 .data__status{
   padding: 10px;
 }
+
+@media(max-width:768px){
+  .data__status{
+    padding: 0px;
+    font-size: 12px;
+    font-weight: 200;
+  }
+  
+}

@@ -21,6 +21,7 @@ let Profile = ({
   followingInProgress,
   AddPost,
   startDialog,
+  postData,
   ...props
 }) => {
   const [EditMode, setFormDataProfile] = useState(false);
@@ -118,12 +119,10 @@ let Profile = ({
 
   const PhotoUser = ({ profile }) => {
     return (
-      <div>
+      <div className={style.data__photo}>
         <img
           src={profile.photos.large || userPhoto}
           alt="userPhoto"
-          height="300px"
-          width="300px"
         />
       </div>
     );
@@ -186,7 +185,7 @@ let Profile = ({
                 updateStatus={props.updateStatus}
               />
             </div>
-            <PhotoUser
+            <PhotoUser 
               profile={profile}
               onMainPhotoSelected={onMainPhotoSelected}
             />
@@ -222,9 +221,8 @@ let Profile = ({
             )}
           </div>
         </div>
-
         <div className={style.block__wall}>
-          <Wall AddPost={AddPost} postData={props.postData} isOwner={isOwner} />
+          <Wall AddPost={AddPost} postData={postData} isOwner={isOwner} />
         </div>
       </div>
     </div>

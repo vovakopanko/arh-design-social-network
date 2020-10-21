@@ -1,16 +1,35 @@
 .formControl.error input,
-.formControl.error textarea{
-  border: 1px solid red
+.formControl.error textarea {
+  border: 1px solid red;
 }
 
-.error span{
+.error span {
   color: red;
 }
 
-.formControls input{
+.formControls input {
   width: 600px;
   height: 30px;
   outline: none;
   border: none;
   border-bottom: solid 1px #000000;
+}
+
+@media (max-width: 768px) {
+  .formControl.error input,
+  .formControl.error textarea {
+    border: 1px solid red;
+  }
+
+  .error span {
+    color: red;
+  }
+
+  .formControls input {
+    max-width: 200px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #000000;
+  }
 }

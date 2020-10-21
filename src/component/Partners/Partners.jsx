@@ -4,6 +4,7 @@ import style from "./Partners.module.css";
 const Partners = ({ partnersLogo }) => {
   return (
     <div className={style.partners}>
+      <div className={style.block__title + " " + style.block__title_border}>Наши партнёры</div>
       <div className={style.partners__block}>
         <div className={style.block__titlePhoto}>
           <img

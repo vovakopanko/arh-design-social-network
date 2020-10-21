@@ -2,11 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Post from "./../Post";
 import style from "./../Profile.module.css";
-import {
-  maxLengthCreator,
-  required
-} from "../../../utils/validator/validators";
-import { Textarea } from "../../common/FormsControls/FormsControls";
+import { InputField} from "../../common/FormsControls/FormsControls";
 
 let Wall = (props) => {
   const onAddPost = (value) => {
@@ -23,7 +19,7 @@ let Wall = (props) => {
     />
   )).reverse();
   return (
-    <div >
+    <div className={style.wall__input}  >
       <div>СТЕНА :</div>
       <div>
       <PostDataForm onSubmit={onAddPost} />
@@ -33,20 +29,15 @@ let Wall = (props) => {
   );
 };
 
-const maxLength10 = maxLengthCreator(30);
-
 const addNewPostForm = (props) => {
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
         <div>
-          <Field
-            validate={[required, maxLength10]}
+          <Field 
             placeholder="Write your post..."
-            component={Textarea}
+            component={InputField}
             name={"NewPostProfile"}
-            rows="4"
-            cols="60"
           />
         </div>
         <div>
