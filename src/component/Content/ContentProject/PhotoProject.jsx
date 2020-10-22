@@ -7,7 +7,7 @@ const PhotoProject = ({url,alt,info}) => {
       src={url}
       alt={alt}
       info={info}
-    ></img>
+    />
   );
 };
 

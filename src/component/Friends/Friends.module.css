@@ -24,7 +24,7 @@
 
 .block_item {
   display: grid;
-  grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+  grid-template: 1fr / 1fr 1fr 1fr;
   text-align: center;
   justify-content: center;
 }
@@ -40,12 +40,13 @@
     text-align: center;
   }
 
-  .block__title {
+  .block__title{
     display: grid;
     text-align: center;
-    padding: 0px;
+    grid-column: 2/3;
+    padding: 5px;
     margin: 20px 0px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 800;
   }
 

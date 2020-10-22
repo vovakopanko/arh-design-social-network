@@ -1,14 +1,16 @@
 .login {
   display: grid;
-  grid-template: 1fr / 1fr minmax(auto, 1400px) 1fr;
+  grid-template: 1fr minmax(auto, 600px) 1fr  / 1fr minmax(auto, 1400px) 1fr;
 }
 
 .login__block {
   grid-column: 2/3;
+  grid-row: 2/3;
   text-align: center;
+  vertical-align: baseline;
 }
 
-.block__title{
+.block__title {
   display: grid;
   text-align: center;
 
@@ -17,8 +19,41 @@
   font-weight: 800;
 }
 
-.block__title_border{
-  border-top: 1px solid rgb(150, 150, 150,.2);
-  border-bottom: 1px solid rgb(150, 150, 150,.2);
+.block__title_border {
+  border-top: 1px solid rgb(150, 150, 150, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
 }
 
+.freeLogin{
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .titleForm {
+    width: 100%;
+  }
+
+  .login {
+    display: grid;
+    grid-template: 1fr minmax(480px, auto) 1fr / 1fr minmax(auto, 760px) 1fr;
+  }
+
+  .login__block {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    text-align: center;
+  }
+
+  .block__title {
+    display: grid;
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 800;
+  }
+
+  .block__title_border {
+    border-top: 1px solid rgb(150, 150, 150, 0.2);
+    border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+  }
+}

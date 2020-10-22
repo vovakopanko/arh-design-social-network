@@ -8,6 +8,12 @@
 }
 
 .formControls input {
+  width: 500px;
+  height: 40px;
+  border-bottom: solid 1px #000000;
+}
+
+.formControlsWall input {
   width: 600px;
   height: 30px;
   outline: none;
@@ -30,6 +36,12 @@
     height: 30px;
     outline: none;
     border: none;
+    border-bottom: solid 1px #000000;
+  }
+
+  .formControlsWall input {
+    max-width: 50px;
+    height: 30px;
     border-bottom: solid 1px #000000;
   }
 }

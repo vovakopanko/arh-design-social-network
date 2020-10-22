@@ -34,8 +34,13 @@
 
 @media(max-width:768px){
   .block__title {
-    font-size: 12px;
+    display: grid;
+    text-align: center;
     grid-column: 1/2;
+    padding: 5px;
+    margin: 20px 0px;
+    font-size: 14px;
+    font-weight: 800;
   }
 
   .partners {
@@ -53,7 +58,7 @@
   }
   
   .block__photos img {
-    width: 100%;
+    width: 50%;
     padding: 10px;
   }
 }

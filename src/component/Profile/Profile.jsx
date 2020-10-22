@@ -181,6 +181,7 @@ let Profile = ({
           <div>
             <div>
               <StatusProfileHOOC
+                userId={props.userId}
                 status={props.status}
                 updateStatus={props.updateStatus}
               />

@@ -26,8 +26,12 @@
 }
 
 .data__photo{
-  max-width:300px;
-  height: 300px;
+  text-align: center;
+}
+
+.data__photo img{
+  width:300px;
+  height: 100%;
 }
 
 .data__title{
@@ -80,16 +84,19 @@
   color: rgb(147, 109, 76);
 }
 
+
+
 @media(max-width:768px){
   
   .profile__block {
     padding: 0px;
+    margin:5px;
     display: grid;
-    grid-template: minmax(auto,auto) minmax(auto,auto) minmax(auto,auto)/ minmax(auto,600px) ;
+    grid-template: minmax(auto,400px) minmax(auto,auto) minmax(100px,auto) / 1fr minmax(auto,600px) 1fr ;
   }
   
   .block__data {
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 1/2;
   
     background-color: rgb(255, 255, 255);
@@ -98,7 +105,8 @@
   }
 
   .data__photo img{
-    width:100%;
+    width:300px;
+    height: 300px;
   }
   
   .data__title{
@@ -109,13 +117,13 @@
   }
   
   .block__form {
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 2/3;
   
     padding-left: 10px;
     background-color: rgb(255, 255, 255);
     margin-left: 0px;
-    text-align: left;
+    text-align: center;
     padding: 0px;
     font-size: 11px;
     padding-left:6px
@@ -127,9 +135,9 @@
   }
   
   .block__wall {
-    grid-column: 1/2;
+    text-align: center;
+    grid-column: 2/3;
     grid-row: 3/4;
-  
     padding-left: 0px;
     background-color: rgb(255, 255, 255);
     margin-left: 0px;
@@ -139,8 +147,6 @@
   }
 
   .wall__input{
-    width: 290px;
-    height: 30px;
     font-size: 12px;
   }
 

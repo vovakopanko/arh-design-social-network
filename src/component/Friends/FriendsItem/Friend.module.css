@@ -1,28 +1,21 @@
-
-@media (max-width: 760px) {
-    .block__item {
-        width: 90%
-    }
-}
-
 .block__item a {
-    width: 100%;
-    color: #000000;
-    text-decoration: none;
-    font-size: 20px;
+  width: 100%;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .root a.activeLink {
-    color: #dc004e;
+  color: #dc004e;
 }
 
-.block__item{
-    margin: 10px;
+.block__item {
+  margin: 10px;
 }
 
 .block__item img {
-    max-width: 150px;
-    border-radius: 50px;
+  width: 200px;
+  border-radius: 50%;
 }
 
 .item__unsubscribe,
@@ -30,10 +23,34 @@
   margin: 0px 3px;
   color: white;
   background-color: black;
+  border-radius: 8px;
 }
 
 .item__unsubscribe:hover,
 .item__buttonMessage:hover {
   transform: scale(1.1);
-  color: rgb(175, 128, 86);
+}
+
+@media (max-width: 760px) {
+  .block__item {
+    width: 90%;
+
+  }
+  .block__item img {
+    max-width: 120px;
+    border-radius: 50%;
+  }
+  .titleForm{
+      width: 100%;
+  }
+
+  .enterLog{
+      margin-bottom: 20px;
+  }
+
+  .item__buttonMessage,
+  .item__unsubscribe{
+      font-size: 12px;
+      margin: 0px 2px;
+  }
 }

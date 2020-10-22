@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Post from "./../Post";
 import style from "./../Profile.module.css";
-import { InputField} from "../../common/FormsControls/FormsControls";
+import { InputWall} from "../../common/FormsControls/FormsControls";
 
 let Wall = (props) => {
   const onAddPost = (value) => {
@@ -36,8 +36,9 @@ const addNewPostForm = (props) => {
         <div>
           <Field 
             placeholder="Write your post..."
-            component={InputField}
+            component={InputWall}
             name={"NewPostProfile"}
+            // size="50"
           />
         </div>
         <div>

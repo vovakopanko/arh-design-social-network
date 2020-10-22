@@ -16,7 +16,7 @@ let ContentContact = () => {
         </div>
         <div >
           <NavLink to="/contact">
-            <span className={style.content__button}>Написать</span>
+            <button className={style.content__button} >Написать</button>
           </NavLink>
         </div>
       </div>

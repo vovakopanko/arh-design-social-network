@@ -27,8 +27,7 @@ const StatusProfileHOOC = (props) => {
     <div className={style.data__status}>
       {!EditMode ? (
         <div>
-          <span className={style.hoverStatus} onDoubleClick={activatedChangeText}>
-          {props.status || "---------"}
+          <span className={style.hoverStatus} onDoubleClick={activatedChangeText}> {props.status || "---------"}
           </span>
         </div>
       ) : (

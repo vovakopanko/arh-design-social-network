@@ -48,11 +48,11 @@
   margin: 0px 3px;
   color: white;
   background-color: black;
+  border-radius: 8px;
 }
 
 .block__buttonRequest:hover {
   transform: scale(1.1);
-  color: rgb(175, 128, 86);
 }
 
 .form__textArea {
@@ -64,60 +64,61 @@
     display: grid;
     grid-template: 1fr / 1fr minmax(auto, 700px) 1fr;
   }
-  
+
   .contact__block {
     grid-column: 2/3;
     text-align: center;
   }
-  
+
   .block__title {
     display: grid;
     text-align: center;
-    padding: 18px;
+    grid-column: 2/3;
+    padding: 5px;
     margin: 20px 0px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 800;
   }
-  
+
   .block__title_border {
     border-top: 1px solid rgb(150, 150, 150, 0.2);
     border-bottom: 1px solid rgb(150, 150, 150, 0.2);
   }
-  
+
   .block__location img {
     width: 300px;
   }
-  
+
   .block__interaction {
     font-size: 12px;
   }
-  
+
   .block__subtitle {
     padding: 20px 0px;
     font-size: 12px;
     font-weight: 500;
     font-family: "Arial", sans-serif;
   }
-  
+
   .block__form input {
     outline: none;
     border: none;
     border-bottom: solid 1px #000000;
     font-size: 11px;
   }
-  
+
   .block__buttonRequest {
     margin: 0px 3px;
     color: white;
     background-color: black;
     font-size: 12px;
   }
-  
+
   .block__buttonRequest:hover {
     transform: scale(1.1);
     color: rgb(175, 128, 86);
   }
-  
+
   .form__textArea {
     padding: 10px;
   }

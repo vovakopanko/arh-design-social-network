@@ -32,6 +32,20 @@ export const InputField = ({input,meta:{error, touched}, ...props}) => {
 export const InputMessage= ({input,meta:{error, touched}, ...props}) => {
   let showError = error && touched 
 return (
+  <div className={style.formControlsWall + " " + (showError ? style.error: " ")} >
+      <div>
+      <input {...input} {...props}/>
+      </div>
+    <div>
+        { showError && <span>{error}</span>}
+    </div>
+  </div>
+);
+};
+
+export const InputWall= ({input,meta:{error, touched}, ...props}) => {
+  let showError = error && touched 
+return (
   <div className={style.formControls + " " + (showError ? style.error: " ")} >
       <div>
       <input {...input} {...props}/>

@@ -57,7 +57,7 @@ const Message = ({
         {userName ? (
           <span>
             <div>
-              Dialog with{" "}
+              Dialog with
               <span className={style.block__title_color}>{userName}</span>:
             </div>
           </span>
