@@ -23,14 +23,14 @@ export const Friends = ({
   return (
     <div className={style.friends}>
       <div className={style.friends__block}>
-      <div className={style.block__title + " " + style.block__title_border}>Friends:</div>
-        <div className={style.block__items}>
-          {loadingFriends ? (
-            <Preloader />
-          ) : (
-            <div className={style.block_item}>{friendsElement}</div>
-          )}
+        <div className={style.block__title + " " + style.block__title_border}>
+          Friends:
         </div>
+        {loadingFriends ? (
+          <Preloader />
+        ) : (
+          <div className={style.block_item}>{friendsElement}</div>
+        )}
       </div>
     </div>
   );

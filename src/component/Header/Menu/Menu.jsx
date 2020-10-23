@@ -105,8 +105,9 @@ let Menu = ({ logout, photos, isAuth, login }) => {
         <NavLink to="/login" activeClassName={style.header__items_activeLink}>
           {isAuth ? (
             <span>
-              <span className={style.header__login + " " + style.header__items}>
-              </span>
+              <span
+                className={style.header__login + " " + style.header__items}
+              ></span>
               <span
                 className={
                   style.header__button_color +
@@ -121,16 +122,16 @@ let Menu = ({ logout, photos, isAuth, login }) => {
               </span>
             </span>
           ) : (
-              <span
-                className={
-                  style.header__button_size +
-                  " " +
-                  style.header__button_hover +
-                  " " +
-                  style.header__items
-                }
-              >
-                Login
+            <span
+              className={
+                style.header__button_size +
+                " " +
+                style.header__button_hover +
+                " " +
+                style.header__items
+              }
+            >
+              Login
             </span>
           )}
         </NavLink>

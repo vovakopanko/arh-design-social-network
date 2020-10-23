@@ -24,4 +24,4 @@ export const getisAuth = (state) => {
 };
 export const getIsFetching = (state) => {
   return state.profilePage.isFeching;
-}
+};

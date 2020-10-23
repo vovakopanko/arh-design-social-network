@@ -1,6 +1,5 @@
 import { dialogsAPI } from "../api/DialogsAPI";
 
-
 const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
 const GET_MESSAGE_USER = "redux/messageReducer/GET_MESSAGE_USER";
 const GET_TAP = "redux/messageReducer/GET_TAP";
@@ -8,7 +7,8 @@ const GET_CURRENT_USER = "redux/messageReducer/GET_CURRENT_USER";
 const SET_UNREAD_MESSAGE = "redux/professionalsReducer/SET_UNREAD_MESSAGE";
 const GET_NAME_OPPOSITE = "redux/professionalsReducer/GET_NAME_OPPOSITE";
 const TOGGLE_IS_FETCHING = "redux/professionalsReducer/TOGGLE_IS_FETCHING";
-const TOGGLE_IS_FETCHING_FOR_DIALOG = "redux/professionalsReducer/TOGGLE_IS_FETCHING_FOR_DIALOG";
+const TOGGLE_IS_FETCHING_FOR_DIALOG =
+  "redux/professionalsReducer/TOGGLE_IS_FETCHING_FOR_DIALOG";
 
 let initialState = {
   message: [],
@@ -58,12 +58,11 @@ const messageReducer = (state = initialState, action) => {
         ...state,
         userName: action.userName,
       };
-      case TOGGLE_IS_FETCHING_FOR_DIALOG:
-        return {
-          ...state,
-          isFechingForDialogs: action.isFechingForDialogs
-
-        }
+    case TOGGLE_IS_FETCHING_FOR_DIALOG:
+      return {
+        ...state,
+        isFechingForDialogs: action.isFechingForDialogs,
+      };
     default:
       return state;
   }

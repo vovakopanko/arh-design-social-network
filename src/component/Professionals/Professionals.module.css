@@ -24,10 +24,9 @@
 
 .professionals__professional {
   display: grid;
-  grid-template: 1fr / minmax(auto, 280px) minmax(auto, 280px) minmax(
-      auto,
-      280px
-    ) minmax(auto, 280px) minmax(auto, 280px);
+  grid-template:
+    1fr / minmax(auto, 280px) minmax(auto, 280px) minmax(auto, 280px)
+    minmax(auto, 280px) minmax(auto, 280px);
 }
 
 .professional {

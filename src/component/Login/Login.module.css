@@ -1,13 +1,14 @@
 .login {
   display: grid;
-  grid-template: 1fr minmax(auto, 600px) 1fr  / 1fr minmax(auto, 1400px) 1fr;
+  grid-template: 1fr / minmax(100px, auto) minmax(auto, 1400px) minmax(
+      100px,
+      auto
+    );
 }
 
 .login__block {
   grid-column: 2/3;
-  grid-row: 2/3;
   text-align: center;
-  vertical-align: baseline;
 }
 
 .block__title {
@@ -24,7 +25,7 @@
   border-bottom: 1px solid rgb(150, 150, 150, 0.2);
 }
 
-.freeLogin{
+.freeLogin {
   margin-top: 20px;
 }
 
@@ -35,12 +36,14 @@
 
   .login {
     display: grid;
-    grid-template: 1fr minmax(480px, auto) 1fr / 1fr minmax(auto, 760px) 1fr;
+    grid-template: 1fr / minmax(50px, auto) minmax(auto, 760px) minmax(
+        50px,
+        auto
+      );
   }
 
   .login__block {
     grid-column: 2/3;
-    grid-row: 2/3;
     text-align: center;
   }
 

@@ -36,14 +36,26 @@ let Content = ({
         </div>
         <div>
           <div>
-            <span className={style.content__title + " " + style.content__title_border}>НАШИ УСЛУГИ</span>
+            <span
+              className={
+                style.content__title + " " + style.content__title_border
+              }
+            >
+              НАШИ УСЛУГИ
+            </span>
           </div>
           <ContentService />
         </div>
-         
+
         <div>
           <div>
-            <span className={style.content__title + " " + style.content__title_border}>СВЯЗАТЬСЯ С НАМИ</span>
+            <span
+              className={
+                style.content__title + " " + style.content__title_border
+              }
+            >
+              СВЯЗАТЬСЯ С НАМИ
+            </span>
           </div>
           <ContentContact />
         </div>

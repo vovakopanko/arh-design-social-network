@@ -10,8 +10,6 @@ class ProjectUnitContainer extends React.Component {
     if (!unitId) {
       unitId = null;
     }
-    //Get current Id , render other project
-    //getProjectInformation(unitId) - получить response с изображениями и информацией
   }
 
   render() {
@@ -24,7 +22,7 @@ class ProjectUnitContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  projectUnitData: state.projectPage.projectUnitData
+  projectUnitData: state.projectPage.projectUnitData,
 });
 
 export default compose(

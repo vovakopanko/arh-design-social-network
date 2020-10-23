@@ -6,12 +6,14 @@ class ContactContainer extends React.Component {
   sendRequest = () => {
     alert("Your request send, thenk's");
   };
-  
+
   render() {
     return (
       <div>
-        <Contact officeLocation={this.props.officeLocation}
-        sendRequest={this.sendRequest} />
+        <Contact
+          officeLocation={this.props.officeLocation}
+          sendRequest={this.sendRequest}
+        />
       </div>
     );
   }

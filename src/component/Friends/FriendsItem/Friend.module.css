@@ -21,6 +21,7 @@
 .item__unsubscribe,
 .item__buttonMessage {
   margin: 0px 3px;
+  padding: 5px;
   color: white;
   background-color: black;
   border-radius: 8px;
@@ -34,23 +35,22 @@
 @media (max-width: 760px) {
   .block__item {
     width: 90%;
-
   }
   .block__item img {
     max-width: 120px;
     border-radius: 50%;
   }
-  .titleForm{
-      width: 100%;
+  .titleForm {
+    width: 100%;
   }
 
-  .enterLog{
-      margin-bottom: 20px;
+  .enterLog {
+    margin-bottom: 20px;
   }
 
   .item__buttonMessage,
-  .item__unsubscribe{
-      font-size: 12px;
-      margin: 0px 2px;
+  .item__unsubscribe {
+    font-size: 12px;
+    margin: 0px 2px;
   }
 }

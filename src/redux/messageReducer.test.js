@@ -125,7 +125,8 @@ it("Get all message with your friends", () => {
       senderName: "testdevplayer",
       recipientId: 9629,
       viewed: true,
-    }]);
+    },
+  ]);
   let state = {
     messageData: [
       {
@@ -176,7 +177,6 @@ it("Get all message with your friends", () => {
   expect(NewState.messageData.length).toBe(1);
   expect(NewState.messageData[0].body).toBe("Привет");
 });
-
 
 //3 test
 

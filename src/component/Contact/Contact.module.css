@@ -112,11 +112,11 @@
     color: white;
     background-color: black;
     font-size: 12px;
+    margin-bottom: 10px;
   }
 
   .block__buttonRequest:hover {
     transform: scale(1.1);
-    color: rgb(175, 128, 86);
   }
 
   .form__textArea {

@@ -10,7 +10,12 @@ const ProjectUnit = ({ projectUnitData }) => {
           PROJECT»
         </div>
         {projectUnitData.map((p) => (
-          <img className={style.item__photo_shadow} key={p.id} src={p.src} alt={p.alt} />
+          <img
+            className={style.item__photo_shadow}
+            key={p.id}
+            src={p.src}
+            alt={p.alt}
+          />
         ))}
         <div className={style.item__description}>
           Этот проект – прекрасная демонстрация лаконичного современного стиля.

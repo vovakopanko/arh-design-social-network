@@ -7,7 +7,6 @@ const {
 } = require("./authReducer");
 import photos from "./../assets/images/Egor.jpg";
 
-
 //1 test
 
 it("Get photos User in your profile", () => {

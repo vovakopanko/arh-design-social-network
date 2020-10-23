@@ -7,11 +7,21 @@ let ContentInfo = () => {
   return (
     <div className={style.block}>
       <div>
-        <div className={style.block__title + " " + style.block__title_big + " " + style.block__title_font}>
+        <div
+          className={
+            style.block__title +
+            " " +
+            style.block__title_big +
+            " " +
+            style.block__title_font
+          }
+        >
           ARCHITECTURE & DESIGN
         </div>
         <div>
-          <span className={style.block__title + " " + style.block__title_border}>
+          <span
+            className={style.block__title + " " + style.block__title_border}
+          >
             СТУДИЯ ДИЗАЙНА И ИНТЕРЬЕРА
           </span>
         </div>

@@ -97,7 +97,7 @@ export const login = (email, password, rememberMe = false, captcha) => {
       if (Response.data.resultCode === 10) {
         dispatch(getCaptchaUrl());
       }
-      // message with error if you send misstake request loginization 
+      // message with error if you send misstake request loginization
       let messages =
         Response.data.messages.length > 0
           ? Response.data.messages[0]

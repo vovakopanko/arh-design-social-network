@@ -12,7 +12,7 @@ const ProfileDataForm = ({
 }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className={style.data__title }>Information:</div>
+      <div className={style.data__title}>Information:</div>
       <p>
         <span>ID: </span> {!profile.userId ? "---" : profile.userId}
       </p>
@@ -25,37 +25,36 @@ const ProfileDataForm = ({
       </p>
       <p>
         <label>
-        <span>About Me: </span>{" "}
-        {CreateField("text", InputField, [], "aboutMe", "about Me")}
+          <span>About Me: </span>{" "}
+          {CreateField("text", InputField, [], "aboutMe", "about Me")}
         </label>
       </p>
       <p>
-      <label>
-        <span>Full Name: </span>{" "}
-        {CreateField("text", InputField, [], "fullName", "Full name")}
+        <label>
+          <span>Full Name: </span>{" "}
+          {CreateField("text", InputField, [], "fullName", "Full name")}
         </label>
       </p>
       <p>
-      <label>
-        <span>My professional skills: </span>{" "}
-        {CreateField(
-          "text",
-          InputField,
-          [],
-          "lookingForAJobDescription",
-          "Your Skills"
-        )}
+        <label>
+          <span>My professional skills: </span>{" "}
+          {CreateField(
+            "text",
+            InputField,
+            [],
+            "lookingForAJobDescription",
+            "Your Skills"
+          )}
         </label>
       </p>
-      
       <b>Contacts</b>:{" "}
       <div className={style.contactblock}>
         {Object.keys(profile.contacts).map((social) => {
           return (
             <span key={social.id}>
               <label>
-              {social}:
-              {CreateField({}, InputField, [], "contacts." + social, social)}
+                {social}:
+                {CreateField({}, InputField, [], "contacts." + social, social)}
               </label>
             </span>
           );

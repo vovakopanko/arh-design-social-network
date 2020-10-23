@@ -1,8 +1,8 @@
 import { subscribeAPI } from "../api/SubscribeAPI";
 import { userAPI, userStatus } from "../api/UsersAPI";
-import person1 from "./../assets/images/person1.png"
-import person2 from "./../assets/images/person2.png"
-import person3 from "./../assets/images/person3.png"
+import person1 from "./../assets/images/person1.png";
+import person2 from "./../assets/images/person2.png";
+import person3 from "./../assets/images/person3.png";
 
 const ADD_POST = "redux/profileReduser/ADD_POST";
 const SET_USER_PROFILE = "redux/profilReduser/SET_USER_PROFILE";
@@ -147,7 +147,6 @@ export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
-
 
 export const successFollow = (userId) => ({ type: FOLLOW_USER, userId });
 export const successUnfollow = (userId) => ({ type: UNFOLLOW_USER, userId });

@@ -51,52 +51,52 @@ let initialState = {
   ],
   projectUnitData: [
     {
-      id:1,
+      id: 1,
       src: "http://media.4living.ru/4l-articles/0/603x328/8/39624.png",
       alt: "pic1",
     },
     {
-      id:2,
+      id: 2,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/1.jpeg",
       alt: "pic3",
     },
     {
-      id:3,
+      id: 3,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/2.jpeg",
       alt: "pic4",
     },
     {
-      id:4,
+      id: 4,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/3.jpeg",
       alt: "pic5",
     },
     {
-      id:5,
+      id: 5,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/plan.jpeg",
       alt: "pic2",
     },
     {
-      id:6,
+      id: 6,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/4.jpeg",
       alt: "pic6",
     },
     {
-      id:7,
+      id: 7,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/5.jpeg",
       alt: "pic7",
     },
     {
-      id:8,
+      id: 8,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/8.jpeg",
       alt: "pic8",
     },
     {
-      id:9,
+      id: 9,
       src: "http://media.4living.ru/4limgs/themes/3d/snou-project/2/7.jpeg",
       alt: "pic9",
     },
     {
-      id:10,
+      id: 10,
       src: "http://media.4living.ru/4l-articles/0/603x0/16/77773.jpg",
       alt: "",
     },

@@ -7,7 +7,7 @@ import {
   unfollow,
   setPortionNumber,
   searchName,
-  setSearchNameSuccess
+  setSearchNameSuccess,
 } from "../../redux/professionalsReducer";
 import { startDialog } from "./../../redux/messageReducer";
 import Professionals from "./Professionals";
@@ -20,12 +20,11 @@ class ProfessionalsContainer extends React.Component {
 
   onPageChanged = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
-  }
+  };
 
   componentWillUnmount() {
-    this.props.setSearchNameSuccess('')
-
-}
+    this.props.setSearchNameSuccess("");
+  }
 
   render() {
     return (
@@ -76,5 +75,5 @@ export default connect(mapStateToProps, {
   startDialog,
   setPortionNumber,
   searchName,
-  setSearchNameSuccess
+  setSearchNameSuccess,
 })(ProfessionalsContainer);

@@ -99,7 +99,7 @@ let Profile = ({
 
   const Contact = ({ contactTitle, contactValue }) => {
     return (
-      <div >
+      <div>
         {contactValue ? (
           <div>
             <span>{contactTitle}:</span>
@@ -120,10 +120,7 @@ let Profile = ({
   const PhotoUser = ({ profile }) => {
     return (
       <div className={style.data__photo}>
-        <img
-          src={profile.photos.large || userPhoto}
-          alt="userPhoto"
-        />
+        <img src={profile.photos.large || userPhoto} alt="userPhoto" />
       </div>
     );
   };
@@ -181,12 +178,12 @@ let Profile = ({
           <div>
             <div>
               <StatusProfileHOOC
-                userId={props.userId}
+                isOwner={props.isOwner}
                 status={props.status}
                 updateStatus={props.updateStatus}
               />
             </div>
-            <PhotoUser 
+            <PhotoUser
               profile={profile}
               onMainPhotoSelected={onMainPhotoSelected}
             />

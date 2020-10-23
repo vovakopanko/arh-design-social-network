@@ -16,7 +16,10 @@ const Professional = ({
     <div className={style.professional}>
       <span>
         <div>
-          <NavLink className={style.professional__photos} to={"/profile/" + user.id}>
+          <NavLink
+            className={style.professional__photos}
+            to={"/profile/" + user.id}
+          >
             <img
               src={user.photos.large != null ? user.photos.large : userPhoto}
               alt="professionalPhotos"
@@ -29,7 +32,8 @@ const Professional = ({
         <div>ID : {user.id}</div>
         <div>
           {user.followed ? (
-            <button className={style.professional__subscribe}
+            <button
+              className={style.professional__subscribe}
               disabled={
                 followingInProgress.some((id) => id === user.id) || isAuth
               }
@@ -40,7 +44,8 @@ const Professional = ({
               UnFollow
             </button>
           ) : (
-            <button className={style.professional__subscribe}
+            <button
+              className={style.professional__subscribe}
               disabled={
                 followingInProgress.some((id) => id === user.id) || isAuth
               }
@@ -57,7 +62,9 @@ const Professional = ({
               startDialog(user.id, true, user.name);
             }}
           >
-            <button className={style.professional__buttonMessage}>Написать</button>
+            <button className={style.professional__buttonMessage}>
+              Написать
+            </button>
           </NavLink>
         </div>
       </span>

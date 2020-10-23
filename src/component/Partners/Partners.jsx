@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Partners.module.css";
+import partners from "./../../assets/images/partners.jpg"
 
 const Partners = ({ partnersLogo }) => {
   return (
@@ -8,7 +9,7 @@ const Partners = ({ partnersLogo }) => {
       <div className={style.partners__block}>
         <div className={style.block__titlePhoto}>
           <img
-            src="https://bose-loewe.com/wp-content/uploads/2016/05/projects_1920.jpg"
+            src={partners}
             alt="photoTitle"
           />
         </div>

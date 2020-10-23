@@ -64,11 +64,11 @@ let initialState = {
       info: "Проект 2020 год",
     },
   ],
-  portionNumber : 3,
-  portionSize : 3, 
+  portionNumber: 3,
+  portionSize: 3,
   buttonLeft: "https://image.flaticon.com/icons/png/512/64/64044.png",
-  buttonRight: "https://s1.iconbird.com/ico/2014/1/598/w512h5121390846454rightcircular512.png",
-  
+  buttonRight:
+    "https://s1.iconbird.com/ico/2014/1/598/w512h5121390846454rightcircular512.png",
 };
 
 const contentReducer = (state = initialState, action) => {

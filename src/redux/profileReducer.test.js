@@ -30,8 +30,6 @@ it("add new post", () => {
   };
   let newState = profileReducer(state, action);
 
-
-
   // expectation
   expect(newState.postData.length).toBe(4);
 });

@@ -26,7 +26,7 @@ import ProfileContainer from "./component/Profile/ProfileContainer";
 import Preloader from "./component/common/Preloader/Preloader";
 import FriendsContainer from "./component/Friends/FriendsContainer";
 import errorfour from "./assets/images/404error.png";
-import MetaTags from "react-meta-tags"
+import MetaTags from "react-meta-tags";
 import HeaderContainer from "./component/Header/HeaderContainer";
 
 const Login = React.lazy(() => import("./component/Login/Login"));
@@ -48,8 +48,8 @@ class App extends React.Component {
 
     return (
       <div className="wrapper">
-        <MetaTags> 
-        <meta name="viewport" content="width=device-width"/>
+        <MetaTags>
+          <meta name="viewport" content="width=device-width" />
         </MetaTags>
         <div className="header">
           <HeaderContainer />

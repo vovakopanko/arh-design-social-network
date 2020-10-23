@@ -1,17 +1,17 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { InputField } from "../../common/FormsControls/FormsControls";
-import style from "./Search.module.css"
+import style from "./Search.module.css";
 
-const Search = ({searchName}) => {
+const Search = ({ searchName }) => {
   const onSubmit = (formData) => {
-    searchName(formData.searchName)
-}
+    searchName(formData.searchName);
+  };
 
   return <SearchReduxForm onSubmit={onSubmit} />;
 };
 
-export const SearchForm = ({handleSubmit}) => {
+export const SearchForm = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={style.professionals__search}>
@@ -21,7 +21,9 @@ export const SearchForm = ({handleSubmit}) => {
           placeholder={"Enter name professionals..."}
         />
       </div>
-      <div className={style.professionals__search_info}>Сервер принимает только латинские буквы и цифры</div>
+      <div className={style.professionals__search_info}>
+        Сервер принимает только латинские буквы и цифры
+      </div>
       <div>
         <button className={style.professionals__button}>Search</button>
       </div>

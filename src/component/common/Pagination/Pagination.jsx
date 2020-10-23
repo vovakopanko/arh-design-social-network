@@ -22,7 +22,11 @@ const Pagination = ({
 
   return (
     <div className={style.professionals__pagination}>
-      <span className={style.pagination__button + " " + style.pagination__button_left}>
+      <span
+        className={
+          style.pagination__button + " " + style.pagination__button_left
+        }
+      >
         {portionNumber > 1 && (
           <span
             onClick={() => {
@@ -48,7 +52,11 @@ const Pagination = ({
         );
       })}
 
-<span className={style.pagination__button + " " + style.pagination__button_right}>
+      <span
+        className={
+          style.pagination__button + " " + style.pagination__button_right
+        }
+      >
         {portionCount > portionNumber && (
           <span
             onClick={() => {

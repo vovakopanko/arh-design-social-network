@@ -134,11 +134,15 @@ export const setSearchNameSuccess = (searchName) => ({
 
 //Get portion professionals by currentPage and PageSize variables
 export const getUsers = (newPage) => {
-  return async (dispatch,getState) => {
+  return async (dispatch, getState) => {
     dispatch(setCurrentPage(newPage));
-    const {currentPage, pageSize, searchName} = getState().professionalsPage
+    const { currentPage, pageSize, searchName } = getState().professionalsPage;
     dispatch(toggleIsFetching(true));
-    let data = await userAPI.getUsers(currentPage || newPage, pageSize, searchName);
+    let data = await userAPI.getUsers(
+      currentPage || newPage,
+      pageSize,
+      searchName
+    );
     dispatch(toggleIsFetching(false));
     dispatch(setTotalUsersCount(data.totalCount));
     dispatch(setProfessionals(data.items));
@@ -162,32 +166,31 @@ export const followUnffolwThunk = async (
 
 // Subscribe from user
 export const follow = (userId) => async (dispatch) => {
-    followUnffolwThunk(
-      dispatch,
-      userId,
-      subscribeAPI.deleteSubscribe.bind(subscribeAPI),
-      successUnfollow
-    );
+  followUnffolwThunk(
+    dispatch,
+    userId,
+    subscribeAPI.deleteSubscribe.bind(subscribeAPI),
+    successUnfollow
+  );
 };
 
 // Unsubscribe from user
-export const unfollow = (userId) => 
-  async (dispatch) => {
-    followUnffolwThunk(
-      dispatch,
-      userId,
-      subscribeAPI.postSubscribe.bind(subscribeAPI),
-      successFollow
-    );
+export const unfollow = (userId) => async (dispatch) => {
+  followUnffolwThunk(
+    dispatch,
+    userId,
+    subscribeAPI.postSubscribe.bind(subscribeAPI),
+    successFollow
+  );
 };
 
 // Search users
-export const searchName = (searchName) => async (dispatch,getState) => {
-  dispatch(setSearchNameSuccess(searchName))
-  dispatch(setCurrentPage(1))
-  dispatch(setPortionNumber(1))
-  const {currentPage} = getState().professionalsPage
-  dispatch(getUsers(currentPage))
-}
+export const searchName = (searchName) => async (dispatch, getState) => {
+  dispatch(setSearchNameSuccess(searchName));
+  dispatch(setCurrentPage(1));
+  dispatch(setPortionNumber(1));
+  const { currentPage } = getState().professionalsPage;
+  dispatch(getUsers(currentPage));
+};
 
 export default professionalsReducer;

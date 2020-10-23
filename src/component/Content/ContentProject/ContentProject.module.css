@@ -59,9 +59,6 @@
   transform: scale(1.1);
 }
 
-
-
-
 @media (max-width: 768px) {
   .block__item_scale {
     margin: 5px;
@@ -74,14 +71,12 @@
 
   .block__button_left img {
     position: absolute;
-    /* top: 30%; */
     width: 30px;
     height: 30px;
   }
-  
+
   .block__button_right img {
     position: absolute;
-    /* top: 30%; */
     width: 30px;
     height: 30px;
   }
@@ -89,10 +84,8 @@
   .block__button_left {
     grid-column: 1/2;
     text-align: center;
-    margin-right: 30px; 
-    /* Изменить отступ */
+    margin-right: 30px;
     position: relative;
-    
   }
 
   .block__items {

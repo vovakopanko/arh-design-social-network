@@ -1,16 +1,16 @@
-.block__preloader{
-    position: absolute;
-    top: 45%;
-    left: 45%
+.block__preloader {
+  position: absolute;
+  top: 45%;
+  left: 45%;
 }
 
-@media(max-width:768px){
-    .block__preloader{
-        position: absolute;
-        top: 45%;
-        left: 40%
-    }
-    .block__preloader{
-        width: 60%;
-    }
+@media (max-width: 768px) {
+  .block__preloader {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+  }
+  .block__preloader {
+    width: 60%;
+  }
 }

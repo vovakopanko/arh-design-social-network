@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import style from "./Status.module.css"
+import style from "./Status.module.css";
 
 const StatusProfileHOOC = (props) => {
   let [EditMode, setEditMode] = useState(false);
@@ -27,7 +27,12 @@ const StatusProfileHOOC = (props) => {
     <div className={style.data__status}>
       {!EditMode ? (
         <div>
-          <span className={style.hoverStatus} onDoubleClick={activatedChangeText}> {props.status || "---------"}
+          <span
+            className={style.hoverStatus}
+            onDoubleClick={activatedChangeText}
+          >
+            {" "}
+            {props.status || "---------"}
           </span>
         </div>
       ) : (

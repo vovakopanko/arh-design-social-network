@@ -1,58 +1,52 @@
 import React from "react";
-import style from "./FormsControls.module.css"
+import style from "./FormsControls.module.css";
 
-export const Textarea = ({input,meta:{error,touched}, ...props}) => {
-    let showError = error && touched 
+export const Textarea = ({ input, meta: { error, touched }, ...props }) => {
+  let showError = error && touched;
   return (
-    <div className={style.formControl + " " + (showError ? style.error: " ")} >
-        <div>
+    <div className={style.formControl + " " + (showError ? style.error : " ")}>
+      <div>
         <textarea {...input} {...props} />
-        </div>
-      <div>
-          { showError && <span>{error}</span>}
       </div>
+      <div>{showError && <span>{error}</span>}</div>
     </div>
   );
 };
 
-export const InputField = ({input,meta:{error, touched}, ...props}) => {
-    let showError = error && touched 
+export const InputField = ({ input, meta: { error, touched }, ...props }) => {
+  let showError = error && touched;
   return (
-    <div className={style.formControl + " " + (showError ? style.error: " ")} >
-        <div>
-        <input {...input} {...props}/>
-        </div>
+    <div className={style.formControl + " " + (showError ? style.error : " ")}>
       <div>
-          { showError && <span>{error}</span>}
+        <input {...input} {...props} />
       </div>
+      <div>{showError && <span>{error}</span>}</div>
     </div>
   );
 };
 
-export const InputMessage= ({input,meta:{error, touched}, ...props}) => {
-  let showError = error && touched 
-return (
-  <div className={style.formControlsWall + " " + (showError ? style.error: " ")} >
+export const InputMessage = ({ input, meta: { error, touched }, ...props }) => {
+  let showError = error && touched;
+  return (
+    <div
+      className={style.formControlsWall + " " + (showError ? style.error : " ")}
+    >
       <div>
-      <input {...input} {...props}/>
+        <input {...input} {...props} />
       </div>
-    <div>
-        { showError && <span>{error}</span>}
+      <div>{showError && <span>{error}</span>}</div>
     </div>
-  </div>
-);
+  );
 };
 
-export const InputWall= ({input,meta:{error, touched}, ...props}) => {
-  let showError = error && touched 
-return (
-  <div className={style.formControls + " " + (showError ? style.error: " ")} >
+export const InputWall = ({ input, meta: { error, touched }, ...props }) => {
+  let showError = error && touched;
+  return (
+    <div className={style.formControls + " " + (showError ? style.error : " ")}>
       <div>
-      <input {...input} {...props}/>
+        <input {...input} {...props} />
       </div>
-    <div>
-        { showError && <span>{error}</span>}
+      <div>{showError && <span>{error}</span>}</div>
     </div>
-  </div>
-);
+  );
 };

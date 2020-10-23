@@ -21,27 +21,27 @@ class MessageContainer extends React.Component {
   }
 
   render() {
-
     return (
       <>
-       {this.props.isFeching ? 
-         <Preloader /> :
-      <Message
-        {...this.props}
-        getMessageWithAllUser={this.props.getMessageWithAllUser}
-        getMessageWhithUser={this.props.getMessageWhithUser}
-        postMessageForUser={this.props.postMessageForUser}
-        deleteMessageWhithUser={this.props.deleteMessageWhithUser}
-        getCurrentIdUser={this.props.getCurrentIdUser}
-        GetListWhithNewMessage={this.props.GetListWhithNewMessage}
-        tap={this.props.tap}
-        currentUserId={this.props.currentUserId}
-        setUnreadMessage={this.props.setUnreadMessage}
-        portionSize={this.props.portionSize}
-        userName={this.props.userName}
-        isFechingForDialogs={this.props.isFechingForDialogs}
-      />
-       }
+        {this.props.isFeching ? (
+          <Preloader />
+        ) : (
+          <Message
+            {...this.props}
+            getMessageWithAllUser={this.props.getMessageWithAllUser}
+            getMessageWhithUser={this.props.getMessageWhithUser}
+            postMessageForUser={this.props.postMessageForUser}
+            deleteMessageWhithUser={this.props.deleteMessageWhithUser}
+            getCurrentIdUser={this.props.getCurrentIdUser}
+            GetListWhithNewMessage={this.props.GetListWhithNewMessage}
+            tap={this.props.tap}
+            currentUserId={this.props.currentUserId}
+            setUnreadMessage={this.props.setUnreadMessage}
+            portionSize={this.props.portionSize}
+            userName={this.props.userName}
+            isFechingForDialogs={this.props.isFechingForDialogs}
+          />
+        )}
       </>
     );
   }

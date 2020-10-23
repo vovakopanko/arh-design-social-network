@@ -58,6 +58,8 @@
 .user__block img {
   border-radius: 50px;
   float: left;
+  width: 70px;
+  height: 70px;
 }
 
 .user__block b {
@@ -69,10 +71,9 @@
 
 .dialogs__item {
   display: grid;
-  grid-template: 1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(
-      auto,
-      200px
-    ) minmax(auto, 100px) 1fr;
+  grid-template:
+    1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(auto, 200px)
+    minmax(auto, 100px) 1fr;
   margin-top: 20px;
 }
 
@@ -116,16 +117,15 @@
   text-align: center;
 }
 
-.dialogs__sendBlock{
+.dialogs__sendBlock {
   display: grid;
-  grid-template: 1fr / minmax(auto,640px) minmax(auto,50px);
+  grid-template: 1fr / minmax(auto, 640px) minmax(auto, 50px);
   text-align: left;
 }
 
-.dialogs__text{
+.dialogs__text {
   grid-column: 1/2;
 }
-
 
 .dialogs__button_color {
   color: white;
@@ -139,13 +139,13 @@
   color: rgb(156, 129, 89);
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
   .message {
     font-size: 10px;
     display: grid;
     grid-template: 1fr / 1fr minmax(auto, 700px) 1fr;
   }
-  
+
   .block__title {
     display: grid;
     text-align: center;
@@ -166,31 +166,31 @@
   .block__title_color {
     text-decoration: underline;
   }
-  
+
   .block__title_border {
     border-top: 1px solid rgb(150, 150, 150, 0.2);
     border-bottom: 1px solid rgb(150, 150, 150, 0.2);
   }
-  
+
   .block__users {
     grid-column: 2/3;
-  
+
     text-align: center;
     border-right: 3px solid white;
   }
-  
+
   .block__dialogs {
     grid-column: 3/4;
     text-align: left;
     margin-left: 10px;
     padding-left: 10px;
   }
-  
+
   .users__user {
     height: 600px;
     overflow-y: scroll;
   }
-  
+
   .user__block {
     position: relative;
     margin: 5px;
@@ -198,90 +198,90 @@
     height: 60px;
   }
 
-  .user__block b{
+  .user__block b {
     display: none;
   }
-  
+
   .user__block img {
     border-radius: 50px;
     float: left;
+    width: 70px;
+    height: 70px;
   }
-  
+
   .user__block b {
     position: absolute;
     top: 50%;
     left: 40%;
     transform: translate(0, -50%);
   }
-  
+
   .dialogs__item {
     display: grid;
-    grid-template: 1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(
-        auto,
-        200px
-      ) minmax(auto, 100px) 1fr;
+    grid-template:
+      1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(auto, 200px)
+      minmax(auto, 100px) 1fr;
     margin-top: 20px;
   }
-  
+
   .body__name {
     font-weight: bold;
     grid-column: 3/4;
   }
-  
+
   .body__message {
     grid-column: 3/4;
   }
-  
+
   .item__time {
     grid-column: 4/5;
     text-align: right;
     padding-right: 10px;
   }
-  
+
   .body__message_delete {
     grid-column: 5/6;
     opacity: 0.1;
   }
-  
+
   .body__message_delete img {
     width: 15px;
     height: 15px;
   }
-  
+
   .body__message_delete:hover {
     opacity: 1.1;
   }
-  
+
   .users__title {
     color: rgb(156, 129, 89);
     font-size: 10px;
     padding-left: 15px;
   }
-  
+
   .dialogs__button {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
   }
-  
-  .dialogs__sendBlock{
+
+  .dialogs__sendBlock {
     display: grid;
-    grid-template: 1fr / minmax(auto,640px) minmax(auto,50px);
+    grid-template: 1fr / minmax(auto, 640px) minmax(auto, 50px);
     text-align: left;
   }
-  
-  .dialogs__text{
+
+  .dialogs__text {
     grid-column: 1/2;
   }
-  
-  
+
   .dialogs__button_color {
     color: white;
     background-color: black;
     padding: 5px;
     grid-column: 2/3;
   }
-  
+
   .dialogs__button_color:hover {
     transform: scale(1.1);
     color: rgb(156, 129, 89);

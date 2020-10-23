@@ -21,10 +21,14 @@ const Professionals = ({
   return (
     <div className={style.professionals}>
       <div className={style.professionals__block}>
-        <div className={style.professionals__title + " " + style.professionals__title_border}>
+        <div
+          className={
+            style.professionals__title + " " + style.professionals__title_border
+          }
+        >
           Список специалистов:
         </div>
-        <div >
+        <div>
           <div className={style.professionals__search}>
             <Search searchName={searchName} />
           </div>

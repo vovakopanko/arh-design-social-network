@@ -1,5 +1,8 @@
 import React from "react";
 import style from "./Footer.module.css";
+import instagramIcon from "./../../assets/images/instagramIcon.png";
+import vkIcon from "./../../assets/images/vkIcon.png";
+import facebookIcon from "./../../assets/images/facebookIcon.png";
 
 let Footer = () => {
   return (
@@ -12,7 +15,7 @@ let Footer = () => {
             rel="noopener noreferrer"
           >
             <img
-              src="https://img.icons8.com/ios/452/instagram-new.png"
+              src={instagramIcon}
               alt="photoInsta"
             ></img>
           </a>
@@ -22,7 +25,7 @@ let Footer = () => {
             rel="noopener noreferrer"
           >
             <img
-              src="https://pngimg.com/uploads/vkontakte/vkontakte_PNG22.png"
+              src={vkIcon}
               alt="photoVk"
             ></img>
           </a>
@@ -32,7 +35,7 @@ let Footer = () => {
             rel="noopener noreferrer"
           >
             <img
-              src="https://img.icons8.com/ios/452/facebook-new.png"
+              src={facebookIcon}
               alt="photoFacebook"
             ></img>
           </a>
