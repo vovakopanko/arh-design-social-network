@@ -6,12 +6,10 @@ Email: free@samuraijs.com
 Password: free
 
 # Screenshots:
-full version :
+# full version :
 ![alt text](screenshots/1.PNG)
 ![alt text](screenshots/2.PNG)
 ![alt text](screenshots/3.PNG)
-![alt text](screenshots/11.PNG)
-![alt text](screenshots/4.PNG)
 ![alt text](screenshots/5.PNG)
 ![alt text](screenshots/6.PNG)
 ![alt text](screenshots/7.PNG)
@@ -20,7 +18,8 @@ full version :
 ![alt text](screenshots/10.PNG)
 ![alt text](screenshots/11.PNG)
 ![alt text](screenshots/12.PNG)
-mobile version:
+
+# mobile version:
 ![alt text](screenshots/mob1.jpg)
 ![alt text](screenshots/mob2.jpg)
 ![alt text](screenshots/mob3.jpg)
