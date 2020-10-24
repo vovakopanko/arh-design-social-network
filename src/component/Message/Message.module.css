@@ -73,7 +73,7 @@
   display: grid;
   grid-template:
     1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(auto, 200px)
-    minmax(auto, 100px) 1fr;
+    minmax(auto, 30px) 1fr;
   margin-top: 20px;
 }
 
@@ -94,6 +94,7 @@
 .body__message_delete {
   grid-column: 5/6;
   opacity: 0.1;
+  text-align: center;
 }
 
 .body__message_delete img {
@@ -114,29 +115,30 @@
 .dialogs__button {
   padding-top: 20px;
   padding-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .dialogs__sendBlock {
   display: grid;
-  grid-template: 1fr / minmax(auto, 640px) minmax(auto, 50px);
+  grid-template: 1fr / minmax(auto, 690px) minmax(auto, 50px);
   text-align: left;
 }
 
 .dialogs__text {
   grid-column: 1/2;
+  outline: none;
+    border: none;
 }
 
 .dialogs__button_color {
   color: white;
   background-color: black;
-  padding: 5px;
+  padding: 5px 10px;
   grid-column: 2/3;
 }
 
 .dialogs__button_color:hover {
   transform: scale(1.1);
-  color: rgb(156, 129, 89);
 }
 
 @media (max-width: 768px) {
@@ -182,8 +184,8 @@
   .block__dialogs {
     grid-column: 3/4;
     text-align: left;
-    margin-left: 10px;
-    padding-left: 10px;
+    margin-left: 0px;
+    padding-left: 0px;
   }
 
   .users__user {
@@ -219,14 +221,15 @@
   .dialogs__item {
     display: grid;
     grid-template:
-      1fr / 1fr minmax(auto, 200px) minmax(auto, 400px) minmax(auto, 200px)
-      minmax(auto, 100px) 1fr;
+      1fr / 1fr minmax(auto, 10px) minmax(auto, 400px) minmax(auto, 200px)
+      minmax(auto, 15px) minmax(auto, 20px) ;
     margin-top: 20px;
   }
 
   .body__name {
     font-weight: bold;
     grid-column: 3/4;
+    text-align: left;
   }
 
   .body__message {
@@ -260,14 +263,13 @@
   }
 
   .dialogs__button {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding:20px 0px;
     text-align: center;
   }
 
   .dialogs__sendBlock {
     display: grid;
-    grid-template: 1fr / minmax(auto, 640px) minmax(auto, 50px);
+    grid-template: 1fr / minmax(auto, 640px) minmax(auto, 50px) minmax(20px, auto);
     text-align: left;
   }
 
