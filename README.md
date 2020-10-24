@@ -7,7 +7,9 @@ Password: free
 
 # Screenshots:
 # full version :
+Menu:
 ![alt text](screenshots/1.PNG)
+Content:
 ![alt text](screenshots/2.PNG)
 ![alt text](screenshots/3.PNG)
 ![alt text](screenshots/5.PNG)
