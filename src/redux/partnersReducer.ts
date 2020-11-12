@@ -53,7 +53,9 @@ let initialState = {
   ],
 };
 
-const partnersReducer = (state = initialState, action) => {
+type initialStateType = typeof initialState
+
+const partnersReducer = (state = initialState, action:any):initialStateType => {
   switch (action.type) {
     default:
       return state;

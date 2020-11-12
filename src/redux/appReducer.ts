@@ -2,11 +2,15 @@ import { getAuthData } from "./authReducer";
 
 const INITIALIZED_SUCCESS = "redux/autReducer/INITIALIZED_SUCCESS";
 
-let initialState = {
+type initialStateType ={
+  initialized: boolean | null;
+}
+
+let initialState: initialStateType = {
   initialized: false,
 };
 
-const appReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action:any): initialStateType => {
   switch (action.type) {
     case INITIALIZED_SUCCESS:
       return {
@@ -20,7 +24,11 @@ const appReducer = (state = initialState, action) => {
 
 // [ActionCreator]
 
-export const initializedSuccess = () => ({
+type initializedSuccessType = {
+  type: typeof INITIALIZED_SUCCESS
+}
+
+export const initializedSuccess = ():initializedSuccessType => ({
   type: INITIALIZED_SUCCESS,
 });
 
@@ -28,7 +36,7 @@ export const initializedSuccess = () => ({
 
 // Waits for all responses from AJAX requests, if request don't have response, you saw Preloader
 export const initialize = () => {
-  return (dispatch) => {
+  return (dispatch:any) => {
     let promise = dispatch(getAuthData());
     Promise.all([promise]).then(() => {
       dispatch(initializedSuccess());

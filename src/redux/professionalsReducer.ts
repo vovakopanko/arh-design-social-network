@@ -12,7 +12,7 @@ const TOGGLE_IS_FOLLOWING = "redux/professionalsReducer/TOGGLE_IS_FOLLOWING";
 const SET_CURRENT_PORTION = "redux/professionalsReducer/SET_CURRENT_PORTION";
 const SET_SEARCH_NAME = "redux/professionalsReducer/SET_SEARCH_NAME";
 
-let initialState = {
+let initialState: initialStateType = {
   professionals: [],
   pageSize: 15,
   portionSize: 10,
@@ -24,12 +24,27 @@ let initialState = {
   searchName: "",
 };
 
-const professionalsReducer = (state = initialState, action) => {
+type initialStateType = {
+  professionals: Array<any>;
+  pageSize: number;
+  portionSize: number;
+  totalUsersCount: number;
+  currentPage: 1;
+  isFeching: false;
+  followingInProgress: Array<any>;
+  currentPortion: number;
+  searchName: string;
+};
+
+const professionalsReducer = (
+  state = initialState,
+  action: any
+): initialStateType => {
   switch (action.type) {
     case FOLLOW_USER:
       return {
         ...state,
-        professionals: state.professionals.map((p) => {
+        professionals: state.professionals.map((p: any) => {
           if (p.id === action.userId) {
             return { ...p, followed: true };
           }
@@ -39,7 +54,7 @@ const professionalsReducer = (state = initialState, action) => {
     case UNFOLLOW_USER:
       return {
         ...state,
-        professionals: state.professionals.map((p) => {
+        professionals: state.professionals.map((p: any) => {
           if (p.id === action.userId) {
             return { ...p, followed: false };
           }
@@ -90,42 +105,107 @@ const professionalsReducer = (state = initialState, action) => {
 
 //[ActionCreator]
 
+
 //Subscribe professionals
-export const successFollow = (userId) => ({ type: FOLLOW_USER, userId });
+type successFollowType ={
+  type: typeof FOLLOW_USER
+  userId: number
+}
+export const successFollow = (userId: number):successFollowType => ({
+  type: FOLLOW_USER,
+  userId,
+});
 //Unsubscribe professional
-export const successUnfollow = (userId) => ({ type: UNFOLLOW_USER, userId });
-export const setProfessionals = (professionals) => ({
+type successUnfollowType = {
+  type: typeof UNFOLLOW_USER
+  userId: number
+}
+
+export const successUnfollow = (userId: number):successUnfollowType => ({
+  type: UNFOLLOW_USER,
+  userId,
+});
+
+type setProfessionalsType = {
+  type: typeof SET_USERS
+  professionals:Array<any>
+}
+export const setProfessionals = (professionals: Array<any>):setProfessionalsType => ({
   type: SET_USERS,
   professionals,
 });
+
+type setCurrentPageType = {
+  type: typeof SET_CURRENT_PAGE
+  currentPage:number
+}
 //Set current page, wich you chose, when clicked on it
-export const setCurrentPage = (currentPage) => ({
+export const setCurrentPage = (currentPage:number):setCurrentPageType => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
+
 //Set all professionals who are registered on the server
-export const setTotalUsersCount = (totalUsersCount) => ({
+type setTotalUsersCountType = {
+  type: typeof SET_TOTAL_USERS_COUNT,
+  totalUsersCount: number,
+}
+
+
+export const setTotalUsersCount = (totalUsersCount: number):setTotalUsersCountType => ({
   type: SET_TOTAL_USERS_COUNT,
   totalUsersCount,
 });
 //Show boot file in the absence of data
-export const toggleIsFetching = (isFeching) => ({
+type toggleIsFetching = {
+  type: typeof TOGGLE_IS_FETCHING,
+  isFeching:boolean,
+}
+
+export const toggleIsFetching = (isFeching: boolean):toggleIsFetching => ({
   type: TOGGLE_IS_FETCHING,
   isFeching,
 });
 //Disabled button if you don't have response from API server
-export const toggleIsFollowingProgress = (followingInProgress, userId) => ({
+
+type toggleIsFollowingProgressType = {
+  type: typeof TOGGLE_IS_FOLLOWING;
+  followingInProgress: boolean;
+  userId: number;
+};
+
+export const toggleIsFollowingProgress = (
+  followingInProgress: boolean,
+  userId: number
+): toggleIsFollowingProgressType => ({
   type: TOGGLE_IS_FOLLOWING,
   followingInProgress,
   userId,
 });
 // Set current portion professionals
-export const setPortionNumber = (currentPortion) => ({
+
+type setPortionNumberType = {
+  type: typeof SET_CURRENT_PORTION;
+  currentPortion: number;
+};
+
+export const setPortionNumber = (
+  currentPortion: number
+): setPortionNumberType => ({
   type: SET_CURRENT_PORTION,
   currentPortion,
 });
+
 //Get user witch you search
-export const setSearchNameSuccess = (searchName) => ({
+
+type setSearchNameSuccessType = {
+  type: typeof SET_SEARCH_NAME;
+  searchName: string;
+};
+
+export const setSearchNameSuccess = (
+  searchName: string
+): setSearchNameSuccessType => ({
   type: SET_SEARCH_NAME,
   searchName,
 });
@@ -133,8 +213,8 @@ export const setSearchNameSuccess = (searchName) => ({
 // [ThunkActionCreator]
 
 //Get portion professionals by currentPage and PageSize variables
-export const getUsers = (newPage) => {
-  return async (dispatch, getState) => {
+export const getUsers = (newPage: number) => {
+  return async (dispatch: any, getState: any) => {
     dispatch(setCurrentPage(newPage));
     const { currentPage, pageSize, searchName } = getState().professionalsPage;
     dispatch(toggleIsFetching(true));
@@ -151,10 +231,10 @@ export const getUsers = (newPage) => {
 
 // Follow and Unfollow code, took out general variables
 export const followUnffolwThunk = async (
-  dispatch,
-  userId,
-  APImethod,
-  actionCreator
+  dispatch: any,
+  userId: number,
+  APImethod: any,
+  actionCreator: any
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
@@ -165,7 +245,7 @@ export const followUnffolwThunk = async (
 };
 
 // Subscribe from user
-export const follow = (userId) => async (dispatch) => {
+export const follow = (userId: number) => async (dispatch: any) => {
   followUnffolwThunk(
     dispatch,
     userId,
@@ -175,7 +255,7 @@ export const follow = (userId) => async (dispatch) => {
 };
 
 // Unsubscribe from user
-export const unfollow = (userId) => async (dispatch) => {
+export const unfollow = (userId: number) => async (dispatch: any) => {
   followUnffolwThunk(
     dispatch,
     userId,
@@ -185,7 +265,10 @@ export const unfollow = (userId) => async (dispatch) => {
 };
 
 // Search users
-export const searchName = (searchName) => async (dispatch, getState) => {
+export const searchName = (searchName: string) => async (
+  dispatch: any,
+  getState: any
+) => {
   dispatch(setSearchNameSuccess(searchName));
   dispatch(setCurrentPage(1));
   dispatch(setPortionNumber(1));

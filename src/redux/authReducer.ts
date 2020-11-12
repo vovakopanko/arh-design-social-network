@@ -2,11 +2,23 @@ import { stopSubmit } from "redux-form";
 import { AuthProfileAPI, securityAPI } from "../api/AuthAPI";
 import { userAPI, userStatus } from "../api/UsersAPI";
 
-const SET_USER_DATA = "redux/autReducer/SET_USER_DATA";
-const GET_CAPTCHA_URL_SUCCESS = "redux/autReducer/GET_CAPTCHA_URL_SUCCESS";
-const GET_USER_PHOTOS = "redux/autReducer/GET_USER_PHOTOS";
+const SET_USER_DATA = "redux/authReducer/SET_USER_DATA";
+const GET_CAPTCHA_URL_SUCCESS = "redux/authReducer/GET_CAPTCHA_URL_SUCCESS";
+const GET_USER_PHOTOS = "redux/authReducer/GET_USER_PHOTOS";
 
-let initialState = {
+type initialStateType = {
+  email:  string | null,
+  id: number | null,
+  login: string  | null,
+  isAuth: boolean,
+  isFetching: boolean,
+  // info for user aroun button login
+  infoLogOut: string,
+  captchaUrl: string | null,
+  photos: string | null,
+};
+
+let initialState:initialStateType = {
   email: null,
   id: null,
   login: null,
@@ -18,7 +30,7 @@ let initialState = {
   photos: null,
 };
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action:any):initialStateType => {
   switch (action.type) {
     // Add in state information main user: email, id, login
     case SET_USER_DATA:
@@ -45,17 +57,39 @@ const authReducer = (state = initialState, action) => {
 
 //[ActionCreator]
 
-export const getPhotosUser = (photos) => ({
+type getPhotosUserType = {
+  type: typeof GET_USER_PHOTOS; //typeof value in const GET_USER_PHOTOS
+  photos: string;
+}
+
+export const getPhotosUser = (photos:string):getPhotosUserType => ({
   type: GET_USER_PHOTOS,
   photos,
 });
 
-export const setUserData = (email, id, login, isAuth) => ({
+type setUserDataActionType = {
+  email: string | null
+  id:number | null
+  login: string | null
+  isAuth: boolean 
+}
+
+type setUserDataType = {
+  type: typeof SET_USER_DATA;
+  data: setUserDataActionType
+}
+
+export const setUserData = (email:string | null, id:number | null, login:string | null, isAuth:boolean):setUserDataType => ({
   type: SET_USER_DATA,
-  data: { email, id, login, isAuth },
+  data: { email, id, login, isAuth }
 });
 
-export const getCaptchaUrlSuccess = (captchaUrl) => ({
+type getCaptchaUrlSuccessType = {
+  type: typeof GET_CAPTCHA_URL_SUCCESS,
+  captchaUrl: {captchaUrl: string}
+}
+
+export const getCaptchaUrlSuccess = (captchaUrl:string):getCaptchaUrlSuccessType => ({
   type: GET_CAPTCHA_URL_SUCCESS,
   captchaUrl: { captchaUrl },
 });
@@ -63,8 +97,8 @@ export const getCaptchaUrlSuccess = (captchaUrl) => ({
 //[ThunkActionCreator]
 
 // Get main photo user
-export const getPhotosAuthUser = (userId) => {
-  return async (dispatch) => {
+export const getPhotosAuthUser = (userId:number) => {
+  return async (dispatch:any) => {
     let data = await userStatus.getUsersInfo(userId);
     dispatch(getPhotosUser(data.photos.large));
   };
@@ -72,7 +106,7 @@ export const getPhotosAuthUser = (userId) => {
 
 // Dispatch in authReduser information main user: email, id, login ,
 export const getAuthData = () => {
-  return async (dispatch) => {
+  return async (dispatch:any) => {
     let data = await userAPI.getAuthMe();
     if (data.resultCode === 0) {
       let { email, id, login } = data.data;
@@ -83,8 +117,8 @@ export const getAuthData = () => {
 };
 
 // Set authentication main user
-export const login = (email, password, rememberMe = false, captcha) => {
-  return async (dispatch) => {
+export const login = (email:string | null, password:string | null , rememberMe = false, captcha:string | null) => {
+  return async (dispatch:any) => {
     let Response = await AuthProfileAPI.loginProfile(
       email,
       password,
@@ -108,7 +142,7 @@ export const login = (email, password, rememberMe = false, captcha) => {
 };
 
 // [Get Captcha for deactivaited vereficate, and dispatch this captcha]
-export const getCaptchaUrl = () => async (dispatch) => {
+export const getCaptchaUrl = () => async (dispatch:any) => {
   const response = await securityAPI.getCaptchaUrl();
   const captchaUrl = response.data.url;
   dispatch(getCaptchaUrlSuccess(captchaUrl));
@@ -116,7 +150,7 @@ export const getCaptchaUrl = () => async (dispatch) => {
 
 // [Deleting all information about the main user]
 export const logout = () => {
-  return async (dispatch) => {
+  return async (dispatch:any) => {
     let data = await AuthProfileAPI.logoutProfile();
     if (data.resultCode === 0) {
       dispatch(setUserData(null, null, null, false));

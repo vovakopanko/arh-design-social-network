@@ -14,7 +14,24 @@ const TOGGLE_IS_FOLLOWING = "redux/profilReduser/TOGGLE_IS_FOLLOWING";
 const FOLLOW_USER = "redux/profilReduser/FOLLOW_USER";
 const UNFOLLOW_USER = "redux/profilReduser/UNFOLLOW_USER";
 
-let initialState = {
+type postDataType = {
+  id: number,
+      photo: any,
+      name: string,
+      message: string,
+      likesCount: number,
+}
+
+type initialStateType = {
+  postData: Array<postDataType>
+  profile: any,
+  status: null,
+  followingProgress: any,
+  followingInProgress: Array<any>,
+  isFeching: boolean,
+}
+
+let initialState:initialStateType = {
   postData: [
     {
       id: 1,
@@ -22,7 +39,6 @@ let initialState = {
       name: "Николай",
       message: "Отличный специалист, помог с лагдшафтным дизайном",
       likesCount: 2,
-      isFeching: "",
     },
     {
       id: 2,
@@ -46,7 +62,7 @@ let initialState = {
   isFeching: false,
 };
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action:any):initialStateType => {
   switch (action.type) {
     case ADD_POST:
       return {
@@ -109,53 +125,53 @@ const profileReducer = (state = initialState, action) => {
 // [ActionCreator]
 
 //Add posts to the wall
-export const AddPost = (NewPostProfile) => ({ type: ADD_POST, NewPostProfile });
+export const AddPost = (NewPostProfile:any) => ({ type: ADD_POST, NewPostProfile });
 
 //Set user Status in mainmenu
-export const setUserStatus = (status) => ({
+export const setUserStatus = (status:string) => ({
   type: SET_USER_STATUS,
   status,
 });
 
 //Disabled button follow/unfollow
-export const toggleIsFollowingProgress = (followingInProgress, userId) => ({
+export const toggleIsFollowingProgress = (followingInProgress:boolean, userId:number) => ({
   type: TOGGLE_IS_FOLLOWING,
   followingInProgress,
   userId,
 });
 
 //check your subscription on user
-export const setFollowingProgress = (followingProgress) => ({
+export const setFollowingProgress = (followingProgress:boolean) => ({
   type: FOLLOWING_PROGRESS,
   followingProgress,
 });
 
 //Save your photos in profilePage
-export const savePhotoSuccess = (photos) => ({
+export const savePhotoSuccess = (photos:any) => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
 });
 
 //Checking your received a response from the server
-export const toggleIsFetching = (isFeching) => ({
+export const toggleIsFetching = (isFeching:boolean) => ({
   type: TOGGLE_IS_FETCHING,
   isFeching,
 });
 
 //Set data file User profile
-export const setUserProfile = (profile) => ({
+export const setUserProfile = (profile:any) => ({
   type: SET_USER_PROFILE,
   profile,
 });
 
-export const successFollow = (userId) => ({ type: FOLLOW_USER, userId });
-export const successUnfollow = (userId) => ({ type: UNFOLLOW_USER, userId });
+export const successFollow = (userId:number) => ({ type: FOLLOW_USER, userId });
+export const successUnfollow = (userId:number) => ({ type: UNFOLLOW_USER, userId });
 
 // [ThunkActionCreator]
 
 //Get your/user information for main page
-export const getProfileData = (userId) => {
-  return async (dispatch) => {
+export const getProfileData = (userId:number) => {
+  return async (dispatch:any) => {
     dispatch(toggleIsFetching(true));
     let data = await userStatus.getUsersInfo(userId);
     dispatch(toggleIsFetching(false));
@@ -164,18 +180,18 @@ export const getProfileData = (userId) => {
 };
 
 //Check user's subscription information
-export const getUserFollowStatus = (userId) => {
-  return async (dispatch) => {
+export const getUserFollowStatus = (userId:number) => {
+  return async (dispatch:any) => {
     let Response = await userAPI.getFollowingUser(userId);
     dispatch(setFollowingProgress(Response.data));
   };
 };
 
 export const followUnffolwThunk = async (
-  dispatch,
-  userId,
-  APImethod,
-  actionCreator
+  dispatch:any,
+  userId:number,
+  APImethod:any,
+  actionCreator:any
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
@@ -187,8 +203,8 @@ export const followUnffolwThunk = async (
 };
 
 //Subscribe to user with request certain userId
-export const follow = (userId) => {
-  return async (dispatch) => {
+export const follow = (userId:number) => {
+  return async (dispatch:any) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -199,8 +215,8 @@ export const follow = (userId) => {
 };
 
 //Unsubscribe to user with request certain userId
-export const unfollow = (userId) => {
-  return async (dispatch) => {
+export const unfollow = (userId:number) => {
+  return async (dispatch:any) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -211,16 +227,16 @@ export const unfollow = (userId) => {
 };
 
 //Get data file status certain user(your status)
-export const getUserStatus = (userId) => {
-  return async (dispatch) => {
+export const getUserStatus = (userId:number) => {
+  return async (dispatch:any) => {
     let data = await userStatus.getStatus(userId);
     dispatch(setUserStatus(data));
   };
 };
 
 //Set profile picture (put request)
-export const savePhoto = (photos) => {
-  return async (dispatch) => {
+export const savePhoto = (photos:any) => {
+  return async (dispatch:any) => {
     let Response = await userStatus.savePhoto(photos);
     if (Response.data.resultCode === 0) {
       dispatch(savePhotoSuccess(Response.data.data.photos));
@@ -229,8 +245,8 @@ export const savePhoto = (photos) => {
 };
 
 //Set new information in your profile info, when you click button in Form
-export const saveProfile = (profile) => {
-  return async (dispatch, getState) => {
+export const saveProfile = (profile:any) => {
+  return async (dispatch:any, getState:any) => {
     const id = getState().auth.id;
     let Response = await userStatus.saveProfile(profile);
     if (Response.data.resultCode === 0) {
@@ -240,8 +256,8 @@ export const saveProfile = (profile) => {
 };
 
 //Update your status
-export const updateStatus = (status) => {
-  return async (dispatch) => {
+export const updateStatus = (status:string) => {
+  return async (dispatch:any) => {
     let data = await userStatus.updateStatus(status);
     if (data.resultCode === 0) {
       dispatch(setUserStatus(status));
