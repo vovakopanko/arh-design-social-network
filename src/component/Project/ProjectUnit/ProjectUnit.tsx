@@ -1,7 +1,17 @@
 import React from "react";
 import style from "./ProjectUnit.module.css";
 
-const ProjectUnit = ({ projectUnitData }) => {
+type projectUnitDataType = {
+  id: number;
+  src: string;
+  alt: string;
+};
+
+type ProjectUnitType = {
+  projectUnitData: Array<projectUnitDataType>;
+};
+
+const ProjectUnit: React.FC<ProjectUnitType> = ({ projectUnitData }) => {
   return (
     <div className={style.project__block}>
       <div className={style.block__items}>

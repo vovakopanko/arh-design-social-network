@@ -13,7 +13,6 @@ type initialStateType = {
   isAuth: boolean,
   isFetching: boolean,
   // info for user aroun button login
-  infoLogOut: string,
   captchaUrl: string | null,
   photos: string | null,
 };
@@ -25,7 +24,6 @@ let initialState:initialStateType = {
   isAuth: false,
   isFetching: false,
   // info for user aroun button login
-  infoLogOut: "Don't LOGGED",
   captchaUrl: null,
   photos: null,
 };
@@ -86,10 +84,10 @@ export const setUserData = (email:string | null, id:number | null, login:string 
 
 type getCaptchaUrlSuccessType = {
   type: typeof GET_CAPTCHA_URL_SUCCESS,
-  captchaUrl: {captchaUrl: string}
+  captchaUrl: {captchaUrl: string | null}
 }
 
-export const getCaptchaUrlSuccess = (captchaUrl:string):getCaptchaUrlSuccessType => ({
+export const getCaptchaUrlSuccess = (captchaUrl:string | null):getCaptchaUrlSuccessType => ({
   type: GET_CAPTCHA_URL_SUCCESS,
   captchaUrl: { captchaUrl },
 });

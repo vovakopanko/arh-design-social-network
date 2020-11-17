@@ -1,8 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AppStateType } from "../../redux/reduxStore";
 import Partners from "./Partners";
 
-class PartnersContainer extends React.Component {
+type partnersLogoType = {
+  src: string
+  alt: string
+  id: number
+}
+
+type PartnersContainerType = {
+  partnersLogo: Array<partnersLogoType>
+}
+
+class PartnersContainer extends React.Component<PartnersContainerType> {
   render() {
     return (
       <div>
@@ -12,7 +23,7 @@ class PartnersContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state:AppStateType) => ({
   partnersLogo: state.partnersPage.partnersLogo,
 });
 

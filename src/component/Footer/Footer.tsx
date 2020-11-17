@@ -4,7 +4,10 @@ import instagramIcon from "./../../assets/images/instagramIcon.png";
 import vkIcon from "./../../assets/images/vkIcon.png";
 import facebookIcon from "./../../assets/images/facebookIcon.png";
 
-let Footer = () => {
+type FooterType = {
+}
+
+let Footer:React.FC<FooterType> = () => {
   return (
     <div className={style.footer}>
       <div className={style.footer__items}>

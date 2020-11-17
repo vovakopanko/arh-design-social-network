@@ -2,7 +2,17 @@ import React from "react";
 import style from "./Partners.module.css";
 import partners from "./../../assets/images/partners.jpg"
 
-const Partners = ({ partnersLogo }) => {
+type partnersLogoType = {
+  src: string
+  alt: string
+  id: number
+}
+
+type PartnersType = {
+  partnersLogo: Array<partnersLogoType>
+}
+
+const Partners:React.FC<PartnersType> = ({ partnersLogo }) => {
   return (
     <div className={style.partners}>
       <div className={style.block__title + " " + style.block__title_border}>Наши партнёры</div>

@@ -7,7 +7,14 @@ import photoUser from "./../../assets/images/user.png";
 import team from "./../../assets/images/team.png";
 import { NavLink } from "react-router-dom";
 
-let Header = ({ logout, photos, isAuth, login }) => {
+export type HeaderType = {
+  logout:()=>void
+  photos:string | null
+  isAuth:boolean
+  login:string | null
+}
+
+let Header: React.FC<HeaderType> = ({ logout, photos, isAuth, login }) => {
   const [isActive, setActive] = useState(false);
   const [blockScroll, setScroll] = useState(false);
   const toggleClass = () => {

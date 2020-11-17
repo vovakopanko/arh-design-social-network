@@ -1,7 +1,14 @@
 import React from "react";
 import style from "./Profile.module.css";
 
-const Post = ({ photo, name, message, likesCount }) => {
+type PostType = {
+  photo: string;
+  name: string;
+  message: string;
+  likesCount: number;
+};
+
+const Post: React.FC<PostType> = ({ photo, name, message, likesCount }) => {
   return (
     <div>
       <div className={style.wall__photo}>

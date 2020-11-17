@@ -1,13 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { reduxForm } from "redux-form";
-import { login } from "../../redux/authReducer";
 import { CreateField, required } from "../../utils/validator/validators";
 import { InputField } from "../common/FormsControls/FormsControls";
+import { reduxForm } from "redux-form";
 import style from "./Login.module.css";
 
-const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
+type LoginFormType = {
+  handleSubmit: any;
+  error: any;
+  captchaUrl: string | null;
+};
+
+const LoginForm: React.FC<LoginFormType> = ({
+  handleSubmit,
+  error,
+  captchaUrl,
+}) => {
   return (
     <form onSubmit={handleSubmit} className={style.titleForm}>
       <div>{CreateField("text", InputField, [required], "email", "email")}</div>
@@ -51,44 +58,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   );
 };
 
-const LoginReduxForm = reduxForm({
+export const LoginReduxForm = reduxForm({
   form: "login",
+  //@ts-ignore
 })(LoginForm);
-
-class Login extends React.Component {
-  render() {
-    if (this.props.isAuth) {
-      return <Redirect to="/profile" />;
-    }
-
-    const onSubmitData = (formData) => {
-      this.props.login(
-        formData.email,
-        formData.password,
-        formData.remberMe,
-        formData.captcha
-      );
-    };
-
-    return (
-      <div className={style.login}>
-        <div className={style.login__block}>
-          <div className={style.block__title + " " + style.title}>LOG IN</div>
-          <LoginReduxForm
-            onSubmit={onSubmitData}
-            captchaUrl={this.props.captchaUrl}
-          />
-        </div>
-      </div>
-    );
-  }
-}
-
-let mapStateToProps = (state) => {
-  return {
-    isAuth: state.auth.isAuth,
-    captchaUrl: state.auth.captchaUrl,
-  };
-};
-
-export default connect(mapStateToProps, { login })(Login);

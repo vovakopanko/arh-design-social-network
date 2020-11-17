@@ -4,7 +4,14 @@ import { NavLink } from "react-router-dom";
 import photoUser from "./../../../assets/images/user.png";
 import team from "./../../../assets/images/team.png";
 
-let Menu = ({ logout, photos, isAuth, login }) => {
+type MenuType = {
+  logout:()=>void
+  photos:string | null
+  isAuth:boolean
+  login:string | null
+}
+
+let Menu:React.FC<MenuType> = ({ logout, photos, isAuth, login }) => {
   return (
     <div className={style.header__menu}>
       <div>

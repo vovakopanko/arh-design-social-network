@@ -2,9 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
+import { AppStateType } from "../../../redux/reduxStore";
 import ProjectUnit from "./ProjectUnit";
 
-class ProjectUnitContainer extends React.Component {
+type projectUnitDataType = {
+  id: number;
+  src: string;
+  alt: string;
+};
+
+type ProjectUnitContainerType = {
+  match:any
+  projectUnitData:Array<projectUnitDataType>
+}
+
+class ProjectUnitContainer extends React.Component<ProjectUnitContainerType> {
   componentDidMount() {
     let unitId = this.props.match.params.unitId;
     if (!unitId) {
@@ -21,7 +33,7 @@ class ProjectUnitContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state:AppStateType) => ({
   projectUnitData: state.projectPage.projectUnitData,
 });
 
