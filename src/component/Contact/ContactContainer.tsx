@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AppStateType } from "../../redux/reduxStore";
 import Contact from "./Contact";
 
-class ContactContainer extends React.Component {
+type ContactContainerType = {
+  officeLocation: string
+  sendRequest: ()=>void
+}
+
+class ContactContainer extends React.Component<ContactContainerType> {
   sendRequest = () => {
     alert("Your request send, thenk's");
   };
@@ -19,7 +25,7 @@ class ContactContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state:AppStateType) => ({
   officeLocation: state.contactPage.officeLocation,
 });
 export default connect(mapStateToProps, {})(ContactContainer);

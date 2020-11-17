@@ -2,7 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./ContentContact.module.css";
 
-let ContentContact = () => {
+type ContentContactType = {
+//Type file
+}
+
+let ContentContact: React.FC<ContentContactType> = () => {
   return (
     <div className={style.content}>
       <div className={style.content__block}>

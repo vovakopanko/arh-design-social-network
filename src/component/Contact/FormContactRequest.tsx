@@ -4,7 +4,11 @@ import { CreateField, required } from "../../utils/validator/validators";
 import { InputField, Textarea } from "../common/FormsControls/FormsControls";
 import style from "./Contact.module.css";
 
-const ContactRequest = ({ handleSubmit }) => {
+type ContactRequestType={
+  handleSubmit:any
+}
+
+const ContactRequest: React.FC<ContactRequestType> = ({ handleSubmit }) => {
   return (
     <div className={style.block__form}>
       <form onSubmit={handleSubmit}>

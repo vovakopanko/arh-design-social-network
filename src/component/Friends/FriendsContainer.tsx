@@ -4,17 +4,23 @@ import { getFriends, removeFriend } from "../../redux/friendsReducer";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { Friends } from "./Friends";
 import { startDialog } from "../../redux/messageReducer";
+import { AppStateType } from "../../redux/reduxStore";
 
-const FriendsContainer = () => {
-  const friends = useSelector((state) => state.friendsPage.friends);
+type FriendsContainerType = {
+  unFollowFriend:(friendId:number)=>void
+  openDialogs:(friendsId:number, userName:string)=>void
+}
+
+const FriendsContainer:React.FC<FriendsContainerType> = () => {
+  const friends = useSelector((state:AppStateType) => state.friendsPage.friends);
   const loadingFriends = useSelector(
-    (state) => state.friendsPage.loadingFriends
+    (state:AppStateType) => state.friendsPage.loadingFriends
   );
 
   const dispatch = useDispatch();
 
   const openDialogs = React.useCallback(
-    (friendsId, userName) => {
+    (friendsId:number, userName:string) => {
       dispatch(startDialog(friendsId, true, userName));
     },
     [dispatch]
@@ -25,7 +31,7 @@ const FriendsContainer = () => {
   }, [dispatch]);
 
   const unFollowFriend = React.useCallback(
-    (friendId) => {
+    (friendId:number) => {
       dispatch(removeFriend(friendId));
     },
     [dispatch]

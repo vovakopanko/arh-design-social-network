@@ -18,6 +18,7 @@ const Professionals = ({
   startDialog,
   professionals,
 }) => {
+  debugger;
   return (
     <div className={style.professionals}>
       <div className={style.professionals__block}>

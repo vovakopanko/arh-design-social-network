@@ -3,7 +3,25 @@ import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
 import style from "./Professionals.module.css";
 
-const Professional = ({
+type userType ={
+  id: number
+  photos: any
+  name: string
+  followed: boolean
+  aboutMe: string
+}
+
+type PropsType = {
+  user: userType
+  some: (id:number) => void
+  followingInProgress: Array<any>
+  follow:(id:number)=>void
+  unfollow:(id:number)=>void
+  isAuth:boolean,
+  startDialog:(id:number,tap:boolean, name:string)=>void,
+}
+
+const Professional: React.FC<PropsType> = ({
   user,
   followingInProgress,
   follow,

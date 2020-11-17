@@ -1,8 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AppStateType } from "../../redux/reduxStore";
 import Content from "./Content";
 
-class ContentContainer extends React.Component {
+type photoProjectDataType = {
+  id: number
+  url:string
+  alt: string,
+  info: string,
+}
+
+type ContentType = {
+  photoProjectData: Array<photoProjectDataType>
+  portionSize:number
+  portionNumber: number
+  buttonRight:any
+  buttonLeft:any
+}
+
+class ContentContainer extends React.Component<ContentType> {
   render() {
     return (
       <Content
@@ -16,12 +32,12 @@ class ContentContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state:AppStateType) => ({
   photoProjectData: state.contentPage.photoProjectData,
   portionNumber: state.contentPage.portionNumber,
   portionSize: state.contentPage.portionSize,
   buttonLeft: state.contentPage.buttonLeft,
-  buttonRight: state.contentPage.buttonRight,
+  buttonRight: state.contentPage.buttonRight
 });
 
 export default connect(mapStateToProps, {})(ContentContainer);

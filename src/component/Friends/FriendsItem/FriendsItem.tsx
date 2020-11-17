@@ -3,7 +3,13 @@ import style from "./Friend.module.css";
 import ava from "../../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
 
-const FriendsItem = ({ friend, openDialogs, unFollowFriend }) => {
+type FriendsItemType = {
+  friend: any
+  openDialogs:(id:number,name:string)=>void
+  unFollowFriend:(id:number)=>void
+}
+
+const FriendsItem: React.FC<FriendsItemType> = ({ friend, openDialogs, unFollowFriend }) => {
   const path = "/profile/" + friend.id;
 
   return (

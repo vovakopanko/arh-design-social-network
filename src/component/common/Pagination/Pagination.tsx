@@ -1,7 +1,17 @@
 import React from "react";
 import style from "./../Pagination/Paginator.module.css";
 
-const Pagination = ({
+type PropsType = {
+  totalUsersCount:number
+  pageSize: number
+  currentPage : number
+  onPageChanged : (leftPageNumber:number)=>void
+  portionSize : number
+  portionNumber : number
+  setPortionNumber : (portionNumber:number)=>number
+}
+
+const Pagination: React.FC<PropsType> = ({
   totalUsersCount,
   pageSize,
   currentPage,
@@ -15,7 +25,7 @@ const Pagination = ({
   let leftPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPageNumber = portionSize * portionNumber;
 
-  let pages = [];
+  let pages:Array<number> = [];
   for (let i = leftPageNumber; i <= rightPageNumber; i++) {
     pages.push(i);
   }
@@ -40,9 +50,9 @@ const Pagination = ({
 
       {pages.map((p) => {
         return (
-          <span
-            className={currentPage === p && style.pagination_active}
-            key={p.id}
+          <span 
+          // className={currentPage === p && style.pagination_active} Добавить пагинацию жирным
+            key={p}
             onClick={() => {
               onPageChanged(p);
             }}

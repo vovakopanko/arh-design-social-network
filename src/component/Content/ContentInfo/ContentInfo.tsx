@@ -3,7 +3,12 @@ import { NavLink } from "react-router-dom";
 import style from "./ContentInfo.module.css";
 import office from "../../../assets/images/office2.jpg";
 
-let ContentInfo = () => {
+
+type ContentInfoType = {
+//Type file
+}
+
+let ContentInfo: React.FC<ContentInfoType> = () => {
   return (
     <div className={style.block}>
       <div>

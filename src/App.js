@@ -56,7 +56,7 @@ class App extends React.Component {
         </div>
         <div className="content">
           <Switch>
-            <Route path="/content" render={() => <ContentContainer />} />
+            <Route path="/content" render={() => <ContentContainer/>} />
             <Route exact path="/project" render={() => <ProjectContainer />} />
             <Route path="/services" render={() => <Services />} />
             <Route

@@ -9,20 +9,41 @@ import {
   searchName,
   setSearchNameSuccess,
 } from "../../redux/professionalsReducer";
-import { startDialog } from "./../../redux/messageReducer";
+import { startDialog } from "../../redux/messageReducer";
 import Professionals from "./Professionals";
 import Preloader from "../common/Preloader/Preloader";
+import { AppStateType } from "../../redux/reduxStore";
 
-class ProfessionalsContainer extends React.Component {
+type PropsType = {
+  currentPage: number
+  pageSize: number
+  pageNumber: number
+  isFeching: boolean
+  totalUsersCount: number
+  professionals: any
+  followingInProgress: any
+  toggleIsFollowingProgress: any
+  follow: any
+  unfollow: any
+  startDialog: any
+  setPortionNumber: any
+  currentPortion: number
+  searchName: string
+  getUsers: (currentPage: number, pageSize: number) => void;
+  onPageChanged: (pageNumber: number) => void;
+};
+
+class ProfessionalsContainer extends React.Component<PropsType> {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
-  onPageChanged = (pageNumber) => {
+  onPageChanged = (pageNumber: number) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
 
   componentWillUnmount() {
+    // @ts-ignore
     this.props.setSearchNameSuccess("");
   }
 
@@ -39,7 +60,10 @@ class ProfessionalsContainer extends React.Component {
             onPageChanged={this.onPageChanged}
             professionals={this.props.professionals}
             followingInProgress={this.props.followingInProgress}
+
+            // @ts-ignore
             toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
+
             follow={this.props.follow}
             unfollow={this.props.unfollow}
             startDialog={this.props.startDialog}
@@ -53,7 +77,7 @@ class ProfessionalsContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state:AppStateType) => {
   return {
     professionals: state.professionalsPage.professionals,
     pageSize: state.professionalsPage.pageSize,
@@ -64,6 +88,7 @@ let mapStateToProps = (state) => {
     followingInProgress: state.professionalsPage.followingInProgress,
     isAuth: state.auth.isAuth,
     currentPortion: state.professionalsPage.currentPortion,
+  
   };
 };
 
@@ -76,4 +101,5 @@ export default connect(mapStateToProps, {
   setPortionNumber,
   searchName,
   setSearchNameSuccess,
+  // @ts-ignore
 })(ProfessionalsContainer);

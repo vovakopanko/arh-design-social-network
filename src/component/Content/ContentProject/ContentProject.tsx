@@ -3,7 +3,22 @@ import { NavLink } from "react-router-dom";
 import style from "./ContentProject.module.css";
 import PhotoProject from "./PhotoProject";
 
-let ContentProject = ({
+export type photoProjectDataType = {
+  id: number
+  url:string
+  alt: string,
+  info: string,
+}
+
+type ContentProjectType = {
+  photoProjectData: Array<photoProjectDataType>
+  portionNumber: number
+  portionSize: number
+  buttonRight: string
+  buttonLeft:string
+}
+
+let ContentProject: React.FC<ContentProjectType> = ({
   photoProjectData,
   portionNumber,
   portionSize,
@@ -22,6 +37,7 @@ let ContentProject = ({
       key={photos.id}
     >
       <PhotoProject
+      // @ts-ignore
         className={style.block__item}
         url={photos.url}
         alt={photos.alt}
@@ -61,7 +77,6 @@ let ContentProject = ({
       </span>
 
       <span
-        span
         className={style.block__button_right + " " + style.block__button}
       >
         {currentPage < portionNumber ? (

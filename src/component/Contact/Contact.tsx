@@ -2,7 +2,12 @@ import React from "react";
 import style from "./Contact.module.css";
 import { FormContactRequest } from "./FormContactRequest";
 
-let Contact = ({ officeLocation, sendRequest }) => {
+type ContactType = {
+  officeLocation:string
+  sendRequest:()=>void
+}
+
+let Contact: React.FC<ContactType> = ({ officeLocation, sendRequest }) => {
   return (
     <div className={style.contact}>
       <div className={style.contact__block}>

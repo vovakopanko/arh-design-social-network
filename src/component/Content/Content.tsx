@@ -5,7 +5,22 @@ import ContentProject from "./ContentProject/ContentProject";
 import ContentService from "./ContentService/ContentService";
 import ContentContact from "./ContentContact/ContentContact";
 
-let Content = ({
+type photoProjectDataType = {
+  id: number
+  url:string
+  alt: string,
+  info: string,
+}
+
+type ContentType = {
+  photoProjectData:Array<photoProjectDataType>
+  portionSize: number
+  portionNumber: number
+  buttonRight: string
+  buttonLeft: string
+}
+
+let Content: React.FC<ContentType> = ({
   photoProjectData,
   portionSize,
   portionNumber,

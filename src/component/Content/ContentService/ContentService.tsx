@@ -1,7 +1,11 @@
 import React from "react";
 import style from "./../ContentService/ContentService.module.css";
 
-let ContentService = () => {
+type ContentServiceType = {
+
+}
+
+let ContentService: React.FC<ContentServiceType> = () => {
   return (
     <div className={style.block}>
       <div className={style.block__items}>
