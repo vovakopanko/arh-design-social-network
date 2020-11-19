@@ -15,23 +15,23 @@ const FOLLOW_USER = "redux/profilReduser/FOLLOW_USER";
 const UNFOLLOW_USER = "redux/profilReduser/UNFOLLOW_USER";
 
 type postDataType = {
-  id: number,
-      photo: any,
-      name: string,
-      message: string,
-      likesCount: number,
-}
+  id: number;
+  photo: any;
+  name: string;
+  message: string;
+  likesCount: number;
+};
 
 type initialStateType = {
-  postData: Array<postDataType>
-  profile: any,
-  status: null,
-  followingProgress: any,
-  followingInProgress: Array<any>,
-  isFeching: boolean,
-}
+  postData: Array<postDataType>;
+  profile: any;
+  status: string | null;
+  followingProgress: any;
+  followingInProgress: Array<any>;
+  isFeching: boolean;
+};
 
-let initialState:initialStateType = {
+let initialState: initialStateType = {
   postData: [
     {
       id: 1,
@@ -62,7 +62,10 @@ let initialState:initialStateType = {
   isFeching: false,
 };
 
-const profileReducer = (state = initialState, action:any):initialStateType => {
+const profileReducer = (
+  state = initialState,
+  action: ActionType
+): initialStateType => {
   switch (action.type) {
     case ADD_POST:
       return {
@@ -123,55 +126,111 @@ const profileReducer = (state = initialState, action:any):initialStateType => {
 };
 
 // [ActionCreator]
+type ActionType =
+  | AddPostType
+  | setUserStatusType
+  | toggleIsFollowingProgressType
+  | setFollowingProgressType
+  | savePhotoSuccessType
+  | setFollowingProgressType
+  | savePhotoSuccessType
+  | toggleIsFetchingType
+  | setUserProfileType
+  | successFollowType
+  | successUnfollowType;
 
 //Add posts to the wall
-export const AddPost = (NewPostProfile:any) => ({ type: ADD_POST, NewPostProfile });
-
+export const AddPost = (NewPostProfile: any): AddPostType => ({
+  type: ADD_POST,
+  NewPostProfile,
+});
 //Set user Status in mainmenu
-export const setUserStatus = (status:string) => ({
+export const setUserStatus = (status: string): setUserStatusType => ({
   type: SET_USER_STATUS,
   status,
 });
-
 //Disabled button follow/unfollow
-export const toggleIsFollowingProgress = (followingInProgress:boolean, userId:number) => ({
+export const toggleIsFollowingProgress = (
+  followingInProgress: boolean,
+  userId: number
+): toggleIsFollowingProgressType => ({
   type: TOGGLE_IS_FOLLOWING,
   followingInProgress,
   userId,
 });
-
 //check your subscription on user
-export const setFollowingProgress = (followingProgress:boolean) => ({
+export const setFollowingProgress = (
+  followingProgress: boolean
+): setFollowingProgressType => ({
   type: FOLLOWING_PROGRESS,
   followingProgress,
 });
-
 //Save your photos in profilePage
-export const savePhotoSuccess = (photos:any) => ({
+export const savePhotoSuccess = (photos: string): savePhotoSuccessType => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
 });
-
 //Checking your received a response from the server
-export const toggleIsFetching = (isFeching:boolean) => ({
+export const toggleIsFetching = (isFeching: boolean): toggleIsFetchingType => ({
   type: TOGGLE_IS_FETCHING,
   isFeching,
 });
-
 //Set data file User profile
-export const setUserProfile = (profile:any) => ({
+export const setUserProfile = (profile: any): setUserProfileType => ({
   type: SET_USER_PROFILE,
   profile,
 });
-
-export const successFollow = (userId:number) => ({ type: FOLLOW_USER, userId });
-export const successUnfollow = (userId:number) => ({ type: UNFOLLOW_USER, userId });
-
+export const successFollow = (userId: number): successFollowType => ({
+  type: FOLLOW_USER,
+  userId,
+});
+export const successUnfollow = (userId: number) => ({
+  type: UNFOLLOW_USER,
+  userId,
+});
+// [ActionCreatorType]
+type AddPostType = {
+  type: typeof ADD_POST;
+  NewPostProfile: any;
+};
+type setUserStatusType = {
+  type: typeof SET_USER_STATUS;
+  status: string;
+};
+type toggleIsFollowingProgressType = {
+  type: typeof TOGGLE_IS_FOLLOWING;
+  followingInProgress: boolean;
+  userId: number;
+};
+type setFollowingProgressType = {
+  type: typeof FOLLOWING_PROGRESS;
+  followingProgress: boolean;
+};
+type savePhotoSuccessType = {
+  type: typeof SAVE_PHOTO_SUCCESS;
+  photos: string;
+};
+type setUserProfileType = {
+  type: typeof SET_USER_PROFILE;
+  profile: any;
+};
+type successFollowType = {
+  type: typeof FOLLOW_USER;
+  userId: number;
+};
+type successUnfollowType = {
+  type: typeof UNFOLLOW_USER;
+  userId: number;
+};
+type toggleIsFetchingType = {
+  type: typeof TOGGLE_IS_FETCHING;
+  isFeching: boolean;
+};
 // [ThunkActionCreator]
 
 //Get your/user information for main page
-export const getProfileData = (userId:number) => {
-  return async (dispatch:any) => {
+export const getProfileData = (userId: number) => {
+  return async (dispatch: any) => {
     dispatch(toggleIsFetching(true));
     let data = await userStatus.getUsersInfo(userId);
     dispatch(toggleIsFetching(false));
@@ -180,18 +239,18 @@ export const getProfileData = (userId:number) => {
 };
 
 //Check user's subscription information
-export const getUserFollowStatus = (userId:number) => {
-  return async (dispatch:any) => {
+export const getUserFollowStatus = (userId: number) => {
+  return async (dispatch: any) => {
     let Response = await userAPI.getFollowingUser(userId);
     dispatch(setFollowingProgress(Response.data));
   };
 };
 
 export const followUnffolwThunk = async (
-  dispatch:any,
-  userId:number,
-  APImethod:any,
-  actionCreator:any
+  dispatch: any,
+  userId: number,
+  APImethod: any,
+  actionCreator: any
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
@@ -203,8 +262,8 @@ export const followUnffolwThunk = async (
 };
 
 //Subscribe to user with request certain userId
-export const follow = (userId:number) => {
-  return async (dispatch:any) => {
+export const follow = (userId: number) => {
+  return async (dispatch: any) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -215,8 +274,8 @@ export const follow = (userId:number) => {
 };
 
 //Unsubscribe to user with request certain userId
-export const unfollow = (userId:number) => {
-  return async (dispatch:any) => {
+export const unfollow = (userId: number) => {
+  return async (dispatch: any) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -227,16 +286,16 @@ export const unfollow = (userId:number) => {
 };
 
 //Get data file status certain user(your status)
-export const getUserStatus = (userId:number) => {
-  return async (dispatch:any) => {
+export const getUserStatus = (userId: number) => {
+  return async (dispatch: any) => {
     let data = await userStatus.getStatus(userId);
     dispatch(setUserStatus(data));
   };
 };
 
 //Set profile picture (put request)
-export const savePhoto = (photos:any) => {
-  return async (dispatch:any) => {
+export const savePhoto = (photos: any) => {
+  return async (dispatch: any) => {
     let Response = await userStatus.savePhoto(photos);
     if (Response.data.resultCode === 0) {
       dispatch(savePhotoSuccess(Response.data.data.photos));
@@ -245,8 +304,8 @@ export const savePhoto = (photos:any) => {
 };
 
 //Set new information in your profile info, when you click button in Form
-export const saveProfile = (profile:any) => {
-  return async (dispatch:any, getState:any) => {
+export const saveProfile = (profile: any) => {
+  return async (dispatch: any, getState: any) => {
     const id = getState().auth.id;
     let Response = await userStatus.saveProfile(profile);
     if (Response.data.resultCode === 0) {
@@ -256,8 +315,8 @@ export const saveProfile = (profile:any) => {
 };
 
 //Update your status
-export const updateStatus = (status:string) => {
-  return async (dispatch:any) => {
+export const updateStatus = (status: string) => {
+  return async (dispatch: any) => {
     let data = await userStatus.updateStatus(status);
     if (data.resultCode === 0) {
       dispatch(setUserStatus(status));

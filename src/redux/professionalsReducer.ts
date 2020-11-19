@@ -29,7 +29,7 @@ type initialStateType = {
   pageSize: number;
   portionSize: number;
   totalUsersCount: number;
-  currentPage: 1;
+  currentPage: 1 | number;
   isFeching: false;
   followingInProgress: Array<any>;
   currentPortion: number;
@@ -38,7 +38,7 @@ type initialStateType = {
 
 const professionalsReducer = (
   state = initialState,
-  action: any
+  action: ActionsTypes
 ): initialStateType => {
   switch (action.type) {
     case FOLLOW_USER:
@@ -76,11 +76,11 @@ const professionalsReducer = (
         ...state,
         totalUsersCount: action.totalUsersCount,
       };
-    case TOGGLE_IS_FETCHING:
-      return {
-        ...state,
-        isFeching: action.isFeching,
-      };
+    // case TOGGLE_IS_FETCHING:
+    //   return {
+    //     ...state,
+    //     isFeching: action.isFeching,
+    //   };
     case TOGGLE_IS_FOLLOWING:
       return {
         ...state,
@@ -104,76 +104,51 @@ const professionalsReducer = (
 };
 
 //[ActionCreator]
-
-
 //Subscribe professionals
-type successFollowType ={
-  type: typeof FOLLOW_USER
-  userId: number
-}
-export const successFollow = (userId: number):successFollowType => ({
+type ActionsTypes =
+  | successFollowType
+  | successUnfollowType
+  | setProfessionalsType
+  | setCurrentPageType
+  | setTotalUsersCountType
+  | setTotalUsersCountType
+  | toggleIsFollowingProgressType
+  | setPortionNumberType
+  | setSearchNameSuccessType;
+
+export const successFollow = (userId: number): successFollowType => ({
   type: FOLLOW_USER,
   userId,
 });
 //Unsubscribe professional
-type successUnfollowType = {
-  type: typeof UNFOLLOW_USER
-  userId: number
-}
-
-export const successUnfollow = (userId: number):successUnfollowType => ({
+export const successUnfollow = (userId: number): successUnfollowType => ({
   type: UNFOLLOW_USER,
   userId,
 });
-
-type setProfessionalsType = {
-  type: typeof SET_USERS
-  professionals:Array<any>
-}
-export const setProfessionals = (professionals: Array<any>):setProfessionalsType => ({
+export const setProfessionals = (
+  professionals: Array<any>
+): setProfessionalsType => ({
   type: SET_USERS,
   professionals,
 });
-
-type setCurrentPageType = {
-  type: typeof SET_CURRENT_PAGE
-  currentPage:number
-}
 //Set current page, wich you chose, when clicked on it
-export const setCurrentPage = (currentPage:number):setCurrentPageType => ({
+export const setCurrentPage = (currentPage: number): setCurrentPageType => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
-
 //Set all professionals who are registered on the server
-type setTotalUsersCountType = {
-  type: typeof SET_TOTAL_USERS_COUNT,
-  totalUsersCount: number,
-}
-
-
-export const setTotalUsersCount = (totalUsersCount: number):setTotalUsersCountType => ({
+export const setTotalUsersCount = (
+  totalUsersCount: number
+): setTotalUsersCountType => ({
   type: SET_TOTAL_USERS_COUNT,
   totalUsersCount,
 });
 //Show boot file in the absence of data
-type toggleIsFetching = {
-  type: typeof TOGGLE_IS_FETCHING,
-  isFeching:boolean,
-}
-
-export const toggleIsFetching = (isFeching: boolean):toggleIsFetching => ({
+export const toggleIsFetching = (isFeching: boolean): toggleIsFetching => ({
   type: TOGGLE_IS_FETCHING,
   isFeching,
 });
 //Disabled button if you don't have response from API server
-
-type toggleIsFollowingProgressType = {
-  type: typeof TOGGLE_IS_FOLLOWING;
-  followingInProgress: boolean;
-  userId: number;
-};
-
 export const toggleIsFollowingProgress = (
   followingInProgress: boolean,
   userId: number
@@ -183,26 +158,13 @@ export const toggleIsFollowingProgress = (
   userId,
 });
 // Set current portion professionals
-
-type setPortionNumberType = {
-  type: typeof SET_CURRENT_PORTION;
-  currentPortion: number;
-};
-
 export const setPortionNumber = (
   currentPortion: number
 ): setPortionNumberType => ({
   type: SET_CURRENT_PORTION,
   currentPortion,
 });
-
 //Get user witch you search
-
-type setSearchNameSuccessType = {
-  type: typeof SET_SEARCH_NAME;
-  searchName: string;
-};
-
 export const setSearchNameSuccess = (
   searchName: string
 ): setSearchNameSuccessType => ({
@@ -210,6 +172,44 @@ export const setSearchNameSuccess = (
   searchName,
 });
 
+//[ActionCreatorType]
+type successUnfollowType = {
+  type: typeof UNFOLLOW_USER;
+  userId: number;
+};
+type setProfessionalsType = {
+  type: typeof SET_USERS;
+  professionals: Array<any>;
+};
+type setCurrentPageType = {
+  type: typeof SET_CURRENT_PAGE;
+  currentPage: number;
+};
+type setSearchNameSuccessType = {
+  type: typeof SET_SEARCH_NAME;
+  searchName: string;
+};
+type successFollowType = {
+  type: typeof FOLLOW_USER;
+  userId: number;
+};
+type setPortionNumberType = {
+  type: typeof SET_CURRENT_PORTION;
+  currentPortion: number;
+};
+type setTotalUsersCountType = {
+  type: typeof SET_TOTAL_USERS_COUNT;
+  totalUsersCount: number;
+};
+type toggleIsFollowingProgressType = {
+  type: typeof TOGGLE_IS_FOLLOWING;
+  followingInProgress: boolean;
+  userId: number;
+};
+type toggleIsFetching = {
+  type: typeof TOGGLE_IS_FETCHING;
+  isFeching: boolean;
+};
 // [ThunkActionCreator]
 
 //Get portion professionals by currentPage and PageSize variables

@@ -22,9 +22,12 @@ let initialState = {
   isFechingForDialogs: false,
 };
 
-type initialStateType = typeof initialState
+type initialStateType = typeof initialState;
 
-const messageReducer = (state = initialState, action:any):initialStateType => {
+const messageReducer = (
+  state = initialState,
+  action: ActionType
+): initialStateType => {
   switch (action.type) {
     case GET_TAP:
       return {
@@ -72,106 +75,111 @@ const messageReducer = (state = initialState, action:any):initialStateType => {
 
 // [ActionCreator]
 
+type ActionType =
+  | getAllMessageType
+  | getMessagesUserType
+  | toggleIsFetchingType
+  | toggleIsFetchingForDialogsType
+  | setNameUserDialogueOppositeType
+  | setUnreadMessageType
+  | openMEssageTYpe
+  | getCurrentIdUser;
 //Get all messages with user, which you chose
 type getAllMessageType = {
-  type: typeof GET_MESSAGE
-  message:any
-}
+  type: typeof GET_MESSAGE;
+  message: any;
+};
 
-export const getAllMessage = (message:any):getAllMessageType => {
+export const getAllMessage = (message: any): getAllMessageType => {
   return {
     type: GET_MESSAGE,
     message,
   };
 };
-
-type getMessagesUserType = {
-  type: typeof GET_MESSAGE_USER
-  messageData: any
-}
-
 //Get array users with which you have dialog
-export const getMessagesUser = (messageData:any):getMessagesUserType => {
+export const getMessagesUser = (messageData: any): getMessagesUserType => {
   return {
     type: GET_MESSAGE_USER,
     messageData,
   };
 };
-
-type toggleIsFetchingType = {
-  type: typeof TOGGLE_IS_FETCHING
-  isFeching: boolean
-}
-
 //Show boot file in the absence of data
-export const toggleIsFetching = (isFeching:boolean):toggleIsFetchingType => ({
+export const toggleIsFetching = (isFeching: boolean): toggleIsFetchingType => ({
   type: TOGGLE_IS_FETCHING,
   isFeching,
 });
-
-type toggleIsFetchingForDialogsType = {
-  type: typeof TOGGLE_IS_FETCHING_FOR_DIALOG
-  isFechingForDialogs: boolean
-}
-
 //Show boot file in the absence of data
-export const toggleIsFetchingForDialogs = (isFechingForDialogs:boolean):toggleIsFetchingForDialogsType => ({
+export const toggleIsFetchingForDialogs = (
+  isFechingForDialogs: boolean
+): toggleIsFetchingForDialogsType => ({
   type: TOGGLE_IS_FETCHING_FOR_DIALOG,
   isFechingForDialogs,
 });
-
-type setUnreadMessageType = {
-  type: typeof SET_UNREAD_MESSAGE
-  unreadmessages: any
-}
-
 // Get array users with new messages
-export const setUnreadMessage = (unreadmessages:any):setUnreadMessageType => ({
+export const setUnreadMessage = (
+  unreadmessages: any
+): setUnreadMessageType => ({
   type: SET_UNREAD_MESSAGE,
   unreadmessages,
 });
-
 // Open ReduxForm for send messages, if you click user, which you want started dialog
-
-type openMEssageTYpe = {
-  type: typeof GET_TAP
-  tap: boolean
-}
-
-export const openMEssage = (tap:boolean):openMEssageTYpe => {
+export const openMEssage = (tap: boolean): openMEssageTYpe => {
   return {
     type: GET_TAP,
     tap,
   };
 };
-
 // Get current ID User
-export const getCurrentIdUser = (userId:number) => {
+export const getCurrentIdUser = (userId: number) => {
   return {
     type: GET_CURRENT_USER,
     userId,
   };
 };
-
 // Get Opposite Name User with whom do you communicate
-
-type setNameUserDialogueOppositeType = {
-  type: typeof GET_NAME_OPPOSITE
+export const setNameUserDialogueOpposite = (
   userName: string | null
-}
-
-export const setNameUserDialogueOpposite = (userName:string | null):setNameUserDialogueOppositeType => {
+): setNameUserDialogueOppositeType => {
   return {
     type: GET_NAME_OPPOSITE,
     userName,
   };
 };
 
+// [ActionCreatorType]
+type getMessagesUserType = {
+  type: typeof GET_MESSAGE_USER;
+  messageData: any;
+};
+type toggleIsFetchingType = {
+  type: typeof TOGGLE_IS_FETCHING;
+  isFeching: boolean;
+};
+type toggleIsFetchingForDialogsType = {
+  type: typeof TOGGLE_IS_FETCHING_FOR_DIALOG;
+  isFechingForDialogs: boolean;
+};
+type setUnreadMessageType = {
+  type: typeof SET_UNREAD_MESSAGE;
+  unreadmessages: any;
+};
+type openMEssageTYpe = {
+  type: typeof GET_TAP;
+  tap: boolean;
+};
+type getCurrentIdUser = {
+  type: typeof GET_CURRENT_USER;
+  userId: number;
+};
+type setNameUserDialogueOppositeType = {
+  type: typeof GET_NAME_OPPOSITE;
+  userName: string | null;
+};
 //ThunkActionCreator
 
 // Get All messages with all users
 export const getMessageWithAllUser = () => {
-  return async (dispatch:any) => {
+  return async (dispatch: any) => {
     dispatch(toggleIsFetching(true));
     let Response = await dialogsAPI.getAllDialogsList();
     dispatch(toggleIsFetching(false));
@@ -180,8 +188,12 @@ export const getMessageWithAllUser = () => {
 };
 
 //Get message from user opposite, and him Id so that send messages in ReduxForm
-export const getMessageWhithUser = (userId:number, tap:boolean, userName:string | null) => {
-  return async (dispatch:any) => {
+export const getMessageWhithUser = (
+  userId: number,
+  tap: boolean,
+  userName: string | null
+) => {
+  return async (dispatch: any) => {
     dispatch(toggleIsFetchingForDialogs(true));
     let Response = await dialogsAPI.getUserDialogList(userId);
     dispatch(getMessagesUser(Response.data.items));
@@ -193,8 +205,12 @@ export const getMessageWhithUser = (userId:number, tap:boolean, userName:string 
 };
 
 // delete message Your or Opposite User, from dialogues
-export const deleteMessageWhithUser = (messageId:number, userId:number, userName:string) => {
-  return async (dispatch:any) => {
+export const deleteMessageWhithUser = (
+  messageId: number,
+  userId: number,
+  userName: string
+) => {
+  return async (dispatch: any) => {
     let Response = await dialogsAPI.deleteDialogsList(messageId);
     if (Response.data.resultCode === 0) {
       dispatch(getMessageWhithUser(userId, true, userName));
@@ -203,8 +219,8 @@ export const deleteMessageWhithUser = (messageId:number, userId:number, userName
 };
 
 // Start Dialog with opposite User
-export const startDialog = (userId:number, tap:boolean, userName:string) => {
-  return async (dispatch:any) => {
+export const startDialog = (userId: number, tap: boolean, userName: string) => {
+  return async (dispatch: any) => {
     let Response = await dialogsAPI.putDialogWithUser(userId);
     if (Response.data.resultCode === 0) {
       dispatch(getMessageWhithUser(userId, true, userName));
@@ -215,8 +231,8 @@ export const startDialog = (userId:number, tap:boolean, userName:string) => {
 };
 
 // Send message user
-export const postMessageForUser = (userId:number, body:any) => {
-  return async (dispatch:any) => {
+export const postMessageForUser = (userId: number, body: any) => {
+  return async (dispatch: any) => {
     let Response = await dialogsAPI.postMessage(userId, body);
     if (Response.data.resultCode === 0) {
       dispatch(getMessageWhithUser(userId, true, null));
@@ -226,7 +242,7 @@ export const postMessageForUser = (userId:number, body:any) => {
 
 //List with all new messages
 export const GetListWhithNewMessage = () => {
-  return async (dispatch:any) => {
+  return async (dispatch: any) => {
     let Response = await dialogsAPI.GetListNewMessage();
     if (Response.data > 0) {
     }

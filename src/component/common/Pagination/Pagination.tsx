@@ -51,7 +51,8 @@ const Pagination: React.FC<PropsType> = ({
       {pages.map((p) => {
         return (
           <span 
-          // className={currentPage === p && style.pagination_active} Добавить пагинацию жирным
+          //@ts-ignore
+          className={currentPage === p && style.pagination_active} Добавить пагинацию жирным
             key={p}
             onClick={() => {
               onPageChanged(p);

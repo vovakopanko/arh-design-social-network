@@ -102,9 +102,12 @@ let initialState = {
     },
   ],
 };
-type initialStateType = typeof initialState
+type initialStateType = typeof initialState;
 
-const projectReducer = (state = initialState, action:any):initialStateType => {
+const projectReducer = (
+  state = initialState,
+  action: any
+): initialStateType => {
   switch (action.type) {
     default:
       return state;

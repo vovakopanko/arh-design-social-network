@@ -10,7 +10,7 @@ let initialState: initialStateType = {
   initialized: false,
 };
 
-const appReducer = (state = initialState, action:any): initialStateType => {
+const appReducer = (state = initialState, action:ActionType): initialStateType => {
   switch (action.type) {
     case INITIALIZED_SUCCESS:
       return {
@@ -24,14 +24,15 @@ const appReducer = (state = initialState, action:any): initialStateType => {
 
 // [ActionCreator]
 
-type initializedSuccessType = {
-  type: typeof INITIALIZED_SUCCESS
-}
-
+type ActionType = initializedSuccessType 
 export const initializedSuccess = ():initializedSuccessType => ({
   type: INITIALIZED_SUCCESS,
 });
 
+// [ActionCreatorType]
+type initializedSuccessType = {
+  type: typeof INITIALIZED_SUCCESS
+}
 // [ThunkActionCreator]
 
 // Waits for all responses from AJAX requests, if request don't have response, you saw Preloader

@@ -80,8 +80,8 @@ const contentReducer = (state = initialState, action:any):initialStateType => {
   }
 };
 
-//ActionCreator
-
+// [ActionCreator]
+// [ActionCreatorType]
 //ThunkActionCreator
 
 export default contentReducer;
