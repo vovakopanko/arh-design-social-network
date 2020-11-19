@@ -1,6 +1,9 @@
+import { Dispatch } from 'react';
 import { stopSubmit } from "redux-form";
+import { ThunkAction } from "redux-thunk";
 import { AuthProfileAPI, securityAPI } from "../api/AuthAPI";
 import { userAPI, userStatus } from "../api/UsersAPI";
+import { AppStateType } from "./reduxStore";
 
 const SET_USER_DATA = "redux/authReducer/SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCESS = "redux/authReducer/GET_CAPTCHA_URL_SUCCESS";
@@ -105,17 +108,19 @@ type getCaptchaUrlSuccessType = {
 };
 
 //[ThunkActionCreator]
+type ThunkType = ThunkAction<Promise<void>,AppStateType,unknown,ActionType>
+type DispatchType = Dispatch<ActionType>
 
 // Get main photo user
-export const getPhotosAuthUser = (userId: number) => {
-  return async (dispatch: any) => {
+export const getPhotosAuthUser = (userId: number):ThunkType => {
+  return async (dispatch: DispatchType) => {
     let data = await userStatus.getUsersInfo(userId);
     dispatch(getPhotosUser(data.photos.large));
   };
 };
 
 // Dispatch in authReduser information main user: email, id, login ,
-export const getAuthData = () => {
+export const getAuthData = ():ThunkType => {
   return async (dispatch: any) => {
     let data = await userAPI.getAuthMe();
     if (data.resultCode === 0) {
@@ -132,7 +137,7 @@ export const login = (
   password: string | null,
   rememberMe = false,
   captcha: string | null
-) => {
+):ThunkType => {
   return async (dispatch: any) => {
     let Response = await AuthProfileAPI.loginProfile(
       email,
@@ -157,15 +162,15 @@ export const login = (
 };
 
 // [Get Captcha for deactivaited vereficate, and dispatch this captcha]
-export const getCaptchaUrl = () => async (dispatch: any) => {
+export const getCaptchaUrl = ():ThunkType => async (dispatch: DispatchType) => {
   const response = await securityAPI.getCaptchaUrl();
   const captchaUrl = response.data.url;
   dispatch(getCaptchaUrlSuccess(captchaUrl));
 };
 
 // [Deleting all information about the main user]
-export const logout = () => {
-  return async (dispatch: any) => {
+export const logout = ():ThunkType => {
+  return async (dispatch: DispatchType) => {
     let data = await AuthProfileAPI.logoutProfile();
     if (data.resultCode === 0) {
       dispatch(setUserData(null, null, null, false));

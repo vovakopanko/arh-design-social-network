@@ -9,7 +9,7 @@ export const userAPI = {
     .then((Response) => Response.data);
   },
   // Get list with 15 professionals of all users, who is registered in the application
-  getUsers(currentPage = 1, pageSize = 15,searchName) {
+  getUsers(currentPage = 1, pageSize = 15,searchName:string | null) {
     return instance
     .get(`users?`
             + (searchName ? `term=${searchName}&` : '')
@@ -19,13 +19,13 @@ export const userAPI = {
       // .get(`users?page=${currentPage}&count=${pageSize}`)
       .then((Response) => Response.data);
   },
-  getSearchName(searchName) {
+  getSearchName(searchName: string | null) {
     return instance
       .get(`users?/${searchName}`)
       .then((Response) => Response.data);
   },
   // Get information about a user's subscription to other users
-  getFollowingUser(userId) {
+  getFollowingUser(userId: number | null) {
     return instance.get(`follow/${userId}`);
   },
 };
@@ -34,23 +34,23 @@ export const userAPI = {
 
 export const userStatus = {
   // Get information about the main user
-  getUsersInfo(userId) {
+  getUsersInfo(userId: number | null) {
     return instance.get(`profile/` + userId).then((Response) => Response.data);
   },
   // Get last status main user in system
-  getStatus(userId) {
+  getStatus(userId: number | null) {
     return instance
       .get(`profile/status/` + userId)
       .then((Response) => Response.data);
   },
   // Update status main user
-  updateStatus(status) {
+  updateStatus(status: string | null) {
     return instance
       .put(`profile/status`, { status: status })
       .then((Response) => Response.data);
   },
   // Save photos in profile main user
-  savePhoto(photoFile) {
+  savePhoto(photoFile: any) {
     debugger;
     const formData = new FormData();
     formData.append("image", photoFile);
@@ -62,7 +62,7 @@ export const userStatus = {
     });
   },
   //Save changes information in profile main user
-  saveProfile(profile) {
+  saveProfile(profile: any) {
     return instance.put("profile", profile);
   },
 };

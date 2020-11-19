@@ -1,5 +1,8 @@
+import { Dispatch } from "react";
+import { ThunkAction } from "redux-thunk";
 import { subscribeAPI } from "../api/SubscribeAPI";
 import { userAPI } from "../api/UsersAPI";
+import { AppStateType } from "./reduxStore";
 
 const FOLLOW_USER = "redux/professionalsReducer/FOLLOW_USER";
 const UNFOLLOW_USER = "redux/professionalsReducer/UNFOLLOW_USER";
@@ -30,7 +33,7 @@ type initialStateType = {
   portionSize: number;
   totalUsersCount: number;
   currentPage: 1 | number;
-  isFeching: false;
+  isFeching: boolean;
   followingInProgress: Array<any>;
   currentPortion: number;
   searchName: string;
@@ -76,11 +79,11 @@ const professionalsReducer = (
         ...state,
         totalUsersCount: action.totalUsersCount,
       };
-    // case TOGGLE_IS_FETCHING:
-    //   return {
-    //     ...state,
-    //     isFeching: action.isFeching,
-    //   };
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFeching: action.isFeching,
+      };
     case TOGGLE_IS_FOLLOWING:
       return {
         ...state,
@@ -114,7 +117,8 @@ type ActionsTypes =
   | setTotalUsersCountType
   | toggleIsFollowingProgressType
   | setPortionNumberType
-  | setSearchNameSuccessType;
+  | setSearchNameSuccessType
+  | toggleIsFetching;
 
 export const successFollow = (userId: number): successFollowType => ({
   type: FOLLOW_USER,
@@ -211,10 +215,15 @@ type toggleIsFetching = {
   isFeching: boolean;
 };
 // [ThunkActionCreator]
-
+type DispatchType = Dispatch<ActionsTypes>;
+type getStateType = () => AppStateType;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
 //Get portion professionals by currentPage and PageSize variables
-export const getUsers = (newPage: number) => {
-  return async (dispatch: any, getState: any) => {
+export const getUsers = (newPage: number): ThunkType => {
+  return async (
+    dispatch: Dispatch<ActionsTypes>,
+    getState: () => AppStateType
+  ) => {
     dispatch(setCurrentPage(newPage));
     const { currentPage, pageSize, searchName } = getState().professionalsPage;
     dispatch(toggleIsFetching(true));
@@ -245,7 +254,10 @@ export const followUnffolwThunk = async (
 };
 
 // Subscribe from user
-export const follow = (userId: number) => async (dispatch: any) => {
+export const follow = (userId: number): ThunkType => async (
+  dispatch: DispatchType,
+  getState: getStateType
+) => {
   followUnffolwThunk(
     dispatch,
     userId,
@@ -255,7 +267,10 @@ export const follow = (userId: number) => async (dispatch: any) => {
 };
 
 // Unsubscribe from user
-export const unfollow = (userId: number) => async (dispatch: any) => {
+export const unfollow = (userId: number): ThunkType => async (
+  dispatch: DispatchType,
+  getState: getStateType
+) => {
   followUnffolwThunk(
     dispatch,
     userId,
@@ -265,14 +280,16 @@ export const unfollow = (userId: number) => async (dispatch: any) => {
 };
 
 // Search users
-export const searchName = (searchName: string) => async (
-  dispatch: any,
-  getState: any
+export const searchName = (searchName: string): ThunkType => async (
+  dispatch: DispatchType,
+  getState: getStateType
 ) => {
   dispatch(setSearchNameSuccess(searchName));
   dispatch(setCurrentPage(1));
   dispatch(setPortionNumber(1));
   const { currentPage } = getState().professionalsPage;
+  //When I'm use method getState , I have error in ActionType , why?
+  //@ts-ignore
   dispatch(getUsers(currentPage));
 };
 

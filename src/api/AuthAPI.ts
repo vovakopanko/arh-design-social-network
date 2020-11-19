@@ -3,7 +3,7 @@ import {instance} from './Instance';
 // [Authentication]
 
 export const AuthProfileAPI = {
-    loginProfile(email, password, rememberMe, captcha) {
+    loginProfile(email:string | null, password:string | null, rememberMe:boolean, captcha:string | null) {
       return instance.post(`auth/login`, {
         email,
         password,

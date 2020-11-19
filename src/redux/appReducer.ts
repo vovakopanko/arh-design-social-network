@@ -1,4 +1,7 @@
+import { Dispatch } from 'react';
+import { ThunkAction } from 'redux-thunk';
 import { getAuthData } from "./authReducer";
+import { AppStateType } from './reduxStore';
 
 const INITIALIZED_SUCCESS = "redux/autReducer/INITIALIZED_SUCCESS";
 
@@ -34,9 +37,10 @@ type initializedSuccessType = {
   type: typeof INITIALIZED_SUCCESS
 }
 // [ThunkActionCreator]
-
+type DispatchType = Dispatch<ActionType>;
+type ThunkType = ThunkAction<void, AppStateType, unknown, ActionType>;
 // Waits for all responses from AJAX requests, if request don't have response, you saw Preloader
-export const initialize = () => {
+export const initialize = ():ThunkType => {
   return (dispatch:any) => {
     let promise = dispatch(getAuthData());
     Promise.all([promise]).then(() => {

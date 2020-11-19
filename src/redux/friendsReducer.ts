@@ -1,5 +1,8 @@
+import { Dispatch } from "react";
+import { ThunkAction } from 'redux-thunk';
 import { friendsApi } from "../api/FriendsAPI";
 import { subscribeAPI } from "../api/SubscribeAPI";
+import { AppStateType } from './reduxStore';
 
 export const REMOVE_FRIENDS = "redux/friendsReducer/REMOVE_FRIENDS";
 export const SET_FRIENDS = "redux/friendsReducerSET_FRIENDS";
@@ -74,15 +77,18 @@ type loadingFriendsType = {
   type: typeof LOADING_FRIENDS;
 };
 // [ThunkActionCreator]
+type DispatchType = Dispatch<ActionType>;
+type getStateType = () => AppStateType;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 
-export const getFriends = () => async (dispatch: any) => {
+export const getFriends = ():ThunkType => async (dispatch: any) => {
   dispatch(loadingFriends());
   const response = await friendsApi.getFriends();
   dispatch(loadingFriends());
   dispatch(setFriendsSuccess(response.items));
 };
 
-export const removeFriend = (friendId: number) => async (dispatch: any) => {
+export const removeFriend = (friendId: number):ThunkType => async (dispatch: any) => {
   let response = await subscribeAPI.deleteSubscribe(friendId);
   if (response.data.resultCode === 0) {
     dispatch(removeSuccess(friendId));

@@ -1,4 +1,4 @@
-import * as Axios from "axios";
+import Axios from "axios";
 
 // [General example for API requests]
 

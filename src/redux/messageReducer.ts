@@ -1,4 +1,7 @@
+import { Dispatch } from 'react';
+import { ThunkAction } from 'redux-thunk';
 import { dialogsAPI } from "../api/DialogsAPI";
+import { AppStateType } from './reduxStore';
 
 const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
 const GET_MESSAGE_USER = "redux/messageReducer/GET_MESSAGE_USER";
@@ -85,10 +88,6 @@ type ActionType =
   | openMEssageTYpe
   | getCurrentIdUser;
 //Get all messages with user, which you chose
-type getAllMessageType = {
-  type: typeof GET_MESSAGE;
-  message: any;
-};
 
 export const getAllMessage = (message: any): getAllMessageType => {
   return {
@@ -130,10 +129,10 @@ export const openMEssage = (tap: boolean): openMEssageTYpe => {
   };
 };
 // Get current ID User
-export const getCurrentIdUser = (userId: number) => {
+export const getCurrentIdUser = (userId: number | null) => {
   return {
     type: GET_CURRENT_USER,
-    userId,
+    userId, 
   };
 };
 // Get Opposite Name User with whom do you communicate
@@ -175,11 +174,17 @@ type setNameUserDialogueOppositeType = {
   type: typeof GET_NAME_OPPOSITE;
   userName: string | null;
 };
+type getAllMessageType = {
+  type: typeof GET_MESSAGE;
+  message: any;
+};
 //ThunkActionCreator
-
+type DispatchType = Dispatch<ActionType>;
+type getStateType = () => AppStateType;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 // Get All messages with all users
-export const getMessageWithAllUser = () => {
-  return async (dispatch: any) => {
+export const getMessageWithAllUser = ():ThunkType => {
+  return async (dispatch: DispatchType, getState:getStateType) => {
     dispatch(toggleIsFetching(true));
     let Response = await dialogsAPI.getAllDialogsList();
     dispatch(toggleIsFetching(false));
@@ -189,11 +194,11 @@ export const getMessageWithAllUser = () => {
 
 //Get message from user opposite, and him Id so that send messages in ReduxForm
 export const getMessageWhithUser = (
-  userId: number,
+  userId: number | null,
   tap: boolean,
   userName: string | null
-) => {
-  return async (dispatch: any) => {
+):ThunkType => {
+  return async (dispatch: any, getState:getStateType) => {
     dispatch(toggleIsFetchingForDialogs(true));
     let Response = await dialogsAPI.getUserDialogList(userId);
     dispatch(getMessagesUser(Response.data.items));
@@ -209,8 +214,8 @@ export const deleteMessageWhithUser = (
   messageId: number,
   userId: number,
   userName: string
-) => {
-  return async (dispatch: any) => {
+):ThunkType => {
+  return async (dispatch: any, getState: getStateType) => {
     let Response = await dialogsAPI.deleteDialogsList(messageId);
     if (Response.data.resultCode === 0) {
       dispatch(getMessageWhithUser(userId, true, userName));
@@ -219,7 +224,7 @@ export const deleteMessageWhithUser = (
 };
 
 // Start Dialog with opposite User
-export const startDialog = (userId: number, tap: boolean, userName: string) => {
+export const startDialog = (userId: number, tap: boolean, userName: string):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.putDialogWithUser(userId);
     if (Response.data.resultCode === 0) {
@@ -231,7 +236,7 @@ export const startDialog = (userId: number, tap: boolean, userName: string) => {
 };
 
 // Send message user
-export const postMessageForUser = (userId: number, body: any) => {
+export const postMessageForUser = (userId: number, body: any):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.postMessage(userId, body);
     if (Response.data.resultCode === 0) {
@@ -241,8 +246,8 @@ export const postMessageForUser = (userId: number, body: any) => {
 };
 
 //List with all new messages
-export const GetListWhithNewMessage = () => {
-  return async (dispatch: any) => {
+export const GetListWhithNewMessage = ():ThunkType => {
+  return async (dispatch: DispatchType) => {
     let Response = await dialogsAPI.GetListNewMessage();
     if (Response.data > 0) {
     }

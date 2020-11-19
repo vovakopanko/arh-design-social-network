@@ -1,8 +1,11 @@
+import { Dispatch } from "react";
+import { ThunkAction } from "redux-thunk";
 import { subscribeAPI } from "../api/SubscribeAPI";
 import { userAPI, userStatus } from "../api/UsersAPI";
 import person1 from "./../assets/images/person1.png";
 import person2 from "./../assets/images/person2.png";
 import person3 from "./../assets/images/person3.png";
+import { AppStateType } from "./reduxStore";
 
 const ADD_POST = "redux/profileReduser/ADD_POST";
 const SET_USER_PROFILE = "redux/profilReduser/SET_USER_PROFILE";
@@ -29,6 +32,7 @@ type initialStateType = {
   followingProgress: any;
   followingInProgress: Array<any>;
   isFeching: boolean;
+  userId: number | null;
 };
 
 let initialState: initialStateType = {
@@ -60,6 +64,7 @@ let initialState: initialStateType = {
   followingProgress: null,
   followingInProgress: [],
   isFeching: false,
+  userId: null,
 };
 
 const profileReducer = (
@@ -184,7 +189,9 @@ export const successFollow = (userId: number): successFollowType => ({
   type: FOLLOW_USER,
   userId,
 });
-export const successUnfollow = (userId: number) => ({
+export const successUnfollow = (
+  userId: number | null
+): successUnfollowType => ({
   type: UNFOLLOW_USER,
   userId,
 });
@@ -220,17 +227,27 @@ type successFollowType = {
 };
 type successUnfollowType = {
   type: typeof UNFOLLOW_USER;
-  userId: number;
+  userId: number | null;
 };
 type toggleIsFetchingType = {
   type: typeof TOGGLE_IS_FETCHING;
   isFeching: boolean;
 };
-// [ThunkActionCreator]
 
+// [ThunkActionCreator]
+type getStateType = () => AppStateType;
+type DispatchType = Dispatch<ActionType>;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 //Get your/user information for main page
-export const getProfileData = (userId: number) => {
-  return async (dispatch: any) => {
+//  Discription for Thunk creator
+//  export type ThunkAction<R, S, E, A extends Action> = (
+//   dispatch: ThunkDispatch<S, E, A>,
+//   getState: () => S,
+//   extraArgument: E
+// ) => R;
+
+export const getProfileData = (userId: number | null): ThunkType => {
+  return async (dispatch: DispatchType, getState: getStateType) => {
     dispatch(toggleIsFetching(true));
     let data = await userStatus.getUsersInfo(userId);
     dispatch(toggleIsFetching(false));
@@ -239,18 +256,21 @@ export const getProfileData = (userId: number) => {
 };
 
 //Check user's subscription information
-export const getUserFollowStatus = (userId: number) => {
-  return async (dispatch: any) => {
+export const getUserFollowStatus = (userId: number): ThunkType => {
+  return async (
+    dispatch: Dispatch<ActionType>,
+    getState: () => AppStateType
+  ) => {
     let Response = await userAPI.getFollowingUser(userId);
     dispatch(setFollowingProgress(Response.data));
   };
 };
 
 export const followUnffolwThunk = async (
-  dispatch: any,
+  dispatch: DispatchType,
   userId: number,
   APImethod: any,
-  actionCreator: any
+  actionCreator: (userId:number)=> successUnfollowType | successFollowType  
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
@@ -258,12 +278,13 @@ export const followUnffolwThunk = async (
     dispatch(actionCreator(userId));
   }
   dispatch(toggleIsFollowingProgress(false, userId));
+  //@ts-ignore
   dispatch(getUserFollowStatus(userId));
 };
 
 //Subscribe to user with request certain userId
-export const follow = (userId: number) => {
-  return async (dispatch: any) => {
+export const follow = (userId: number): ThunkType => {
+  return async (dispatch: DispatchType, getState: getStateType) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -274,8 +295,11 @@ export const follow = (userId: number) => {
 };
 
 //Unsubscribe to user with request certain userId
-export const unfollow = (userId: number) => {
-  return async (dispatch: any) => {
+export const unfollow = (userId: number): ThunkType => {
+  return async (
+    dispatch: Dispatch<ActionType>,
+    getState: () => AppStateType
+  ) => {
     followUnffolwThunk(
       dispatch,
       userId,
@@ -286,16 +310,16 @@ export const unfollow = (userId: number) => {
 };
 
 //Get data file status certain user(your status)
-export const getUserStatus = (userId: number) => {
-  return async (dispatch: any) => {
+export const getUserStatus = (userId: number): ThunkType => {
+  return async (dispatch: DispatchType, getState: getStateType) => {
     let data = await userStatus.getStatus(userId);
     dispatch(setUserStatus(data));
   };
 };
 
 //Set profile picture (put request)
-export const savePhoto = (photos: any) => {
-  return async (dispatch: any) => {
+export const savePhoto = (photos: string): ThunkType => {
+  return async (dispatch: DispatchType, getState: () => AppStateType) => {
     let Response = await userStatus.savePhoto(photos);
     if (Response.data.resultCode === 0) {
       dispatch(savePhotoSuccess(Response.data.data.photos));
@@ -304,19 +328,21 @@ export const savePhoto = (photos: any) => {
 };
 
 //Set new information in your profile info, when you click button in Form
-export const saveProfile = (profile: any) => {
-  return async (dispatch: any, getState: any) => {
+export const saveProfile = (profile: any): ThunkType => {
+  return async (dispatch: DispatchType, getState: () => AppStateType) => {
     const id = getState().auth.id;
     let Response = await userStatus.saveProfile(profile);
     if (Response.data.resultCode === 0) {
+      //When I'm use method getState , I have error in ActionType , why?
+      //@ts-ignore
       dispatch(getProfileData(id));
     }
   };
 };
 
 //Update your status
-export const updateStatus = (status: string) => {
-  return async (dispatch: any) => {
+export const updateStatus = (status: string): ThunkType => {
+  return async (dispatch: DispatchType, getState: getStateType) => {
     let data = await userStatus.updateStatus(status);
     if (data.resultCode === 0) {
       dispatch(setUserStatus(status));
