@@ -1,6 +1,7 @@
 import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
 import { dialogsAPI } from "../api/DialogsAPI";
+import { ResultCodeEnum } from '../api/UsersAPI';
 import { AppStateType } from './reduxStore';
 
 const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
@@ -186,9 +187,9 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 export const getMessageWithAllUser = ():ThunkType => {
   return async (dispatch: DispatchType, getState:getStateType) => {
     dispatch(toggleIsFetching(true));
-    let Response = await dialogsAPI.getAllDialogsList();
+    let getAllMessages = await dialogsAPI.getAllDialogsList();
     dispatch(toggleIsFetching(false));
-    dispatch(getAllMessage(Response.data));
+    dispatch(getAllMessage(getAllMessages));
   };
 };
 
@@ -200,8 +201,8 @@ export const getMessageWhithUser = (
 ):ThunkType => {
   return async (dispatch: any, getState:getStateType) => {
     dispatch(toggleIsFetchingForDialogs(true));
-    let Response = await dialogsAPI.getUserDialogList(userId);
-    dispatch(getMessagesUser(Response.data.items));
+    let getMessagesWithUser = await dialogsAPI.getUserDialogList(userId);
+    dispatch(getMessagesUser(getMessagesWithUser.items));
     dispatch(getCurrentIdUser(userId));
     dispatch(toggleIsFetchingForDialogs(false));
     dispatch(openMEssage(tap));
@@ -217,7 +218,7 @@ export const deleteMessageWhithUser = (
 ):ThunkType => {
   return async (dispatch: any, getState: getStateType) => {
     let Response = await dialogsAPI.deleteDialogsList(messageId);
-    if (Response.data.resultCode === 0) {
+    if (Response.data.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, userName));
     }
   };
@@ -227,7 +228,7 @@ export const deleteMessageWhithUser = (
 export const startDialog = (userId: number, tap: boolean, userName: string):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.putDialogWithUser(userId);
-    if (Response.data.resultCode === 0) {
+    if (Response.data.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, userName));
       dispatch(getMessageWhithUser(userId, tap, userName));
       dispatch(getMessageWithAllUser());
@@ -239,7 +240,7 @@ export const startDialog = (userId: number, tap: boolean, userName: string):Thun
 export const postMessageForUser = (userId: number, body: any):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.postMessage(userId, body);
-    if (Response.data.resultCode === 0) {
+    if (Response.data.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, null));
     }
   };

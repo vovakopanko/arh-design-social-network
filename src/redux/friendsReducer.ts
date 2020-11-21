@@ -83,9 +83,9 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 
 export const getFriends = ():ThunkType => async (dispatch: any) => {
   dispatch(loadingFriends());
-  const response = await friendsApi.getFriends();
+  const GetAllYourFriends = await friendsApi.getFriends();
   dispatch(loadingFriends());
-  dispatch(setFriendsSuccess(response.items));
+  dispatch(setFriendsSuccess(GetAllYourFriends));
 };
 
 export const removeFriend = (friendId: number):ThunkType => async (dispatch: any) => {

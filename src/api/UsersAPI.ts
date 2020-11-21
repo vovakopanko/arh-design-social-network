@@ -2,22 +2,48 @@ import { instance } from "./Instance";
 
 // [Receiving profile professionals]
 
+type dataTypee = {
+  id: number;
+  email: string;
+  rememberMe?: boolean;
+  login: string;
+};
+
+type MeResultType = {
+  data: dataTypee;
+  resultCode: number;
+  messages: Array<string>;
+};
+
+export enum ResultCodeEnum {
+  Success = 0,
+  Error = 1,
+}
+
+export enum CaptchaResultCodeEnum {
+  Captcha = 10,
+}
+
 export const userAPI = {
   // Пet verified for the main user
   getAuthMe() {
-    return instance.get("auth/me")
-    .then((Response) => Response.data);
+    return instance
+      .get<MeResultType>("auth/me")
+      .then((Response) => Response.data);
   },
   // Get list with 15 professionals of all users, who is registered in the application
-  getUsers(currentPage = 1, pageSize = 15,searchName:string | null) {
-    return instance
-    .get(`users?`
-            + (searchName ? `term=${searchName}&` : '')
-            + (pageSize ? `count=${pageSize}&` : '')
-            + (currentPage ? `page=${currentPage}` : '')
+  getUsers(currentPage = 1, pageSize = 15, searchName: string | null) {
+    return (
+      instance
+        .get(
+          `users?` +
+            (searchName ? `term=${searchName}&` : "") +
+            (pageSize ? `count=${pageSize}&` : "") +
+            (currentPage ? `page=${currentPage}` : "")
         )
-      // .get(`users?page=${currentPage}&count=${pageSize}`)
-      .then((Response) => Response.data);
+        // .get(`users?page=${currentPage}&count=${pageSize}`)
+        .then((Response) => Response.data)
+    );
   },
   getSearchName(searchName: string | null) {
     return instance

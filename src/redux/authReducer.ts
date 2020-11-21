@@ -2,7 +2,7 @@ import { Dispatch } from 'react';
 import { stopSubmit } from "redux-form";
 import { ThunkAction } from "redux-thunk";
 import { AuthProfileAPI, securityAPI } from "../api/AuthAPI";
-import { userAPI, userStatus } from "../api/UsersAPI";
+import { CaptchaResultCodeEnum, ResultCodeEnum, userAPI, userStatus } from "../api/UsersAPI";
 import { AppStateType } from "./reduxStore";
 
 const SET_USER_DATA = "redux/authReducer/SET_USER_DATA";
@@ -123,7 +123,7 @@ export const getPhotosAuthUser = (userId: number):ThunkType => {
 export const getAuthData = ():ThunkType => {
   return async (dispatch: any) => {
     let data = await userAPI.getAuthMe();
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodeEnum.Success) {
       let { email, id, login } = data.data;
       dispatch(setUserData(email, id, login, true));
       dispatch(getPhotosAuthUser(id));
@@ -139,22 +139,22 @@ export const login = (
   captcha: string | null
 ):ThunkType => {
   return async (dispatch: any) => {
-    let Response = await AuthProfileAPI.loginProfile(
+    let LoginData = await AuthProfileAPI.loginProfile(
       email,
       password,
       rememberMe,
       captcha
     );
-    if (Response.data.resultCode === 0) {
+    if (LoginData.resultCode  === ResultCodeEnum.Success) {
       dispatch(getAuthData());
     } else {
-      if (Response.data.resultCode === 10) {
+      if (LoginData.resultCode === CaptchaResultCodeEnum.Captcha) {
         dispatch(getCaptchaUrl());
       }
       // message with error if you send misstake request loginization
       let messages =
-        Response.data.messages.length > 0
-          ? Response.data.messages[0]
+      LoginData.messages.length > 0
+          ? LoginData.messages[0]
           : "Some error";
       dispatch(stopSubmit("login", { _error: messages }));
     }
@@ -163,16 +163,15 @@ export const login = (
 
 // [Get Captcha for deactivaited vereficate, and dispatch this captcha]
 export const getCaptchaUrl = ():ThunkType => async (dispatch: DispatchType) => {
-  const response = await securityAPI.getCaptchaUrl();
-  const captchaUrl = response.data.url;
-  dispatch(getCaptchaUrlSuccess(captchaUrl));
+  const CaptchaData = await securityAPI.getCaptchaUrl();
+  dispatch(getCaptchaUrlSuccess(CaptchaData.url));
 };
 
 // [Deleting all information about the main user]
 export const logout = ():ThunkType => {
   return async (dispatch: DispatchType) => {
-    let data = await AuthProfileAPI.logoutProfile();
-    if (data.resultCode === 0) {
+    let LogoutData = await AuthProfileAPI.logoutProfile();
+    if (LogoutData.resultCode === ResultCodeEnum.Success) {
       dispatch(setUserData(null, null, null, false));
     }
   };
