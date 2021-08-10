@@ -25,8 +25,34 @@ type postDataType = {
   likesCount: number;
 };
 
+type contactDataType = {
+  facebook: string | null,
+  website: string | null,
+  vk: string | null,
+  twitter: string | null,
+  instagram: string | null,
+  youtube: string | null,
+  github: string | null,
+  mainLink: string | null,
+  }
+
+  type photoUserType = {
+    small: string | null,
+    large: string | null,
+    }
+
+type profileDataType = {
+  aboutMe: string | null,
+contacts: Array<contactDataType>,
+lookingForAJob: boolean | null,
+lookingForAJobDescription: string | null,
+fullName: string | null,
+userId: number,
+photos: Array<photoUserType>
+}
+
 type initialStateType = {
-  postData: Array<postDataType>;
+  postData: Array<postDataType>
   profile: any;
   status: string | null;
   followingProgress: any;

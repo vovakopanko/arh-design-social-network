@@ -13,7 +13,8 @@ let initialState: initialStateType = {
   initialized: false,
 };
 
-const appReducer = (state = initialState, action:ActionType): initialStateType => {
+
+const appReducer = (state:initialStateType = initialState, action:ActionType): initialStateType => {
   switch (action.type) {
     case INITIALIZED_SUCCESS:
       return {
@@ -37,6 +38,7 @@ export const initializedSuccess = ():initializedSuccessType => ({
 type initializedSuccessType = {
   type: typeof INITIALIZED_SUCCESS
 }
+
 // [ThunkActionCreator]
 // type DispatchType = Dispatch<ActionType>;
 type ThunkType = ThunkAction<void, AppStateType, unknown, ActionType>;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./Friends.module.css";
 import Preloader from "../common/Preloader/Preloader";
 import FriendsItem from "./FriendsItem/FriendsItem";
@@ -23,7 +23,7 @@ type FriendsType = {
   loadingFriends: boolean;
 };
 
-export const Friends: React.FC<FriendsType> = ({
+export const Friends: FC<FriendsType> = ({
   friends,
   openDialogs,
   unFollowFriend,
