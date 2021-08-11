@@ -5,7 +5,7 @@ import Axios from "axios";
 export const instance = Axios.create({
   withCredentials: true,
   headers: {
-    "API-KEY": "247ce20c-2ebe-44cd-a251-5ad89231d744",
+    "API-KEY": "8256ff37-d3d1-441d-908a-445078d78397",
   },
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
 });

@@ -240,10 +240,10 @@ export const getUsers = (newPage: number): ThunkType => {
 
 // Follow and Unfollow code, took out general variables
 export const followUnffolwThunk = async (
-  dispatch: any,
+  dispatch: DispatchType,
   userId: number,
   APImethod: any,
-  actionCreator: any
+  actionCreator: (userId:number)=>successFollowType | successUnfollowType
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);

@@ -218,7 +218,7 @@ export const deleteMessageWhithUser = (
 ):ThunkType => {
   return async (dispatch: any, getState: getStateType) => {
     let Response = await dialogsAPI.deleteDialogsList(messageId);
-    if (Response.data.resultCode === ResultCodeEnum.Success) {
+    if (Response.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, userName));
     }
   };
@@ -228,7 +228,7 @@ export const deleteMessageWhithUser = (
 export const startDialog = (userId: number, tap: boolean, userName: string):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.putDialogWithUser(userId);
-    if (Response.data.resultCode === ResultCodeEnum.Success) {
+    if (Response.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, userName));
       dispatch(getMessageWhithUser(userId, tap, userName));
       dispatch(getMessageWithAllUser());
@@ -240,7 +240,7 @@ export const startDialog = (userId: number, tap: boolean, userName: string):Thun
 export const postMessageForUser = (userId: number, body: any):ThunkType => {
   return async (dispatch: any) => {
     let Response = await dialogsAPI.postMessage(userId, body);
-    if (Response.data.resultCode === ResultCodeEnum.Success) {
+    if (Response.resultCode === ResultCodeEnum.Success) {
       dispatch(getMessageWhithUser(userId, true, null));
     }
   };

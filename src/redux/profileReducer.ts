@@ -61,6 +61,12 @@ type initialStateType = {
   userId: number | null;
 };
 
+
+enum CodeEnum {
+  Success = 0,
+  Error = 1,
+}
+
 let initialState: initialStateType = {
   postData: [
     {
@@ -300,7 +306,7 @@ export const followUnffolwThunk = async (
 ) => {
   dispatch(toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
-  if (Response.data.resultCode === 0) {
+  if (Response.data.resultCode === CodeEnum.Success) {
     dispatch(actionCreator(userId));
   }
   dispatch(toggleIsFollowingProgress(false, userId));
@@ -347,7 +353,7 @@ export const getUserStatus = (userId: number): ThunkType => {
 export const savePhoto = (photos: string): ThunkType => {
   return async (dispatch: DispatchType, getState: () => AppStateType) => {
     let Response = await userStatus.savePhoto(photos);
-    if (Response.data.resultCode === 0) {
+    if (Response.data.resultCode === CodeEnum.Success) {
       dispatch(savePhotoSuccess(Response.data.data.photos));
     }
   };
@@ -358,7 +364,7 @@ export const saveProfile = (profile: any): ThunkType => {
   return async (dispatch: DispatchType, getState: () => AppStateType) => {
     const id = getState().auth.id;
     let Response = await userStatus.saveProfile(profile);
-    if (Response.data.resultCode === 0) {
+    if (Response.data.resultCode === CodeEnum.Success) {
       //When I'm use method getState , I have error in ActionType , why?
       //@ts-ignore
       dispatch(getProfileData(id));
@@ -370,7 +376,7 @@ export const saveProfile = (profile: any): ThunkType => {
 export const updateStatus = (status: string): ThunkType => {
   return async (dispatch: DispatchType, getState: getStateType) => {
     let data = await userStatus.updateStatus(status);
-    if (data.resultCode === 0) {
+    if (data.resultCode === CodeEnum.Success) {
       dispatch(setUserStatus(status));
     }
   };

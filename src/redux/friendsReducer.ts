@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { ThunkAction } from 'redux-thunk';
 import { friendsApi } from "../api/FriendsAPI";
 import { subscribeAPI } from "../api/SubscribeAPI";
+import { ResultCodeEnum } from "../api/UsersAPI";
 import { AppStateType } from './reduxStore';
 
 export const REMOVE_FRIENDS = "redux/friendsReducer/REMOVE_FRIENDS";
@@ -51,17 +52,17 @@ export const friendsReducer = (
 };
 
 // [ActionCreator]
-type ActionType = removeSuccessType | setFriendsSuccess | loadingFriendsType;
+type ActionType = removeSuccessType | setFriendsSuccessType | loadingFriendsType;
 
 export const removeSuccess = (friendId: number): removeSuccessType => ({
   type: REMOVE_FRIENDS,
   friendId,
 });
-export const setFriendsSuccess = (friends: any) => ({
+export const setFriendsSuccess = (friends: any): setFriendsSuccessType  => ({
   type: SET_FRIENDS,
   friends,
 });
-export const loadingFriends = () => ({ type: LOADING_FRIENDS });
+export const loadingFriends = (): loadingFriendsType => ({ type: LOADING_FRIENDS });
 
 // [ActionCreatorType]
 
@@ -69,7 +70,7 @@ type removeSuccessType = {
   type: typeof REMOVE_FRIENDS;
   friendId: number;
 };
-type setFriendsSuccess = {
+type setFriendsSuccessType = {
   type: typeof SET_FRIENDS;
   friends: any;
 };
@@ -81,7 +82,7 @@ type DispatchType = Dispatch<ActionType>;
 type getStateType = () => AppStateType;
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 
-export const getFriends = ():ThunkType => async (dispatch: any) => {
+export const getFriends = ():ThunkType => async (dispatch: DispatchType) => {
   dispatch(loadingFriends());
   const GetAllYourFriends = await friendsApi.getFriends();
   dispatch(loadingFriends());
@@ -90,7 +91,7 @@ export const getFriends = ():ThunkType => async (dispatch: any) => {
 
 export const removeFriend = (friendId: number):ThunkType => async (dispatch: any) => {
   let response = await subscribeAPI.deleteSubscribe(friendId);
-  if (response.data.resultCode === 0) {
+  if (response.data.resultCode === ResultCodeEnum.Success) {
     dispatch(removeSuccess(friendId));
     dispatch(getFriends());
   }

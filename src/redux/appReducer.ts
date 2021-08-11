@@ -1,4 +1,5 @@
 // import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { getAuthData } from "./authReducer";
 import { AppStateType } from './reduxStore';
@@ -35,26 +36,15 @@ export const initializedSuccess = ():initializedSuccessType => ({
 });
 
 // [ActionCreatorType]
+
 type initializedSuccessType = {
   type: typeof INITIALIZED_SUCCESS
 }
 
 // [ThunkActionCreator]
-// type DispatchType = Dispatch<ActionType>;
-type ThunkType = ThunkAction<void, AppStateType, unknown, ActionType>;
 
-// Waits for all responses from AJAX requests, if request don't have response, you saw Preloader
-
-// It's Request, when you dont used asinc/await
-
-// export const initialize = ():ThunkType => {
-//   return (dispatch:any) => {
-//     let promise = dispatch(getAuthData());
-//     Promise.all([promise]).then(() => {
-//       dispatch(initializedSuccess());
-//     });
-//   };
-// };
+type DispatchType = Dispatch<ActionType>;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 
 export const initialize = ():ThunkType => {
   return  async (dispatch:any) => {
