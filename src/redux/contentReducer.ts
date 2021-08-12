@@ -1,3 +1,5 @@
+import { InfernActionsType } from "./reduxStore";
+
 let initialState = {
   photoProjectData: [
     {
@@ -72,8 +74,12 @@ let initialState = {
 };
 
 type initialStateType = typeof initialState
+type ActionsType = InfernActionsType<typeof contentActions>
+const contentActions = {
 
-const contentReducer = (state = initialState, action:any):initialStateType => {
+}
+
+const contentReducer = (state = initialState, action:ActionsType):initialStateType => {
   switch (action.type) {
     default:
       return state;

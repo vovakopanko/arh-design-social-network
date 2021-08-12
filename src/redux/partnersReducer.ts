@@ -1,3 +1,4 @@
+import { InfernActionsType } from './reduxStore';
 let initialState = {
   partnersLogo: [
     {
@@ -55,7 +56,7 @@ let initialState = {
 
 type initialStateType = typeof initialState
 
-const partnersReducer = (state = initialState, action:any):initialStateType => {
+const partnersReducer = (state = initialState, action:ActionType):initialStateType => {
   switch (action.type) {
     default:
       return state;
@@ -63,6 +64,10 @@ const partnersReducer = (state = initialState, action:any):initialStateType => {
 };
 
 //ActionCreator
+type ActionType = InfernActionsType<typeof actions>
+const actions = {
+// new actoins for partners page
+}
 
 //ThunkActionCreator
 

@@ -1,3 +1,5 @@
+import { InfernActionsType } from "./reduxStore";
+
 let initialState = {
   projectData: [
     {
@@ -103,6 +105,7 @@ let initialState = {
   ],
 };
 type initialStateType = typeof initialState;
+type ActionType = InfernActionsType<typeof projectActions>
 
 const projectReducer = (
   state = initialState,
@@ -115,6 +118,10 @@ const projectReducer = (
 };
 
 //ActionCreator
+
+const projectActions = {
+
+}
 
 //ThunkActionCreator
 

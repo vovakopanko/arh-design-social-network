@@ -2,17 +2,7 @@ import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
 import { dialogsAPI } from "../api/DialogsAPI";
 import { ResultCodeEnum } from '../api/UsersAPI';
-import { AppStateType } from './reduxStore';
-
-const GET_MESSAGE = "redux/messageReducer/GET_MESSAGE";
-const GET_MESSAGE_USER = "redux/messageReducer/GET_MESSAGE_USER";
-const GET_TAP = "redux/messageReducer/GET_TAP";
-const GET_CURRENT_USER = "redux/messageReducer/GET_CURRENT_USER";
-const SET_UNREAD_MESSAGE = "redux/professionalsReducer/SET_UNREAD_MESSAGE";
-const GET_NAME_OPPOSITE = "redux/professionalsReducer/GET_NAME_OPPOSITE";
-const TOGGLE_IS_FETCHING = "redux/professionalsReducer/TOGGLE_IS_FETCHING";
-const TOGGLE_IS_FETCHING_FOR_DIALOG =
-  "redux/professionalsReducer/TOGGLE_IS_FETCHING_FOR_DIALOG";
+import { AppStateType, InfernActionsType } from './reduxStore';
 
 let initialState = {
   message: [],
@@ -33,41 +23,41 @@ const messageReducer = (
   action: ActionType
 ): initialStateType => {
   switch (action.type) {
-    case GET_TAP:
+    case 'GET_TAP':
       return {
         ...state,
         tap: action.tap,
       };
-    case GET_MESSAGE:
+    case 'GET_MESSAGE':
       return {
         ...state,
         message: action.message,
       };
-    case GET_MESSAGE_USER:
+    case 'GET_MESSAGE_USER':
       return {
         ...state,
         messageData: action.messageData,
       };
-    case GET_CURRENT_USER:
+    case 'GET_CURRENT_USER':
       return {
         ...state,
         currentUserId: action.userId,
       };
-    case SET_UNREAD_MESSAGE:
+    case 'SET_UNREAD_MESSAGE':
       return {
         ...state,
       };
-    case TOGGLE_IS_FETCHING:
+    case 'TOGGLE_IS_FETCHING':
       return {
         ...state,
         isFeching: action.isFeching,
       };
-    case GET_NAME_OPPOSITE:
+    case 'GET_NAME_OPPOSITE':
       return {
         ...state,
         userName: action.userName,
       };
-    case TOGGLE_IS_FETCHING_FOR_DIALOG:
+    case 'TOGGLE_IS_FETCHING_FOR_DIALOG':
       return {
         ...state,
         isFechingForDialogs: action.isFechingForDialogs,
@@ -79,117 +69,83 @@ const messageReducer = (
 
 // [ActionCreator]
 
-type ActionType =
-  | getAllMessageType
-  | getMessagesUserType
-  | toggleIsFetchingType
-  | toggleIsFetchingForDialogsType
-  | setNameUserDialogueOppositeType
-  | setUnreadMessageType
-  | openMEssageTYpe
-  | getCurrentIdUser;
+type ActionType = InfernActionsType<typeof messageActions>;
 //Get all messages with user, which you chose
 
-export const getAllMessage = (message: any): getAllMessageType => {
-  return {
-    type: GET_MESSAGE,
-    message,
-  };
-};
-//Get array users with which you have dialog
-export const getMessagesUser = (messageData: any): getMessagesUserType => {
-  return {
-    type: GET_MESSAGE_USER,
-    messageData,
-  };
-};
-//Show boot file in the absence of data
-export const toggleIsFetching = (isFeching: boolean): toggleIsFetchingType => ({
-  type: TOGGLE_IS_FETCHING,
-  isFeching,
-});
-//Show boot file in the absence of data
-export const toggleIsFetchingForDialogs = (
-  isFechingForDialogs: boolean
-): toggleIsFetchingForDialogsType => ({
-  type: TOGGLE_IS_FETCHING_FOR_DIALOG,
-  isFechingForDialogs,
-});
-// Get array users with new messages
-export const setUnreadMessage = (
-  unreadmessages: any
-): setUnreadMessageType => ({
-  type: SET_UNREAD_MESSAGE,
-  unreadmessages,
-});
-// Open ReduxForm for send messages, if you click user, which you want started dialog
-export const openMEssage = (tap: boolean): openMEssageTYpe => {
-  return {
-    type: GET_TAP,
-    tap,
-  };
-};
-// Get current ID User
-export const getCurrentIdUser = (userId: number | null) => {
-  return {
-    type: GET_CURRENT_USER,
-    userId, 
-  };
-};
-// Get Opposite Name User with whom do you communicate
-export const setNameUserDialogueOpposite = (
-  userName: string | null
-): setNameUserDialogueOppositeType => {
-  return {
-    type: GET_NAME_OPPOSITE,
-    userName,
-  };
-};
+const messageActions = {
+  getAllMessage: (message: any) => (<const>{
+      type: 'GET_MESSAGE',
+      message,
+  }),
+  //Get array users with which you have dialog
+  getMessagesUser: (messageData: any) => (<const>{
+      type: 'GET_MESSAGE_USER',
+      messageData,
+  }),
+  //Show boot file in the absence of data
+  toggleIsFetching: (isFeching: boolean) => (<const>{
+    type: 'TOGGLE_IS_FETCHING',
+    isFeching,
+  }),
+  //Show boot file in the absence of data
+  toggleIsFetchingForDialogs: (
+    isFechingForDialogs: boolean
+  ) => (<const>{
+    type: 'TOGGLE_IS_FETCHING_FOR_DIALOG',
+    isFechingForDialogs,
+  }),
+  // Get array users with new messages
+  setUnreadMessage: (
+    unreadmessages: any
+  ) => (<const>{
+    type: 'SET_UNREAD_MESSAGE',
+    unreadmessages,
+  }),
+  // Open ReduxForm for send messages, if you click user, which you want started dialog
+  openMEssage: (tap: boolean) => (<const>{
+      type: 'GET_TAP',
+      tap,
+  }),
+  // Get current ID User
+  getCurrentIdUser: (userId: number | null) => (<const>{
+      type: 'GET_CURRENT_USER',
+      userId, 
+  }),
+  // Get Opposite Name User with whom do you communicate
+  setNameUserDialogueOpposite: (
+    userName: string | null
+  ) => (<const>{
+      type: 'GET_NAME_OPPOSITE',
+      userName,
+  }),
+}
 
 // [ActionCreatorType]
-type getMessagesUserType = {
-  type: typeof GET_MESSAGE_USER;
-  messageData: any;
-};
-type toggleIsFetchingType = {
-  type: typeof TOGGLE_IS_FETCHING;
-  isFeching: boolean;
-};
-type toggleIsFetchingForDialogsType = {
-  type: typeof TOGGLE_IS_FETCHING_FOR_DIALOG;
-  isFechingForDialogs: boolean;
-};
-type setUnreadMessageType = {
-  type: typeof SET_UNREAD_MESSAGE;
-  unreadmessages: any;
-};
-type openMEssageTYpe = {
-  type: typeof GET_TAP;
-  tap: boolean;
-};
-type getCurrentIdUser = {
-  type: typeof GET_CURRENT_USER;
-  userId: number;
-};
-type setNameUserDialogueOppositeType = {
-  type: typeof GET_NAME_OPPOSITE;
-  userName: string | null;
-};
-type getAllMessageType = {
-  type: typeof GET_MESSAGE;
-  message: any;
-};
+
 //ThunkActionCreator
 type DispatchType = Dispatch<ActionType>;
 type getStateType = () => AppStateType;
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 // Get All messages with all users
+
+export const getCurrentIdUser = (userId: number | null) => {
+  return (dispatch: DispatchType, getState:getStateType)=>{
+    dispatch(messageActions.getCurrentIdUser(userId))
+  }
+}
+
+export const setUnreadMessage = (unreadmessages: any) => {
+  return  (dispatch: DispatchType, getState: () => AppStateType) => {
+    dispatch(messageActions.setUnreadMessage(unreadmessages));
+  }
+}
+
 export const getMessageWithAllUser = ():ThunkType => {
   return async (dispatch: DispatchType, getState:getStateType) => {
-    dispatch(toggleIsFetching(true));
+    dispatch(messageActions.toggleIsFetching(true));
     let getAllMessages = await dialogsAPI.getAllDialogsList();
-    dispatch(toggleIsFetching(false));
-    dispatch(getAllMessage(getAllMessages));
+    dispatch(messageActions.toggleIsFetching(false));
+    dispatch(messageActions.getAllMessage(getAllMessages));
   };
 };
 
@@ -200,13 +156,13 @@ export const getMessageWhithUser = (
   userName: string | null
 ):ThunkType => {
   return async (dispatch: any, getState:getStateType) => {
-    dispatch(toggleIsFetchingForDialogs(true));
+    dispatch(messageActions.toggleIsFetchingForDialogs(true));
     let getMessagesWithUser = await dialogsAPI.getUserDialogList(userId);
-    dispatch(getMessagesUser(getMessagesWithUser.items));
-    dispatch(getCurrentIdUser(userId));
-    dispatch(toggleIsFetchingForDialogs(false));
-    dispatch(openMEssage(tap));
-    dispatch(setNameUserDialogueOpposite(userName));
+    dispatch(messageActions.getMessagesUser(getMessagesWithUser.items));
+    dispatch(messageActions.getCurrentIdUser(userId));
+    dispatch(messageActions.toggleIsFetchingForDialogs(false));
+    dispatch(messageActions.openMEssage(tap));
+    dispatch(messageActions.setNameUserDialogueOpposite(userName));
   };
 };
 

@@ -40,8 +40,6 @@ class ProfessionalsContainer extends React.Component<PropsType> {
   };
 
   componentWillUnmount() {
-    // @ts-ignore
-    this.props.setSearchNameSuccess("");
   }
 
   render() {

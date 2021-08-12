@@ -96,20 +96,9 @@ const professionalsReducer = (
 };
 
 //[ActionCreator]
-//Subscribe professionals
-type ActionsTypes = InfernActionsType<typeof actions>
-  // | successFollowType
-  // | successUnfollowType
-  // | setProfessionalsType
-  // | setCurrentPageType
-  // | setTotalUsersCountType
-  // | setTotalUsersCountType
-  // | toggleIsFollowingProgressType
-  // | setPortionNumberType
-  // | setSearchNameSuccessType
-  // | toggleIsFetching;
 
-  export const actions = {
+type ActionsTypes = InfernActionsType<typeof actions>
+  const actions = {
     successFollow:(userId: number) => (<const>{
       type: 'FOLLOW_USER',
       userId,
@@ -167,45 +156,6 @@ type ActionsTypes = InfernActionsType<typeof actions>
     }),
   }
 
-
-//[ActionCreatorType]
-// type successUnfollowType = {
-//   type: typeof UNFOLLOW_USER;
-//   userId: number;
-// };
-// type setProfessionalsType = {
-//   type: typeof SET_USERS;
-//   professionals: Array<any>;
-// };
-// type setCurrentPageType = {
-//   type: typeof SET_CURRENT_PAGE;
-//   currentPage: number;
-// };
-// type setSearchNameSuccessType = {
-//   type: typeof SET_SEARCH_NAME;
-//   searchName: string;
-// };
-// type successFollowType = {
-//   type: typeof FOLLOW_USER;
-//   userId: number;
-// };
-// type setPortionNumberType = {
-//   type: typeof SET_CURRENT_PORTION;
-//   currentPortion: number;
-// };
-// type setTotalUsersCountType = {
-//   type: typeof SET_TOTAL_USERS_COUNT;
-//   totalUsersCount: number;
-// };
-// type toggleIsFollowingProgressType = {
-//   type: typeof TOGGLE_IS_FOLLOWING;
-//   followingInProgress: boolean;
-//   userId: number;
-// };
-// type toggleIsFetching = {
-//   type: typeof TOGGLE_IS_FETCHING;
-//   isFeching: boolean;
-// };
 // [ThunkActionCreator]
 type DispatchType = Dispatch<ActionsTypes>;
 type getStateType = () => AppStateType;
@@ -280,7 +230,7 @@ export const searchName = (searchName: string): ThunkType => async (
   dispatch(actions.setCurrentPage(1));
   dispatch(actions.setPortionNumber(1));
   const { currentPage } = getState().professionalsPage;
-  //When I'm use method getState , I have error in ActionType , why?
+
   //@ts-ignore
   dispatch(getUsers(currentPage));
 };
