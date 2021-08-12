@@ -3,6 +3,7 @@ import style from "./Professionals.module.css";
 import Pagination from "../common/Pagination/Pagination";
 import Professional from "./Professional";
 import Search from "./Search/Search";
+import { useSelector } from "react-redux";
 
 const Professionals = ({
   searchName,
@@ -18,7 +19,10 @@ const Professionals = ({
   startDialog,
   professionals,
 }) => {
-  debugger;
+  
+const totalUsersCount = useSelector()
+
+
   return (
     <div className={style.professionals}>
       <div className={style.professionals__block}>

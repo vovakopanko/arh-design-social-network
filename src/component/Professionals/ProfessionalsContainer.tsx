@@ -10,6 +10,7 @@ import { startDialog } from "../../redux/messageReducer";
 import Professionals from "./Professionals";
 import Preloader from "../common/Preloader/Preloader";
 import { AppStateType } from "../../redux/reduxStore";
+import { getCurrentPage, getFollowingInProgress, getisAuth, getIsFeching, getPageSize, getPortionSize, getProfessionalsSelector, getTotalUsersCount } from "../../redux/selectors/professionalsSelector";
 
 type PropsType = {
   currentPage: number
@@ -74,15 +75,15 @@ class ProfessionalsContainer extends React.Component<PropsType> {
 
 let mapStateToProps = (state:AppStateType) => {
   return {
-    professionals: state.professionalsPage.professionals,
-    pageSize: state.professionalsPage.pageSize,
-    portionSize: state.professionalsPage.portionSize,
-    totalUsersCount: state.professionalsPage.totalUsersCount,
-    currentPage: state.professionalsPage.currentPage,
-    isFeching: state.professionalsPage.isFeching,
-    followingInProgress: state.professionalsPage.followingInProgress,
-    isAuth: state.auth.isAuth,
-    currentPortion: state.professionalsPage.currentPortion,
+    professionals: getProfessionalsSelector(state),
+    pageSize: getPageSize(state),
+    portionSize: getPortionSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFeching: getIsFeching(state),
+    followingInProgress: getFollowingInProgress(state),
+    isAuth: getisAuth(state),
+    currentPortion: getCurrentPage(state),
   
   };
 };

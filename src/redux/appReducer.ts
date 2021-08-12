@@ -26,7 +26,7 @@ const appReducer = (state:initialStateType = initialState, action:ActionType): i
   }
 };
 
-const appActions = {
+export const appActions = {
   initializedSuccess:() => ({
     type: INITIALIZED_SUCCESS,
   }),

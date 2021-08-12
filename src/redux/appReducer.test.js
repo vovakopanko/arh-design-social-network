@@ -1,12 +1,11 @@
-const { default: appReducer, initializedSuccess } = require("./appReducer");
+import appReducer, { appActionswdqo2doo } from "./appReducer";
 
 it("Change initializedSuccess status NetWork", () => {
-  let action = initializedSuccess();
   let state = {
     initialized: false,
   };
 
-  let NewState = appReducer(state, action);
+  let NewState = appReducer(state, appActions.initializedSuccess());
 
   expect(NewState.initialized).toBe(true);
 });

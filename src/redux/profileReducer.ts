@@ -7,7 +7,6 @@ import person2 from "./../assets/images/person2.png";
 import person3 from "./../assets/images/person3.png";
 import { AppStateType, InfernActionsType } from "./reduxStore";
 
-
 type postDataType = {
   id: number;
   photo: any;
@@ -17,33 +16,33 @@ type postDataType = {
 };
 
 type contactDataType = {
-  facebook: string | null,
-  website: string | null,
-  vk: string | null,
-  twitter: string | null,
-  instagram: string | null,
-  youtube: string | null,
-  github: string | null,
-  mainLink: string | null,
-  }
+  facebook: string | null;
+  website: string | null;
+  vk: string | null;
+  twitter: string | null;
+  instagram: string | null;
+  youtube: string | null;
+  github: string | null;
+  mainLink: string | null;
+};
 
-  type photoUserType = {
-    small: string | null,
-    large: string | null,
-    }
+type photoUserType = {
+  small: string | null;
+  large: string | null;
+};
 
 type profileDataType = {
-  aboutMe: string | null,
-contacts: Array<contactDataType>,
-lookingForAJob: boolean | null,
-lookingForAJobDescription: string | null,
-fullName: string | null,
-userId: number,
-photos: Array<photoUserType>
-}
+  aboutMe: string | null;
+  contacts: Array<contactDataType>;
+  lookingForAJob: boolean | null;
+  lookingForAJobDescription: string | null;
+  fullName: string | null;
+  userId: number;
+  photos: Array<photoUserType>;
+};
 
 type initialStateType = {
-  postData: Array<postDataType>
+  postData: Array<postDataType>;
   profile: any;
   status: string | null;
   followingProgress: any;
@@ -51,7 +50,6 @@ type initialStateType = {
   isFeching: boolean;
   userId: number | null;
 };
-
 
 enum CodeEnum {
   Success = 0,
@@ -95,7 +93,7 @@ const profileReducer = (
   action: ActionType
 ): initialStateType => {
   switch (action.type) {
-    case 'ADD_POST':
+    case "ADD_POST":
       return {
         ...state,
         postData: [
@@ -109,44 +107,44 @@ const profileReducer = (
           },
         ],
       };
-    case 'TOGGLE_IS_FETCHING':
+    case "TOGGLE_IS_FETCHING":
       return {
         ...state,
         isFeching: action.isFeching,
       };
-    case 'FOLLOW_USER':
+    case "FOLLOW_USER":
       return {
         ...state,
         followingProgress: false,
       };
-    case 'UNFOLLOW_USER':
+    case "UNFOLLOW_USER":
       return {
         ...state,
         followingProgress: true,
       };
-    case 'TOGGLE_IS_FOLLOWING':
+    case "TOGGLE_IS_FOLLOWING":
       return {
         ...state,
         followingInProgress: action.followingInProgress
           ? [...state.followingInProgress, action.userId]
           : state.followingInProgress.filter((id) => id !== action.userId),
       };
-    case 'SET_USER_PROFILE':
+    case "SET_USER_PROFILE":
       return {
         ...state,
         profile: action.profile,
       };
-    case 'FOLLOWING_PROGRESS':
+    case "FOLLOWING_PROGRESS":
       return {
         ...state,
         followingProgress: action.followingProgress,
       };
-    case 'SET_USER_STATUS':
+    case "SET_USER_STATUS":
       return {
         ...state,
         status: action.status,
       };
-    case 'SAVE_PHOTO_SUCCESS':
+    case "SAVE_PHOTO_SUCCESS":
       return { ...state, profile: { ...state.profile, photos: action.photos } };
     default:
       return state;
@@ -154,61 +152,63 @@ const profileReducer = (
 };
 
 // [ActionCreator]
-type ActionType = InfernActionsType<typeof profileActions>
+type ActionType = InfernActionsType<typeof profileActions>;
 
 //Add posts to the wall
 
 export const profileActions = {
-  AddPost:(NewPostProfile: any) => (<const>{
-    type: 'ADD_POST',
-    NewPostProfile,
-  }),
+  AddPost: (NewPostProfile: any) =>
+    <const>{
+      type: "ADD_POST",
+      NewPostProfile,
+    },
   //Set user Status in mainmenu
-  setUserStatus:(status: string)=> (<const>{
-    type: 'SET_USER_STATUS',
-    status,
-  }),
+  setUserStatus: (status: string) =>
+    <const>{
+      type: "SET_USER_STATUS",
+      status,
+    },
   //Disabled button follow/unfollow
-  toggleIsFollowingProgress:(
-    followingInProgress: boolean,
-    userId: number
-  ) => (<const>{
-    type: 'TOGGLE_IS_FOLLOWING',
-    followingInProgress,
-    userId,
-  }),
+  toggleIsFollowingProgress: (followingInProgress: boolean, userId: number) =>
+    <const>{
+      type: "TOGGLE_IS_FOLLOWING",
+      followingInProgress,
+      userId,
+    },
   //check your subscription on user
-  setFollowingProgress:(
-    followingProgress: boolean
-  ) => (<const>{
-    type: 'FOLLOWING_PROGRESS',
-    followingProgress,
-  }),
+  setFollowingProgress: (followingProgress: boolean) =>
+    <const>{
+      type: "FOLLOWING_PROGRESS",
+      followingProgress,
+    },
   //Save your photos in profilePage
-  savePhotoSuccess:(photos: string) => (<const>{
-    type: 'SAVE_PHOTO_SUCCESS',
-    photos,
-  }),
+  savePhotoSuccess: (photos: string) =>
+    <const>{
+      type: "SAVE_PHOTO_SUCCESS",
+      photos,
+    },
   //Checking your received a response from the server
-  toggleIsFetching:(isFeching: boolean) => (<const>{
-    type: 'TOGGLE_IS_FETCHING',
-    isFeching,
-  }),
+  toggleIsFetching: (isFeching: boolean) =>
+    <const>{
+      type: "TOGGLE_IS_FETCHING",
+      isFeching,
+    },
   //Set data file User profile
-  setUserProfile:(profile: any) => (<const>{
-    type: 'SET_USER_PROFILE',
-    profile,
-  }),
-  successFollow:(userId: number) => (<const>{
-    type: 'FOLLOW_USER',
-  }),
-  successUnfollow:(
-    userId: number | null
-  ) => (<const>{
-    type: 'UNFOLLOW_USER',
-    userId,
-  }),
-}
+  setUserProfile: (profile: any) =>
+    <const>{
+      type: "SET_USER_PROFILE",
+      profile,
+    },
+  successFollow: (userId: number) =>
+    <const>{
+      type: "FOLLOW_USER",
+    },
+  successUnfollow: (userId: number | null) =>
+    <const>{
+      type: "UNFOLLOW_USER",
+      userId,
+    },
+};
 
 // [ThunkActionCreator]
 type getStateType = () => AppStateType;
@@ -223,16 +223,16 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>;
 // ) => R;
 
 export const AddPost = (NewPostProfile: any) => {
-  return  (dispatch: DispatchType, getState: () => AppStateType) => {
+  return (dispatch: DispatchType, getState: () => AppStateType) => {
     dispatch(profileActions.AddPost(NewPostProfile));
-  }
-}
+  };
+};
 
 export const setUserProfile = (profile: any) => {
-  return  (dispatch: DispatchType, getState: () => AppStateType) => {
+  return (dispatch: DispatchType, getState: () => AppStateType) => {
     dispatch(profileActions.setUserProfile(profile));
-  }
-}
+  };
+};
 
 export const getProfileData = (userId: number | null): ThunkType => {
   return async (dispatch: DispatchType, getState: getStateType) => {
@@ -258,7 +258,7 @@ export const followUnffolwThunk = async (
   dispatch: DispatchType,
   userId: number,
   APImethod: any,
-  actionCreator: (userId:number)=> ActionType 
+  actionCreator: (userId: number) => ActionType
 ) => {
   dispatch(profileActions.toggleIsFollowingProgress(true, userId));
   let Response = await APImethod(userId);
