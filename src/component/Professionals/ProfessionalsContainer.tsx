@@ -1,13 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  toggleIsFollowingProgress,
   getUsers,
   follow,
   unfollow,
-  setPortionNumber,
   searchName,
-  setSearchNameSuccess,
 } from "../../redux/professionalsReducer";
 import { startDialog } from "../../redux/messageReducer";
 import Professionals from "./Professionals";
@@ -93,13 +90,10 @@ let mapStateToProps = (state:AppStateType) => {
 };
 
 export default connect(mapStateToProps, {
-  toggleIsFollowingProgress,
   getUsers,
   follow,
   unfollow,
   startDialog,
-  setPortionNumber,
   searchName,
-  setSearchNameSuccess,
   // @ts-ignore
 })(ProfessionalsContainer);
